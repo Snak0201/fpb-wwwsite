@@ -1,0 +1,18 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/EndOfLine:
+  Enabled: false
+Documentation:
+  Enabled: false
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema*.rb"
+    - "node_modules/**/*"
+    - "db/migrate/**/*"
+    - "config/**/*"
+    - "bin/**/*"
+    - "public/**/*"
+    - "tmp/**/*"
+    - "log/**/*"
+  
