@@ -1,4 +1,4 @@
-name: Rubocop
+name: Linter
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2 # プロジェクトに合ったバージョンを指定する
+          ruby-version: 3.2
 
       - name: Install dependencies
         run: |
@@ -28,3 +28,23 @@ jobs:
 
       - name: Run Rubocop
         run: bundle exec rubocop
+  
+  slimcop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Run Slimcop
+        run: bundle exec slimcop
