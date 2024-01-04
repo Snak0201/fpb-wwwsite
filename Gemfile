@@ -55,6 +55,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
   gem 'slimcop', require: false
+  gem 'rspec-rails'
 end
 
 group :development do
