@@ -10,7 +10,7 @@ RSpec.describe 'Pages' do
 
   describe 'GET /invalid' do
     it 'raises routing error' do
-      expect{get '/invalid'}.to raise_error(ActionController::RoutingError)
+      expect { get '/invalid' }.to raise_error(ActionController::RoutingError)
     end
   end
 end
