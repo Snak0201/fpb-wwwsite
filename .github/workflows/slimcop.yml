@@ -1,4 +1,4 @@
-name: Rubocop
+name: Slimcop
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  rubocop:
+  slimcop:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,5 +26,5 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
 
-      - name: Run Rubocop
-        run: bundle exec rubocop
+      - name: Run Slimcop
+        run: bundle exec slimcop
