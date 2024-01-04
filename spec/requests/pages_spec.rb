@@ -7,4 +7,10 @@ RSpec.describe 'Pages' do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'GET /invalid' do
+    it 'raises routing error' do
+      expect{get '/invalid'}.to raise_error(ActionController::RoutingError)
+    end
+  end
 end
