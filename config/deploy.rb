@@ -44,7 +44,7 @@ set :keep_releases, 5
 
 # rubyのバージョン
 # rbenvで設定したサーバー側のrubyのバージョン
-set :rbenv_ruby, '2.4.1'
+set :rbenv_ruby, '3.2.2'
 
 # 出力するログのレベル。
 set :log_level, :debug
@@ -66,7 +66,7 @@ namespace :deploy do
         within current_path do
                   # データベース作成のsqlセット
                 # データベース名はdatabase.ymlに設定した名前で
-                  sql = "CREATE DATABASE IF NOT EXISTS hoge_app_production;"
+                  sql = "CREATE DATABASE IF NOT EXISTS app_production;"
                   # クエリの実行。
                 # userとpasswordはmysqlの設定に合わせて
                 execute "mysql --user=root --password=#{ENV["APP_DATABASE_PASSWORD"]} -e '#{sql}'"
