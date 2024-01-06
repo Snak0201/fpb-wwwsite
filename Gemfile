@@ -70,6 +70,9 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'web-console'
+
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
