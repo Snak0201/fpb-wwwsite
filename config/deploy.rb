@@ -69,7 +69,7 @@ namespace :deploy do
                   sql = "CREATE DATABASE IF NOT EXISTS app_production;"
                   # クエリの実行。
                 # userとpasswordはmysqlの設定に合わせて
-                execute "mysql --user=root --password=#{ENV["APP_DATABASE_PASSWORD"]} -e '#{sql}'"
+                execute "mysql --user=root --password=#{Rails.application.credentials.db[:PASSWORD]} -e '#{sql}'"
 
         end
       end
