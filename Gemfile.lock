@@ -100,6 +100,9 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    dartsass-rails (0.5.0)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -116,6 +119,7 @@ GEM
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (3.25.1-x86_64-linux)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.3)
@@ -261,6 +265,8 @@ GEM
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
+    sass-embedded (1.69.7-x86_64-linux-gnu)
+      google-protobuf (~> 3.25)
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -336,6 +342,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capybara
+  dartsass-rails
   debug
   ed25519
   factory_bot_rails
