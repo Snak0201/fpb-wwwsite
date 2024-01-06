@@ -31,3 +31,5 @@
 /config/master.key
 *.pem
 .env
+
+/config/credentials/production.key

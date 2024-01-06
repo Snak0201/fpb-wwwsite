@@ -24,7 +24,7 @@ set :deploy_to, "/var/www/fpb-wwwsite"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", 'config/master.key'
-set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/credentials/production.key')
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor", "storage"
@@ -69,7 +69,7 @@ namespace :deploy do
                   sql = "CREATE DATABASE IF NOT EXISTS app_production;"
                   # クエリの実行。
                 # userとpasswordはmysqlの設定に合わせて
-                execute "mysql --user=root --password=#{ENV["APP_DATABASE_PASSWORD"]} -e '#{sql}'"
+                execute "mysql --user=#{Rails.application.credentials.db[:USERNAME]} --password=#{Rails.application.credentials.db[:PASSWORD]} -e '#{sql}'"
 
         end
       end
