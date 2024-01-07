@@ -31,6 +31,20 @@ body{
       padding-top: 20px;
     }
   }
+
+  .small{
+    display: none;
+  }
+
+  @media screen and (max-width:1000px) {
+    .big{
+      display: none;
+    }
+    .small{
+      display: flex;
+    }
+  }
+  
 }
 
 main{
@@ -44,6 +58,7 @@ footer{
 
 /* 個別ページ */
 .pages_top{
+
   @media screen and (max-width: 1000px) {
     h1{
       color: aqua;
