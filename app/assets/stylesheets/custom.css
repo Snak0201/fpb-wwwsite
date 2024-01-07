@@ -1,0 +1,42 @@
+/* application */
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  min-height: calc(100vh - 24px);
+}
+
+.header_logo{
+  width: 200px;
+  height: 70px;
+}
+
+.header_nav{
+  background-color: aquamarine;
+  height: 70px;
+  display: flex;
+
+  ul{
+    list-style: none;
+    display: flex;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    & li{
+      width: 200px;
+      height: 70px;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+}
+
+main{
+  margin: 8px;
+}
+
+footer{
+  background-color: aqua;
+  text-align: center;
+}
