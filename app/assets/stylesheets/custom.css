@@ -1,0 +1,79 @@
+/* application */
+body{
+  margin: 0;
+  padding: 0;
+  font-family:'メイリオ','Meiryo','Meiryo UI','ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+}
+
+.content{
+  min-height: calc(100vh - 24px);
+}
+
+.header_logo{
+  width: 200px;
+  height: 70px;
+}
+
+.header_nav{
+  background-color: aquamarine;
+  height: 70px;
+  display: flex;
+
+  ul{
+    list-style: none;
+    display: flex;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    & li{
+      width: 200px;
+      height: 70px;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+
+  .small{
+    display: none;
+  }
+
+  @media screen and (max-width:1000px) {
+    .big{
+      display: none;
+    }
+    .small{
+      display: flex;
+    }
+  }
+  
+}
+
+main{
+  margin: 8px;
+}
+
+footer{
+  background-color: aqua;
+  text-align: center;
+}
+
+/* 個別ページ */
+.pages_top{
+  .small{
+    display: none;
+  }
+
+  @media screen and (max-width:1000px) {
+    .big{
+      display: none;
+    }
+    .small{
+      display: flex;
+    }
+  }
+}
+
+.pages_about{
+  .logo{
+    width: 80%;
+  }
+}

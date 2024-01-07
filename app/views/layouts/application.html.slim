@@ -4,11 +4,22 @@ html lang="en"
     meta charset="UTF-8"/
     meta name="viewport" content="width=device-width, initial-scale=1.0"/
     title ほしのなか政府
+    = favicon_link_tag 'favicon.ico'
+
     = csrf_meta_tags
     = csp_meta_tag
 
     = stylesheet_link_tag 'application', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag 'custom', { 'data-turbo-track': 'reload' }
     = javascript_importmap_tags
   body 
-    = yield
-    footer Hoshinonaka Government
+    .content
+      header 
+        nav.header_nav
+          = link_to image_tag('logo.png', class: 'header_logo'), root_path
+          ul.big
+            = render 'shared/nav_links'
+          ul.small 
+            li = link_to 'リンク集', links_path
+      main = yield
+    footer = link_to 'Hoshinonaka Government', about_path
