@@ -50,3 +50,9 @@ footer{
     }
   }
 }
+
+.pages_about{
+  .logo{
+    width: 80%;
+  }
+}
