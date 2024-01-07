@@ -58,10 +58,16 @@ footer{
 
 /* 個別ページ */
 .pages_top{
+  .small{
+    display: none;
+  }
 
-  @media screen and (max-width: 1000px) {
-    h1{
-      color: aqua;
+  @media screen and (max-width:1000px) {
+    .big{
+      display: none;
+    }
+    .small{
+      display: flex;
     }
   }
 }

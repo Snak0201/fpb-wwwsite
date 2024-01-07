@@ -17,10 +17,9 @@ html lang="en"
       header 
         nav.header_nav
           = link_to image_tag('logo.png', class: 'header_logo'), root_path
-          .big
+          ul.big
             = render 'shared/nav_links'
-          .small
-            ul 
-              li = link_to 'リンク集', links_path
+          ul.small 
+            li = link_to 'リンク集', links_path
       main = yield
-    footer = link_to 'Hoshinonaka Government', root_path
+    footer = link_to 'Hoshinonaka Government', about_path
