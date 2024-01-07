@@ -2,4 +2,4 @@ version: 1
 
 secret:
   ignored-paths:
-    - 'app/views/pages/about.html.slim'
+    - app/views/pages/about.html.slim
