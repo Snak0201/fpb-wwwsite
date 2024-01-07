@@ -4,7 +4,9 @@
   p
     | ほしのなか政府は、記事を書く上で筆者の日々の生活を組織化した、架空の組織です。
     | 当サイトの名前として用いているものであり、既存のあらゆる団体・政府等を意味していません。
+    | 当サイトは、ほしのなか政府広報局WWW広報委員会が管理しています。
   h2 サイトの趣旨
+  p 現時点で、サイトの趣旨は主に以下の2つです。
   h3 ポートフォリオサイト
   p 
     | 当サイトは、プログラミング学習用のポートフォリオサイトとして立ち上げたものです。
@@ -16,9 +18,10 @@
     | 完成次第、記事機能を使って情報発信を行いたいと考えています。
   h2 使用技術
   p 
-    | フレームワークとして、Ruby on Rails 7を用いて作成されました。
-    | また、Conoha VPSを利用してデプロイされています。
+    | フレームワークとして、#{link_to 'Ruby on Rails 7', 'https://rubyonrails.org/'}を用いて作成されました。
+    | また、#{link_to 'Conoha VPS', 'https://www.conoha.jp/referral/?token=Jw12VibTpUd5tjg.qg0OMaRn1YDbq2BICrPduPTgNgEhd4RFDmSfdmXRCYW20A--UCY'}を利用してデプロイされています。
     | #{link_to 'GitHub', 'https://github.com/Snak0201/fpb-wwwsite'}にてコード・バージョン管理が行われています。
+    | 最新バージョン・リリースノートは#{link_to 'GitHub', 'https://github.com/Snak0201/fpb-wwwsite/releases'}から確認できます。
   h2 サイトロゴ
   p ほしのなか政府のサイトロゴは以下の通りです。
-  = image_tag "logo.png", class: "logo"
+  = image_tag 'logo.png', class: 'logo'
