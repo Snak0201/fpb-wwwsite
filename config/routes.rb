@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get "links" => "pages#links"
 
   namespace :tools do
-    resource :character_counter, only: :show
+    resource :character_counter, only: %i[show create]
   end
 end
