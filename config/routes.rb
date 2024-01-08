@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   root "pages#top"
   get "about" => "pages#about"
   get "links" => "pages#links"
+
+  namespace :tools do
+    resource :character_counter, only: :show
+  end
 end
