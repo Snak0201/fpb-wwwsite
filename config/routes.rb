@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "pages#top"
   get "about" => "pages#about"
   get "links" => "pages#links"
+  get "tools/characters_count" => "tools#characters_count"
 end
