@@ -3,7 +3,7 @@
   p 文字数のカウントにお使いください。
 
   h2 入力
-  = form_with model: @characters_counter, method: :post, class: 'chars_form' do |f|
+  = form_with model: @character_counter, url: tools_character_counter_path, method: :post, class: 'chars_form' do |f|
     .input
       = f.label :characters, '文字列', class: 'block'
       = f.text_area :characters
