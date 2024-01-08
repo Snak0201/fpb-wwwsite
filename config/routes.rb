@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#top"
-  get "about" => "pages#about"
-  get "links" => "pages#links"
-  get "tools/characters_count" => "tools#characters_count"
+  get "about", to: "pages#about"
+  get "links", to: "pages#links"
+  get "tools/characters_count", to: "tools#characters_count"
+  post "tools/characters_count", to: "tools#characters_count"
 end

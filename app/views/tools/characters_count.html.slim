@@ -1,2 +1,14 @@
-h1 Tools#characters_count
-p Find me in app/views/tools/characters_count.html.slim
+.tools_characters_count
+  h1 文字数カウント
+  p 文字数のカウントにお使いください。
+  
+  h2 入力
+  = form_with model: @chars, url: tools_cha,method: :post, class: 'chars_form' do |f|
+    .input
+      = f.label :chars, '文字列', class: 'block'
+      = f.text_area :chars
+    .button
+      = f.submit 'カウント'
+  
+  h2 結果
+  p = "文字数: #{@chars}"
