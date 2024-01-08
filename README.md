@@ -7,16 +7,28 @@
 - Rails: 7.0.8
 - MySQL: 8.0.35
 
-## コンテナの起動
+## コンテナの起動方法
 1. `git clone https://github.com/Snak0201/fpb-wwwsite.git`でクローンを行います
 1. 以下のファイルを提供してもらい、以下のディレクトリに配置します
     - development.key -> config/credentials
     - production.key -> config/credentials
+    - test.key -> config/credentials
     - id_rsa -> ~/.ssh/fpb-wwwsite_conoha
 1. `docker compose build`でコンテナをビルドします
 1. `docker compose run --rm app rails db:create`でローカルにデータベースを作成します
 1. `docker compose up`で起動します
 1. `localhost:8000`で画面を確認できます
+
+## Rubocopによるコード修正方法
+`docker compose run --rm app bundle exec rubocop -A`
+
+## Slimcopによるコード検査方法
+`docker compose run --rm app bundle exec slimcop`
+
+※ `-a`オプションで自動修正できますが、変な修正になることもあります。
+
+## RSpecによるテスト方法
+`docker compose run --rm app bundle exec rspec`
 
 ## 本番環境へのデプロイ（リリース）方法
 1. 対象のコードをmainブランチに反映します
