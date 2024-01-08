@@ -18,13 +18,12 @@
 1. `docker compose up`で起動します
 1. `localhost:8000`で画面を確認できます
 
-## デプロイ方法
-1. デプロイを行うコードをmainブランチに反映します
-1. バージョンは以下に従い、Releaseを作成します
+## 本番環境へのデプロイ（リリース）方法
+1. 対象のコードをmainブランチに反映します
+1. GitHub上でReleaseを作成します。バージョンは以下に従ってつけることとします。
     - 後方互換性がない場合、メジャーバージョンを上げます
     - 後方互換性があり、機能の追加を行う場合、マイナーバージョンを上げます
     - 後方互換性があり、バグの修正や軽微な変更を行う場合、パッチバージョンを上げます
     - 動作確認等でプレリリースを行う場合、プレリリースバージョンをX.Y.z-pre.1のようにつけ、その後はプレリリースを行うたびにプレリリースバージョンを上げます。正式リリース時にはプレリリースバージョンは取り除きます。
 1. ローカルで`docker compose run --rm app bundle exec cap production deploy`を実行します
-
-※不具合があった場合、`docker compose run --rm app bundle exec cap production deploy:rollback`によってロールバックを行えます。
+1. （プレリリースの場合）動作確認後、`docker compose run --rm app bundle exec cap production deploy:rollback`でロールバックを行います
