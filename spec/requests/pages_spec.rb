@@ -8,9 +8,17 @@ RSpec.describe 'Pages' do
     end
   end
 
-  describe 'GET /invalid' do
-    it 'raises routing error' do
-      expect { get '/invalid' }.to raise_error(ActionController::RoutingError)
+  describe 'GET /about' do
+    it 'returns http success' do
+      get '/about'
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET /links' do
+    it 'returns http success' do
+      get '/links'
+      expect(response).to have_http_status(:success)
     end
   end
 end
