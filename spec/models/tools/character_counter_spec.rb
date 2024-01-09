@@ -23,4 +23,25 @@ RSpec.describe Tools::CharacterCounter do
       end
     end
   end
+
+  describe '#compare_characters_to_upper_limit' do
+    context 'when upper limit is empty' do
+      context 'with 10 characters input' do
+        it 'returns nil' do
+          counter = build(:tools_character_counter)
+          expect(counter.compare_characters_to_upper_limit).to be nil
+        end
+      end
+    end
+
+    context 'when upper limit is 100' do
+      context 'with 10 characters input' do
+        it 'returns 10' do
+          counter = build(:tools_character_counter, upper_limit: '100')
+          expect(counter.compare_characters_to_upper_limit).to eq 10
+        end
+      end
+    end
+
+  end
 end

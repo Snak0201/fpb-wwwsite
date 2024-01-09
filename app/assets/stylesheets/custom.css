@@ -84,4 +84,7 @@ footer{
       display: block;
     }
   }
+  .button{
+    margin-top: 10px;
+  }
 }

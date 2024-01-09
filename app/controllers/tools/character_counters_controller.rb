@@ -5,7 +5,6 @@ module Tools
     end
 
     def create
-      @characters = character_counter[:characters]
       @character_counter = Tools::CharacterCounter.new(character_counter)
       render partial: 'count'
     end
@@ -13,7 +12,7 @@ module Tools
     private
 
     def character_counter
-      params.require(:tools_character_counter).permit(:characters)
+      params.require(:tools_character_counter).permit(%i(characters upper_limit))
     end
   end
 end
