@@ -1,4 +1,4 @@
-/* application */
+/* 全体 */
 body{
   margin: 0;
   padding: 0;
@@ -7,6 +7,7 @@ body{
 
 .content{
   min-height: calc(100vh - 24px);
+  overflow: hidden;
 }
 
 .header_logo{
@@ -75,5 +76,16 @@ footer{
 .pages_about{
   .logo{
     width: 80%;
+  }
+}
+
+.tools_character_counter{
+  .chars_form{
+    .block{
+      display: block;
+    }
+  }
+  .button{
+    margin-top: 10px;
   }
 }

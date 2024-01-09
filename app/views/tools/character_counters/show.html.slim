@@ -1,0 +1,7 @@
+.tools_character_counter
+  h1 文字数カウンター
+  p 文字数のカウントにお使いください。改行・空白は全て1字とカウントされます。
+
+  h2 入力
+  = turbo_frame_tag 'count' do
+    = render partial: 'form'

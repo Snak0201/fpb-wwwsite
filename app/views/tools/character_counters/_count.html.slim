@@ -1,0 +1,7 @@
+= turbo_frame_tag 'count' do
+  = render partial: 'form'
+  h2 出力
+  ul 
+    li = "文字数: #{@character_counter.count_characters}字"
+    li = "上限まで残り: #{@character_counter.calc_remains_of_upper_limit}字"
+    li = "上限との比率: #{@character_counter.calc_ratio_of_characters_to_upper_limit}%"

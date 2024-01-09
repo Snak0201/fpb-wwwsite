@@ -1,0 +1,8 @@
+= form_with model: @character_counter, url: tools_character_counter_path, method: :post, class: 'chars_form' do |f|
+  .input
+    = f.label :characters, '文字列', class: 'block'
+    = f.text_area :characters
+    = f.label :upper_limit, '字数上限', class: 'block'
+    = f.number_field :upper_limit
+  .button
+    = f.submit 'カウント'
