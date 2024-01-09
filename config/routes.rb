@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root "pages#top"
   get "about" => "pages#about"
   get "links" => "pages#links"
+
+  get "fortune/index", to: "fortunes#index"
+  post "fortune", to: "fortunes#fortune"
 end
