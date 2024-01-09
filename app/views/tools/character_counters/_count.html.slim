@@ -1,10 +1,5 @@
 = turbo_frame_tag 'count' do
-  = form_with model: @character_counter, url: tools_character_counter_path, method: :post, class: 'chars_form' do |f|
-    .input
-      = f.label :characters, '文字列', class: 'block'
-      = f.text_area :characters
-    .button
-      = f.submit 'カウント'
+  = render partial: 'form'
   h2 出力
   ul 
     li = "文字数: #{@character_counter.count_characters}"

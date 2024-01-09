@@ -1,12 +1,7 @@
 .tools_character_counter
-  h1 文字数カウント
-  p 文字数のカウントにお使いください。
+  h1 文字数カウンター
+  p 文字数のカウントにお使いください。改行・空白は全て1字とカウントされます。
 
   h2 入力
   = turbo_frame_tag 'count' do
-    = form_with model: @character_counter, url: tools_character_counter_path, method: :post, class: 'chars_form' do |f|
-      .input
-        = f.label :characters, '文字列', class: 'block'
-        = f.text_area :characters
-      .button
-        = f.submit 'カウント'
+    = render partial: 'form'

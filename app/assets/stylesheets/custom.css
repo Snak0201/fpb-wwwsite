@@ -1,4 +1,4 @@
-/* application */
+/* 全体 */
 body{
   margin: 0;
   padding: 0;
@@ -75,5 +75,13 @@ footer{
 .pages_about{
   .logo{
     width: 80%;
+  }
+}
+
+.tools_character_counter{
+  .chars_form{
+    .block{
+      display: block;
+    }
   }
 }
