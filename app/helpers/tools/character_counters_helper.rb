@@ -1,2 +1,4 @@
-module Tools::CharacterCountersHelper
+module Tools
+  module CharacterCountersHelper
+  end
 end
