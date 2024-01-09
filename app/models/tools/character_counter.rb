@@ -13,9 +13,7 @@ module Tools
     def calc_remains_of_upper_limit
       upper_limit = self.upper_limit.to_i
 
-      if upper_limit <= 0
-        return nil
-      end
+      return nil if upper_limit <= 0
 
       upper_limit - count_characters
     end
@@ -23,11 +21,9 @@ module Tools
     def calc_ratio_of_characters_to_upper_limit
       upper_limit = self.upper_limit.to_i
 
-      if upper_limit <= 0
-        return nil
-      end
+      return nil if upper_limit <= 0
 
-      (count_characters.to_f/upper_limit*100).round(2)
+      (count_characters.to_f / upper_limit * 100).round(2)
     end
   end
 end

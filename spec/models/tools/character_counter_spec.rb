@@ -24,24 +24,91 @@ RSpec.describe Tools::CharacterCounter do
     end
   end
 
-  describe '#compare_characters_to_upper_limit' do
+  describe '#calc_remains_of_upper_limit' do
     context 'when upper limit is empty' do
-      context 'with 10 characters input' do
-        it 'returns nil' do
-          counter = build(:tools_character_counter)
-          expect(counter.compare_characters_to_upper_limit).to be nil
-        end
+      it 'returns nil' do
+        counter = build(:tools_character_counter)
+        expect(counter.calc_remains_of_upper_limit).to be_nil
       end
     end
 
-    context 'when upper limit is 100' do
-      context 'with 10 characters input' do
-        it 'returns 10' do
-          counter = build(:tools_character_counter, upper_limit: '100')
-          expect(counter.compare_characters_to_upper_limit).to eq 10
-        end
+    context 'when upper limit is 15' do
+      it 'returns 5' do
+        counter = build(:tools_character_counter, upper_limit: '15')
+        expect(counter.calc_remains_of_upper_limit).to be 5
       end
     end
 
+    context 'when upper limit is 10' do
+      it 'returns 0' do
+        counter = build(:tools_character_counter, upper_limit: '10')
+        expect(counter.calc_remains_of_upper_limit).to be 0
+      end
+    end
+
+    context 'when upper limit is 5' do
+      it 'returns -5' do
+        counter = build(:tools_character_counter, upper_limit: '5')
+        expect(counter.calc_remains_of_upper_limit).to be(-5)
+      end
+    end
+
+    context 'when upper limit is 0' do
+      it 'returns nil' do
+        counter = build(:tools_character_counter, upper_limit: '0')
+        expect(counter.calc_remains_of_upper_limit).to be_nil
+      end
+    end
+
+    context 'when upper limit is -5' do
+      it 'returns nil' do
+        counter = build(:tools_character_counter, upper_limit: '-5')
+        expect(counter.calc_remains_of_upper_limit).to be_nil
+      end
+    end
+  end
+
+  describe '#calc_ratio_of_characters_to_upper_limit' do
+    context 'when upper limit is empty' do
+      it 'returns nil' do
+        counter = build(:tools_character_counter, upper_limit: '')
+        expect(counter.calc_ratio_of_characters_to_upper_limit).to be_nil
+      end
+    end
+
+    context 'when upper limit is 15' do
+      it 'returns 66.67' do
+        counter = build(:tools_character_counter, upper_limit: '15')
+        expect(counter.calc_ratio_of_characters_to_upper_limit).to be 66.67
+      end
+    end
+
+    context 'when upper limit is 10' do
+      it 'returns 100.0' do
+        counter = build(:tools_character_counter, upper_limit: '10')
+        expect(counter.calc_ratio_of_characters_to_upper_limit).to be 100.0
+      end
+    end
+
+    context 'when upper limit is 5' do
+      it 'returns 200.0' do
+        counter = build(:tools_character_counter, upper_limit: '5')
+        expect(counter.calc_ratio_of_characters_to_upper_limit).to be 200.0
+      end
+    end
+
+    context 'when upper limit is 0' do
+      it 'returns nil' do
+        counter = build(:tools_character_counter, upper_limit: '0')
+        expect(counter.calc_ratio_of_characters_to_upper_limit).to be_nil
+      end
+    end
+
+    context 'when upper limit is -5' do
+      it 'returns nil' do
+        counter = build(:tools_character_counter, upper_limit: '-5')
+        expect(counter.calc_ratio_of_characters_to_upper_limit).to be_nil
+      end
+    end
   end
 end

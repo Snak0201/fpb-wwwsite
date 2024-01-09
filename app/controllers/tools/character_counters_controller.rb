@@ -12,7 +12,7 @@ module Tools
     private
 
     def character_counter
-      params.require(:tools_character_counter).permit(%i(characters upper_limit))
+      params.require(:tools_character_counter).permit(%i[characters upper_limit])
     end
   end
 end
