@@ -1,2 +1,8 @@
-h1 Articles#show
-p Find me in app/views/articles/show.html.slim
+.articles_show
+  h1#title= @article.title
+
+  p#published_at= "公開日時: #{@article.published_at}"
+  p#updated_at= "更新日時: #{@article.updated_at}"
+
+  p#content= @article.content
+
