@@ -21,5 +21,7 @@ html lang="en"
             = render 'shared/nav_links'
           ul.small 
             li = link_to 'リンク集', links_path
+        p.notice = notice
+        p.alert = alert
       main = yield
     footer = link_to 'Hoshinonaka Government', about_path

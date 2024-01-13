@@ -21,5 +21,4 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_12_021009) do
     t.index ["number"], name: "index_articles_on_number"
     t.index ["title"], name: "index_articles_on_title"
   end
-
 end
