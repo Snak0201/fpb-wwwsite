@@ -11,6 +11,8 @@ Metrics/BlockLength:
   Enabled: false
 Documentation:
   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
 AllCops:
   NewCops: enable
   Exclude:
