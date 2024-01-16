@@ -58,6 +58,16 @@ footer{
 }
 
 /* 個別ページ */
+.articles_show{
+  #published_at{
+    margin-bottom: 0;
+  }
+
+  #updated_at{
+    margin-top: 0;
+  }
+}
+
 .pages_top{
   .small{
     display: none;

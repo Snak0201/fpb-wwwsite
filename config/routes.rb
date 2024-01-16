@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   namespace :tools do
     resource :character_counter, only: %i[show create]
   end
+
+  resources :articles, only: %i[show]
 end

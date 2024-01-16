@@ -28,4 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_12_151719) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content"
+    t.integer "number", default: 0, null: false
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["number"], name: "index_articles_on_number"
+    t.index ["title"], name: "index_articles_on_title"
+  end
+
 end

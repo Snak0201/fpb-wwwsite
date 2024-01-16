@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Article.find_or_create_by({ id: 0, title: 'デフォルト記事', content: 'この記事はデフォルト記事です。' })
