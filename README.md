@@ -38,3 +38,4 @@
     - 後方互換性があり、バグの修正や軽微な変更を行う場合、パッチバージョンを上げます
     - 動作確認、機能追加準備等でプレリリースを行う場合、プレリリースバージョンをX.Y.z-pre.1のようにつけ、その後はプレリリースを行うたびにプレリリースバージョンを上げます。正式リリース時にはプレリリースバージョンは取り除きます。
 1. ローカルで`docker compose run --rm app bundle exec cap production deploy`を実行します
+1. （不具合が起きた場合）動作確認後、`docker compose run --rm app bundle exec cap production deploy:rollback`でロールバックを行います
