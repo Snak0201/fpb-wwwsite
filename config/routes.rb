@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :articles, only: %i[show]
+
+  devise_for :admin
 end
