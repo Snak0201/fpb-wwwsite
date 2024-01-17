@@ -87,6 +87,9 @@ GEM
     capistrano-rails (1.6.3)
       capistrano (~> 3.1)
       capistrano-bundler (>= 1.1, < 3)
+    capistrano-rails-console (2.3.0)
+      capistrano (>= 3.5.0, < 4.0.0)
+      sshkit-interactive (~> 0.3.0)
     capistrano-rbenv (2.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
@@ -302,6 +305,8 @@ GEM
       mutex_m
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    sshkit-interactive (0.3.0)
+      sshkit (~> 1.12)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.1.0)
@@ -347,6 +352,7 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-rails
+  capistrano-rails-console
   capistrano-rbenv
   capybara
   debug
