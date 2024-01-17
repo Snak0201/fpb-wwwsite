@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i[show]
 
-  devise_for :admin
+  devise_for :admin, path: Rails.application.credentials.admin[:PATH]
 end
