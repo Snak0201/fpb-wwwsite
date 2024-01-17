@@ -69,6 +69,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano-rails-console', require: false
   gem 'capistrano-rbenv'
   gem 'web-console'
 

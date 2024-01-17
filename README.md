@@ -28,10 +28,15 @@
 ※ `-a`オプションで自動修正できますが、変な修正になることもあります。
 
 ## RSpecによるテスト方法
-`docker compose run --rm app bundle exec rspec`
+`docker compose run --rm app bundle exec rspec`を実行します。
 
 ## 本番環境へのデプロイ（リリース）方法
 1. 対象のコードをmainブランチに反映します（プルリクエストが**必須**です）
 1. GitHub上でReleaseを作成します。バージョンは[Wiki](https://github.com/Snak0201/fpb-wwwsite/wiki/%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E4%BB%98%E3%81%91%E6%96%B9#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%AE%E4%BB%95%E6%96%B9)に従って作成します。
 1. ローカルで`docker compose run --rm app bundle exec cap production deploy`を実行します
 1. （不具合が起きた場合）動作確認後、`docker compose run --rm app bundle exec cap production deploy:rollback`でロールバックを行います
+
+## 本番環境のコンソールへのアクセス方法
+`docker compose run --rm app bundle exec cap production rails:console`を実行します
+
+※ WARNING: UNPROTECTED PRIVATE KEY FILE!が出る場合、`docker compose run --rm app chmod 600 /root/.ssh/fpb-wwwsite_conoha/id_rsa`を実行します
