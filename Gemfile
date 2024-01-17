@@ -71,6 +71,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'web-console'
+  gem 'capistrano-rails-console', require: false
 
   gem 'bcrypt_pbkdf'
   gem 'ed25519'
