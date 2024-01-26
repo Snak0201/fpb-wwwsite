@@ -1,0 +1,2 @@
+class Bureau < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_12_151719) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_26_095209) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_12_151719) do
     t.datetime "updated_at", null: false
     t.index ["number"], name: "index_articles_on_number"
     t.index ["title"], name: "index_articles_on_title"
+  end
+
+  create_table "bureaus", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_bureaus_on_name", unique: true
+    t.index ["slug"], name: "index_bureaus_on_slug", unique: true
   end
 
 end
