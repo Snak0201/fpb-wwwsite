@@ -67,4 +67,4 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Run Slim-Lint
-        run: slim-lint
+        run: slim-lint app/views
