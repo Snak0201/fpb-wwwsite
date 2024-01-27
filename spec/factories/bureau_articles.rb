@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :bureau_article do
-    bureau { nil }
-    article { nil }
+    bureau
+    article
   end
 end
