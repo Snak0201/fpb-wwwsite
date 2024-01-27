@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_26_095209) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_27_011126) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_26_095209) do
     t.index ["title"], name: "index_articles_on_title"
   end
 
+  create_table "bureau_articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "government_bureau_id", null: false
+    t.bigint "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_bureau_articles_on_article_id"
+    t.index ["government_bureau_id"], name: "index_bureau_articles_on_government_bureau_id"
+  end
+
   create_table "bureaus", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
@@ -49,4 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_26_095209) do
     t.index ["slug"], name: "index_bureaus_on_slug", unique: true
   end
 
+  add_foreign_key "bureau_articles", "articles"
+  add_foreign_key "bureau_articles", "bureaus", column: "government_bureau_id"
 end
