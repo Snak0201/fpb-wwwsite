@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admins::Articles' do
+RSpec.describe Admins::ArticlesController do
   context 'when not log in' do
     # describe "GET /show" do
     #   it "returns http success" do

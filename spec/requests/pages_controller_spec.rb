@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Pages' do
+RSpec.describe PagesController do
   describe 'GET /' do
     it 'returns http success' do
       get '/'

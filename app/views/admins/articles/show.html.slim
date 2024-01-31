@@ -6,6 +6,7 @@ ul
   li = link_to '管理画面の記事一覧へ戻る', admin_articles_path
   li = link_to '記事の表示ページ', '#'
   li = link_to '記事を編集する', edit_admin_article_path(@article)
+  li = link_to '記事を削除する', admin_article_path(@article), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'この記事を削除しますか？' }
 
 h2 表示
 

@@ -1,4 +1,4 @@
 h1 記事編集画面
-p = link_to '管理画面に戻る', admin_index_path
+p = link_to '記事詳細に戻る', admin_article_path(@article)
 
 = render partial: 'form', locals: { url: admin_article_path(@article) }

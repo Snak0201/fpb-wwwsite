@@ -38,6 +38,16 @@ module Admins
       end
     end
 
+    def destroy
+      @article = Article.find(params[:id])
+
+      if @article.destroy
+        redirect_to admin_articles_path, notice: '記事が削除されました'
+      else
+        render :show, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def article_params

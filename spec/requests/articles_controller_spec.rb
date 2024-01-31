@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Articles' do
+RSpec.describe ArticlesController do
   let(:article) { create(:article) }
 
   describe 'GET /articles/:article_id' do

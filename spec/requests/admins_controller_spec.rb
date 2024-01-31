@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin' do
+RSpec.describe AdminsController do
   let(:admin) { create(:admin) }
 
   describe 'GET /' do
