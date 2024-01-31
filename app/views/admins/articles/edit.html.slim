@@ -1,2 +1,4 @@
-h1 Admins::Articles#edit
-p Find me in app/views/admins/articles/edit.html.slim
+h1 記事編集画面
+p = link_to '管理画面に戻る', admin_index_path
+
+= render partial: 'form', locals: { url: admin_article_path(@article) }
