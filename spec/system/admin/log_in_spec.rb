@@ -6,8 +6,8 @@ RSpec.describe 'log in to admin' do
   context 'with correct info' do
     it 'can log in' do
       visit new_admin_session_path
-      fill_in 'Email', with: admin.email
-      fill_in 'Password', with: admin.password
+      fill_in 'Eメール', with: admin.email
+      fill_in 'パスワード', with: admin.password
       click_on 'Log in'
       expect(page).to have_content 'ログインしました'
       expect(page).to have_current_path root_path, ignore_query: true
@@ -17,10 +17,10 @@ RSpec.describe 'log in to admin' do
   context 'with invalid password' do
     it 'cannot log in' do
       visit new_admin_session_path
-      fill_in 'Email', with: admin.email
-      fill_in 'Password', with: "#{admin.password}#{admin.password}"
+      fill_in 'Eメール', with: admin.email
+      fill_in 'パスワード', with: "#{admin.password}#{admin.password}"
       click_on 'Log in'
-      expect(page).to have_content 'Emailまたはパスワードが違います。'
+      expect(page).to have_content 'Eメールまたはパスワードが違います。'
       expect(page).to have_current_path new_admin_session_path, ignore_query: true
     end
   end
@@ -28,8 +28,8 @@ RSpec.describe 'log in to admin' do
   context 'when admin has already log in' do
     before do
       visit new_admin_session_path
-      fill_in 'Email', with: admin.email
-      fill_in 'Password', with: admin.password
+      fill_in 'Eメール', with: admin.email
+      fill_in 'パスワード', with: admin.password
       click_on 'Log in'
     end
 
