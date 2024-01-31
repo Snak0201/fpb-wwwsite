@@ -14,4 +14,8 @@ Rails.application.routes.draw do
 
   resources :admins, only: %i[index], path: Rails.application.credentials.admin[:PATH], as: "admin"
   devise_for :admin, path: Rails.application.credentials.admin[:PATH]
+
+  namespace :admins, path: Rails.application.credentials.admin[:PATH], as: "admin"  do
+    resources :articles
+  end
 end
