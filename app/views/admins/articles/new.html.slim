@@ -1,2 +1,12 @@
-h1 Admins::Articles#new
-p Find me in app/views/admins/articles/new.html.slim
+h1 記事作成画面
+p = link_to '管理画面に戻る', admin_index_path
+
+= form_with model: @article do |f|
+  = f.label :title, Article.human_attribute_name(:title)
+  = f.text_field :title
+
+  = f.label :content, Article.human_attribute_name(:content)
+  = f.text_area :content
+
+  = f.label :number, Article.human_attribute_name(:number)
+  = f.number_field :number

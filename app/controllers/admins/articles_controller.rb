@@ -3,6 +3,7 @@ class Admins::ArticlesController < ApplicationController
   end
 
   def new
+    @articles = Article.new
   end
 
   def edit
