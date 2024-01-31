@@ -5,10 +5,7 @@ RSpec.describe 'log in to admin' do
 
   context 'with correct info' do
     it 'can log in' do
-      visit new_admin_session_path
-      fill_in 'Eメール', with: admin.email
-      fill_in 'パスワード', with: admin.password
-      click_on 'Log in'
+      admin_log_in admin
       expect(page).to have_content 'ログインしました'
       expect(page).to have_current_path root_path, ignore_query: true
     end
@@ -27,10 +24,7 @@ RSpec.describe 'log in to admin' do
 
   context 'when admin has already log in' do
     before do
-      visit new_admin_session_path
-      fill_in 'Eメール', with: admin.email
-      fill_in 'パスワード', with: admin.password
-      click_on 'Log in'
+      admin_log_in admin
     end
 
     it 'redirect to root path' do

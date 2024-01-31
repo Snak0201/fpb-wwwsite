@@ -4,10 +4,7 @@ RSpec.describe 'log out of admin' do
   let(:admin) { create(:admin) }
 
   before do
-    visit new_admin_session_path
-    fill_in 'Eメール', with: admin.email
-    fill_in 'パスワード', with: admin.password
-    click_on 'Log in'
+    admin_log_in admin
   end
 
   context 'when click on log out link' do

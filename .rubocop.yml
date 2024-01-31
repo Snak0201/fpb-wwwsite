@@ -17,7 +17,8 @@ RSpec/ExampleLength:
   Enabled: false
 Rails/I18nLocaleTexts:
   Enabled: false
-
+RSpec/NestedGroups:
+  Enabled: false
 AllCops:
   NewCops: enable
   Exclude:
