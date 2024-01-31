@@ -1,2 +1,18 @@
-h1 Admins::Articles#show
-p Find me in app/views/admins/articles/show.html.slim
+h1 記事詳細
+p 実際の記事の見た目で表示しています。
+
+h2 管理ツール
+ul 
+  li = link_to '管理画面の記事一覧へ戻る', admin_articles_path
+  li = link_to '記事の表示ページ', '#'
+
+h2 表示
+
+.articles_show
+  h1#title= @article.title
+
+  / TODO: 公開日時は機能追加時にコメントアウトを外す
+  / p#published_at= "公開日時: #{l @article.published_at}"
+  p#updated_at= "更新日時: #{l @article.updated_at}"
+
+  p#content= @article.content

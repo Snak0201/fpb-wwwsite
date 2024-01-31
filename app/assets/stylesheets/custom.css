@@ -88,14 +88,3 @@ footer{
     width: 80%;
   }
 }
-
-.tools_character_counter{
-  .chars_form{
-    .block{
-      display: block;
-    }
-  }
-  .button{
-    margin-top: 10px;
-  }
-}
