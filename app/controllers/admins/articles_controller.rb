@@ -1,5 +1,7 @@
 module Admins
   class ArticlesController < ApplicationController
+    before_action :authenticate_admin!
+
     def index
       @articles = Article.order(:id)
     end
@@ -17,7 +19,7 @@ module Admins
     def create
       @article = Article.new(create_article_params)
 
-      if @article.valid?
+      if @article.save
         redirect_to admin_articles_path, notice: '記事が登録されました'
       else
         render :new, status: :unprocessable_entity
