@@ -1,4 +1,7 @@
 = form_with model: @article, url: admin_articles_path, class: 'form' do |f|
+  
+  = render 'shared/form_errors', model: f.object
+
   = f.label :title, Article.human_attribute_name(:title), class: 'block'
   = f.text_field :title, class: 'wide_text_field'
 

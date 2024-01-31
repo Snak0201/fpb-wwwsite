@@ -48,6 +48,16 @@ body{
   
 }
 
+.flash_messages{
+  .notice{
+    background-color: skyblue;
+  }
+
+  .alert{
+    background-color: darksalmon;
+  }
+}
+
 main{
   margin: 8px;
 }
