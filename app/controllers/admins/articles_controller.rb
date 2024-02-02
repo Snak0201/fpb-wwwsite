@@ -32,7 +32,7 @@ module Admins
       @article = Article.find(params[:id])
 
       if @article.update(article_params)
-        redirect_to admin_articles_path, notice: '記事が更新されました'
+        redirect_to admin_article_path(@article), notice: '記事が更新されました'
       else
         render :edit, status: :unprocessable_entity
       end
