@@ -48,6 +48,18 @@ module Admins
       end
     end
 
+    def toggle_published
+      @article = Article.find(params[:id])
+
+      # NOTE: 投稿日時がnilなら非公開、時間が入っているなら公開
+      if @article.published_at.nil?
+        @article.update(published_at: Time.current)
+      else
+        @article.update(published_at: nil)
+      end
+      redirect_to admin_article_path(@article)
+    end
+
     private
 
     def article_params

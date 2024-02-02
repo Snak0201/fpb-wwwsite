@@ -4,4 +4,6 @@ class Article < ApplicationRecord
   has_many :bureaus, through: :bureau_articles
 
   validates :title, :number, presence: true
+
+  scope :published, -> { where.not(published_at: nil) }
 end

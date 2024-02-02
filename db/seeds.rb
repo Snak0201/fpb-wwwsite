@@ -7,7 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # seedの内容
-Article.find_or_create_by({ id: 0, title: 'テスト用記事', content: 'この記事はテスト用記事です。' })
+Article.find_or_create_by({ id: 0, title: 'テスト用記事',
+                            content: '## この記事はテスト用記事です。\nマークダウンを用いて様々な記事を書くことができます。\n\n特に、簡単に実装されていることが強みです。' })
 
 Bureau.find_or_create_by({ id: 1, name: '総務局', slug: 'general' })
 Bureau.find_or_create_by({ id: 2, name: '財務局', slug: 'finance' })
