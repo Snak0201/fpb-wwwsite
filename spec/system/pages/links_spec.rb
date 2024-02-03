@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'links page' do
+RSpec.describe 'pages/links' do
   let(:admin) { create(:admin) }
 
   context 'with log in as admin' do
