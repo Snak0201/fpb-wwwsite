@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.newer
+    @articles = Article.newer.page(params[:page])
   end
 
   def show

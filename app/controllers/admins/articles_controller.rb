@@ -3,7 +3,7 @@ module Admins
     before_action :authenticate_admin!
 
     def index
-      @articles = Article.admin_index
+      @articles = Article.admin_index.page(params[:page])
     end
 
     def show

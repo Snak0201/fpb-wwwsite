@@ -5,8 +5,8 @@ class Article < ApplicationRecord
 
   validates :title, :number, presence: true
 
-  scope :admin_index -> {order(published_at: :desc)}
+  scope :admin_index, -> { order(published_at: :desc) }
   scope :published, -> { where.not(published_at: nil) }
-  scope :newer, -> {published.order(published_at: :desc)}
-  scope :newest, -> {newer.limit(5)}
+  scope :newer, -> { published.order(published_at: :desc) }
+  scope :newest, -> { newer.limit(5) }
 end

@@ -4,3 +4,5 @@ p 公開されている記事の一覧です。
 ul 
   - @articles.each do |article|
     li = link_to article.title, article_path(article)
+
+= paginate @articles
