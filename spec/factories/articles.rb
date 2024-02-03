@@ -3,6 +3,9 @@ FactoryBot.define do
     title { 'Test Article' }
     content { "Test Article's content" }
     number { 0 }
-    published_at { DateTime.now }
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 end

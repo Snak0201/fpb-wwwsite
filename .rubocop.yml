@@ -15,6 +15,14 @@ RSpec/MultipleExpectations:
   Enabled: false
 RSpec/ExampleLength:
   Enabled: false
+Rails/I18nLocaleTexts:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 30
+
+
 AllCops:
   NewCops: enable
   Exclude:

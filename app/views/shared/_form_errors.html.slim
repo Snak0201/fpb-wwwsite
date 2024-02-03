@@ -1,0 +1,8 @@
+/ 汎用フォームエラー
+
+- if model.errors.any?
+  .flash_messages
+    .alert
+      ul 
+        - model.errors.full_messages.each do |message|
+          li = message

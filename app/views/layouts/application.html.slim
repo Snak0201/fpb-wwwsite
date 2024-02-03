@@ -11,6 +11,8 @@ html lang="en"
 
     = stylesheet_link_tag 'application', { 'data-turbo-track': 'reload' }
     = stylesheet_link_tag 'custom', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag 'form', { 'data-turbo-track': 'reload' }
+
     = javascript_importmap_tags
   body 
     .content
@@ -21,7 +23,8 @@ html lang="en"
             = render 'shared/nav_links'
           ul.small 
             li = link_to 'リンク集', links_path
-        p.notice = notice
-        p.alert = alert
+        .flash_messages
+          p.notice = notice
+          p.alert = alert
       main = yield
     footer = link_to 'Hoshinonaka Government', about_path

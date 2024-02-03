@@ -1,0 +1,15 @@
+= form_with model: @article, url:, class: 'form' do |f|
+  
+  = render 'shared/form_errors', model: f.object
+
+  = f.label :title, Article.human_attribute_name(:title), class: 'block'
+  = f.text_field :title, class: 'wide_text_field'
+
+  = f.label :content, Article.human_attribute_name(:content), class: 'block'
+  = f.text_area :content, class: 'wide_text_area'
+
+  = f.label :number, Article.human_attribute_name(:number), class: 'block'
+  = f.number_field :number
+
+  .button
+    = f.submit '登録'

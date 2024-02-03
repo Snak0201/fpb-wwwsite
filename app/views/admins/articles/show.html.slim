@@ -1,0 +1,25 @@
+h1 記事詳細
+p 実際の記事の見た目で表示しています。
+p = link_to '管理画面の記事一覧へ戻る', admin_articles_path
+
+h2 管理ツール
+ul 
+  li = link_to '記事の表示ページ', article_path(@article)
+  - if @article.published_at.nil?
+    li = link_to '記事を公開する', toggle_published_admin_article_path(@article), method: :patch, data: { turbo_method: :patch, turbo_confirm: 'この記事を公開しますか？' }
+  - else 
+    li = link_to '記事を非公開にする', toggle_published_admin_article_path(@article), method: :patch, data: { turbo_method: :patch, turbo_confirm: 'この記事を非公開にしますか？' }
+  li = link_to '記事を編集する', edit_admin_article_path(@article)
+  li = link_to '記事を削除する', admin_article_path(@article), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'この記事を削除しますか？' }
+
+h2 表示
+.articles_show
+  h1#title= @article.title
+
+  - if @article.published_at.nil?
+    p#published_at = '公開されていません'
+  - else
+    p#published_at= "公開日時: #{l @article.published_at}"
+  p#updated_at= "更新日時: #{l @article.updated_at}"
+
+  p#content= convert_markdown_into_html(@article.content)
