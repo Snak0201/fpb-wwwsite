@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  def top; end
+  def top
+    @articles = Article.newest
+  end
+
   def about; end
   def links; end
 end
