@@ -34,9 +34,15 @@ RSpec.describe Admins::ArticlesController do
     end
 
     describe 'GET admin_articles_path' do
-      it 'returns http success' do
+      let(:title) { 'PUBLISHED' }
+      let!(:article) { create(:article) }
+      let!(:published_article) { create(:article, :published, title:) }
+
+      it 'shows all (include unpublished) articles' do
         get admin_articles_path
         expect(response).to have_http_status(:success)
+        expect(response.body).to include article.title
+        expect(response.body).to include published_article.title
       end
     end
 
