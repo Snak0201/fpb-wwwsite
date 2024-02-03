@@ -15,10 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :articles, only: %i[index show]
+
   namespace :tools do
     resource :character_counter, only: %i[show create]
   end
-
-  resources :articles, only: %i[show]
-
 end
