@@ -11,14 +11,14 @@ RSpec.describe Admins::ArticlesController do
       end
     end
 
-    describe 'GET /new' do
+    describe 'GET /admin/articles/new' do
       it 'returns http found' do
         get '/admin/articles/new'
         expect(response).to have_http_status(:found)
       end
     end
 
-    describe 'GET /edit' do
+    describe 'GET /admin/articles/:article_id/edit' do
       it 'returns http found' do
         get "/admin/articles/#{article.id}/edit"
         expect(response).to have_http_status(:found)
@@ -48,6 +48,14 @@ RSpec.describe Admins::ArticlesController do
       end
     end
 
+    describe 'DELETE /admin/articles/:article_id' do
+      it 'destroys the article' do
+        delete "/admin/articles/#{article.id}/"
+        expect(response).to have_http_status(:found)
+        expect { Article.find(article.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
     describe 'GET /admin/articles/new' do
       it 'returns http success' do
         get '/admin/articles/new'
@@ -62,10 +70,14 @@ RSpec.describe Admins::ArticlesController do
       end
     end
 
-    describe 'DELETE /admin/articles/:article_id' do
-      it 'returns http found' do
-        delete "/admin/articles/#{article.id}/"
+    describe 'PATCH /admin/articles/:article_id/toggle_published' do
+      it 'toggles published' do
+        patch "/admin/articles/#{article.id}/toggle_published"
         expect(response).to have_http_status(:found)
+        expect(article.reload.published_at).to be_truthy
+        patch "/admin/articles/#{article.id}/toggle_published"
+        expect(response).to have_http_status(:found)
+        expect(article.reload.published_at).to be_falsey
       end
     end
   end
