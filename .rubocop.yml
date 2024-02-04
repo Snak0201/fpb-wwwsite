@@ -21,8 +21,6 @@ RSpec/NestedGroups:
   Enabled: false
 Metrics/MethodLength:
   Max: 30
-RSpec/LetSetup:
-  Enabled: false
 
 
 AllCops:
