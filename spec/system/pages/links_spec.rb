@@ -5,10 +5,7 @@ RSpec.describe 'links page' do
 
   context 'with log in as admin' do
     before do
-      visit new_admin_session_path
-      fill_in 'Eメール', with: admin.email
-      fill_in 'パスワード', with: admin.password
-      click_on 'Log in'
+      admin_log_in admin
     end
 
     it 'has link to admin' do

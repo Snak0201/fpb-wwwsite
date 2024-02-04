@@ -3,3 +3,5 @@ p = link_to '管理画面に戻る', admin_index_path
 ul 
   - @articles.each do |article|
     li = link_to article.title, admin_article_path(article)
+    
+= paginate @articles

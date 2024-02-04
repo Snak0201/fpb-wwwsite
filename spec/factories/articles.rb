@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :article do
-    title { 'Test Article' }
-    content { "Test Article's content" }
+    sequence(:title) { |n| "Test Article ##{n}" }
+    sequence(:content) { |n| "Test Article ##{n}'s content" }
     number { 0 }
 
     trait :published do
