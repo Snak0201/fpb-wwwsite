@@ -23,6 +23,5 @@ RSpec.describe 'show article as admin' do
         within('#published_at') { expect(page).to have_content I18n.l(published_article.published_at) }
       end
     end
-
   end
 end
