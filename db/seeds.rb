@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# seedの内容
+# seedの更新
+
+# seedの作成・内容確認
 Article.find_or_create_by({ id: 0, title: 'テスト用記事',
-                            content: '## この記事はテスト用記事です。\nマークダウンを用いて様々な記事を書くことができます。\n\n特に、簡単に実装されていることが強みです。' })
+                            content: '## この記事はテスト用記事です。' })
 
 Bureau.find_or_create_by({ id: 1, name: '総務局', slug: 'general' })
 Bureau.find_or_create_by({ id: 2, name: '財務局', slug: 'finance' })
