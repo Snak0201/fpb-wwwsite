@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'pages/top' do
+RSpec.describe 'top page' do
   describe 'footer' do
     it 'has link to about page' do
       visit root_path

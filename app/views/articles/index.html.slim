@@ -1,8 +1,9 @@
-h1 記事一覧
-p 公開されている記事の一覧です。
+.articles_index
+  h1 記事一覧
+  p 公開されている記事の一覧です。
 
-ul 
-  - @articles.each do |article|
-    li = link_to article.title, article_path(article)
+  ul 
+    - @articles.each do |article|
+      li.article_title = link_to article.title, article_path(article)
 
-= paginate @articles
+  = paginate @articles
