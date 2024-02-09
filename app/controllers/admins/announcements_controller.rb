@@ -1,5 +1,5 @@
 module Admins
-  class AnnouncementsController < ApplicationController
+  class AnnouncementsController < DeviseAuthenticationController
     def edit; end
 
     def update; end
