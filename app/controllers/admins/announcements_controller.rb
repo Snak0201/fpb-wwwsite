@@ -1,6 +1,8 @@
 module Admins
   class AnnouncementsController < DeviseAuthenticationController
-    def edit; end
+    def edit
+      @announcement = Announcement.last
+    end
 
     def update; end
 

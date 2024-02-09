@@ -53,10 +53,14 @@ ja:
         title: タイトル
         content: 内容
         number: 分類番号
+      admins/announcement:
+        content: お知らせ
+      
     models:
       user: ユーザー
       admin: 管理者
       article: 記事
+      admins/announcement: お知らせ
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
