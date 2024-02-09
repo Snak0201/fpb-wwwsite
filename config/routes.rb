@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
 
     resource :announcement, only: %i[edit update] do
-      get :preview, on: :member
+      post :preview, on: :member
     end
   end
 

@@ -1,10 +1,10 @@
 h1 お知らせ編集画面
 p マークダウンで記入できます。
 
-= form_with model: @announcement, url: preview_admin_announcement_path, class: 'form', method: :get do |f|
+= form_with model: @announcement, url: preview_admin_announcement_path, class: 'form', method: :post do |f|
   = render 'shared/form_errors', model: f.object
 
   = f.label :content, Admins::Announcement.human_attribute_name(:content), class: 'block'
   = f.text_area :content, class: 'wide_text_area'
   
-  = f.submit '登録', class: 'button'
+  = f.submit 'プレビュー', class: 'button'

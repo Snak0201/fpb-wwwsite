@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Admins::AnnouncementsController do
+  before do
+    # NOTE: レコードがないとeditでエラーが出る
+    create(:admins_announcement)
+  end
+
   context 'when not log in' do
     describe 'GET /edit' do
       it 'returns http found' do
