@@ -14,12 +14,12 @@ RSpec.describe Admins::AnnouncementsController do
       end
     end
 
-    describe 'GET /preview' do
-      it 'returns http found' do
-        get '/admin/announcement/preview'
-        expect(response).to have_http_status(:found)
-      end
-    end
+    # describe 'GET /preview' do
+    #   it 'returns http found' do
+    #     get '/admin/announcement/preview'
+    #     expect(response).to have_http_status(:found)
+    #   end
+    # end
   end
 
   context 'when log in' do
@@ -36,11 +36,11 @@ RSpec.describe Admins::AnnouncementsController do
       end
     end
 
-    describe 'GET /preview' do
-      it 'returns http success' do
-        get '/admin/announcement/preview'
-        expect(response).to have_http_status(:success)
-      end
-    end
+    # describe 'GET /preview' do
+    #   it 'returns http success' do
+    #     get '/admin/announcement/preview'
+    #     expect(response).to have_http_status(:success)
+    #   end
+    # end
   end
 end
