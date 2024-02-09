@@ -1,5 +1,6 @@
 h1 お知らせ編集画面
 p マークダウンで記入できます。
+p = link_to '管理画面へ戻る', admin_index_path
 
 = form_with model: @announcement, url: preview_admin_announcement_path, class: 'form', method: :post do |f|
   = render 'shared/form_errors', model: f.object

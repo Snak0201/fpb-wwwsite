@@ -3,9 +3,7 @@
   p 架空組織ほしのなか政府の広報サイトです。
 
   h2 お知らせ
-  p.big この表示は大画面用です。
-  p.small この表示は小画面用です。
-  p 記事機能が完成しました。
+  = convert_markdown_into_html(@announcement.content)
 
   h2 最新記事
   ul 
