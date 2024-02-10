@@ -40,7 +40,7 @@ RSpec.describe PagesController do
     end
 
     context 'with announcement' do
-      let!(:admins_announcement){create(:admins_announcement)}
+      let!(:admins_announcement) { create(:admins_announcement) }
 
       it 'shows it' do
         get '/'
