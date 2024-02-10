@@ -1,2 +1,5 @@
-h1 Admins::Announcements#new
-p Find me in app/views/admins/announcements/new.html.slim
+h1 お知らせの更新
+p = link_to '管理画面に戻る', admin_index_path
+
+= form_with model: @announcement, url: preview_admin_announcement_path, class: 'form' do |f|
+  = render partial: 'form', locals: { f: f }

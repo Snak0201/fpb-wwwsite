@@ -1,0 +1,6 @@
+= render 'shared/form_errors', model: f.object
+
+= f.label :content, Admins::Announcement.human_attribute_name(:content), class: 'block'
+= f.text_area :content, class: 'wide_text_area'
+
+= f.submit '表示確認', class: 'button'
