@@ -1,8 +1,8 @@
 module Admins
   class AnnouncementsController < DeviseAuthenticationController
-    def edit; end
+    def new; end
 
-    def update; end
+    def create; end
 
     def preview; end
   end

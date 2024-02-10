@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       patch :toggle_published, on: :member
     end
 
-    resource :announcement, only: %i[edit update] do
-      get :preview, on: :member
+    resource :announcement, only: %i[new create] do
+      post :preview, on: :member
     end
   end
 
