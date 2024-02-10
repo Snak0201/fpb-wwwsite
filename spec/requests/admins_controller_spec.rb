@@ -8,6 +8,7 @@ RSpec.describe AdminsController do
       it 'returns http found' do
         get '/admin/'
         expect(response).to have_http_status(:found)
+        expect(response).to redirect_to new_admin_session_path
       end
     end
 
