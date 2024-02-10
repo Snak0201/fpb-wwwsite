@@ -3,7 +3,7 @@
   p 架空組織ほしのなか政府の広報サイトです。
 
   h2 お知らせ
-  = convert_markdown_into_html(@announcement.content)
+  = convert_markdown_into_html(@announcement&.content)
 
   h2 最新記事
   ul 

@@ -1,11 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admins::AnnouncementsController do
-  before do
-    # NOTE: レコードがないとeditでエラーが出る
-    create(:admins_announcement)
-  end
-
   context 'when not log in' do
     describe 'GET /edit' do
       it 'returns http found' do
@@ -39,10 +34,10 @@ RSpec.describe Admins::AnnouncementsController do
     end
 
     describe 'POST /preview' do
-      let(:content){'test content'}
+      let(:content) { 'test content' }
 
       it 'returns http success' do
-        post '/admin/announcement/preview', params:{admins_announcement:{content:}}
+        post '/admin/announcement/preview', params: { admins_announcement: { content: } }
         expect(response).to have_http_status(:see_other)
         expect(response.body).to include content
       end

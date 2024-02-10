@@ -2,7 +2,7 @@ h1 お知らせプレビュー
 p 以下の内容にお知らせを更新します。よろしいですか？
 
 h2 お知らせ
-= convert_markdown_into_html(@announcement.content)
+= convert_markdown_into_html(@announcement&.content)
 
 = form_with model: @announcement, url: admin_announcement_path(@announcement), method: :patch, class: 'form' do |f|
   = f.hidden_field :content, value: @announcement.content
