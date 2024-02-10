@@ -5,8 +5,17 @@ module Admins
     end
 
     def create
-      Rails.logger.debug params
-      redirect_to new_admin_announcement_path
+      @announcement = Announcement.new(announcement_params)
+
+      if params[:commit] == 'キャンセル'
+        render :new, status: :see_other
+      elsif params[:commit] == '更新'
+        if @announcement.save
+          redirect_to admin_index_path, notice: 'お知らせを更新しました。'
+        else
+          render :new, status: :unprocessable_entity
+        end
+      end
     end
 
     def preview

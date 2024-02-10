@@ -2,4 +2,4 @@ h1 記事作成画面
 p = link_to '管理画面に戻る', admin_index_path
 
 = form_with model: @article, url: admin_articles_path, class: 'form' do |f|
-  = render partial: 'form', locals: { f: f }
+  = render partial: 'form', locals: { f: }

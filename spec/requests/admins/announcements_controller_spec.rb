@@ -34,9 +34,10 @@ RSpec.describe Admins::AnnouncementsController do
     end
 
     describe 'POST /preview' do
-      it 'returns http success' do
-        post '/admin/announcement/preview'
-        expect(response).to have_http_status(:success)
+      it 'returns http see other' do
+        post '/admin/announcement/preview', params: { admins_announcement: { content: nil } }
+        expect(response).to have_http_status(:see_other)
+        expect(response).to redirect_to preview_admin_announcement_path
       end
     end
   end
