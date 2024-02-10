@@ -11,5 +11,11 @@ RSpec.describe ArticlesHelper do
         expect(html).to include '<p>1</p>'
       end
     end
+
+    context 'when text is nil' do
+      let(:text) { nil }
+
+      it { is_expected.to be_nil }
+    end
   end
 end
