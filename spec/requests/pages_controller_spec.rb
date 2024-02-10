@@ -38,6 +38,16 @@ RSpec.describe PagesController do
         end
       end
     end
+
+    context 'with announcement' do
+      let!(:admins_announcement){create(:admins_announcement)}
+
+      it 'shows it' do
+        get '/'
+        expect(response).to have_http_status(:success)
+        expect(response.body).to include admins_announcement.content
+      end
+    end
   end
 
   describe 'GET /about' do

@@ -1,5 +1,6 @@
 / 汎用フォームエラー
 
+/ NOTE: modelがnilである場合を考えて&.
 - if model&.errors&.any?
   .flash_messages
     .alert
