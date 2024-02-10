@@ -9,7 +9,7 @@
 # 変動するseed
 Article.create({ id: 0, title: 'テスト用記事', content: '## この記事はテスト用記事です。' }) unless Article.find_by(id: 0)
 
-Admins::Announcement.create({ id: 0, content: nil }) unless Admins::Announcement.find_by(id: 0)
+Admins::Announcement.create({ id: 0, content: '' }) unless Admins::Announcement.find_by(id: 0)
 
 # 固定されるseed
 Bureau.find_or_create_by({ id: 1, name: '総務局', slug: 'general' })
