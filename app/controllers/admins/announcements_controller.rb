@@ -4,7 +4,10 @@ module Admins
       @announcement = Announcement.new
     end
 
-    def create; end
+    def create
+      Rails.logger.debug params
+      redirect_to new_admin_announcement_path
+    end
 
     def preview
       @announcement = Announcement.new(announcement_params)
@@ -16,6 +19,5 @@ module Admins
     def announcement_params
       params.require(:admins_announcement).permit(:content)
     end
-
   end
 end
