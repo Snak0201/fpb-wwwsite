@@ -1,6 +1,8 @@
 module Admins
   class AnnouncementsController < DeviseAuthenticationController
-    def new; end
+    def new
+      @announcement = Announcement.new
+    end
 
     def create; end
 

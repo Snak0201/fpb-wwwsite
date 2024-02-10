@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Admins::AnnouncementsController do
   context 'when not log in' do
-    describe 'GET /edit' do
+    describe 'GET /new' do
       it 'returns http found' do
-        get '/admin/announcement/edit'
+        get '/admin/announcement/new'
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to new_admin_session_path
       end
     end
 
-    describe 'GET /preview' do
+    describe 'POST /preview' do
       it 'returns http found' do
-        get '/admin/announcement/preview'
+        post '/admin/announcement/preview'
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to new_admin_session_path
       end
@@ -26,16 +26,16 @@ RSpec.describe Admins::AnnouncementsController do
       sign_in admin
     end
 
-    describe 'GET /edit' do
+    describe 'GET /new' do
       it 'returns http success' do
-        get '/admin/announcement/edit'
+        get '/admin/announcement/new'
         expect(response).to have_http_status(:success)
       end
     end
 
-    describe 'GET /preview' do
+    describe 'POST /preview' do
       it 'returns http success' do
-        get '/admin/announcement/preview'
+        post '/admin/announcement/preview'
         expect(response).to have_http_status(:success)
       end
     end
