@@ -10,10 +10,12 @@ module Admins
 
     def new
       @article = Article.new
+      @bureaus = Bureau.all
     end
 
     def edit
       @article = Article.find(params[:id])
+      @bureaus = Bureau.all
     end
 
     def create
@@ -61,7 +63,7 @@ module Admins
     private
 
     def article_params
-      params.require(:article).permit(%i[title content number])
+      params.require(:article).permit(%i[title content number], bureau_ids: [])
     end
   end
 end
