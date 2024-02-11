@@ -1,7 +1,5 @@
 module Admins
-  class ArticlesController < ApplicationController
-    before_action :authenticate_admin!
-
+  class ArticlesController < DeviseAuthenticationController
     def index
       @articles = Article.admin_index.page(params[:page])
     end

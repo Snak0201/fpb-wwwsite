@@ -8,6 +8,7 @@ RSpec.describe Admins::ArticlesController do
       it 'returns http found' do
         get admin_article_path(article)
         expect(response).to have_http_status(:found)
+        expect(response).to redirect_to new_admin_session_path
       end
     end
 
@@ -15,6 +16,7 @@ RSpec.describe Admins::ArticlesController do
       it 'returns http found' do
         get new_admin_article_path
         expect(response).to have_http_status(:found)
+        expect(response).to redirect_to new_admin_session_path
       end
     end
 
@@ -22,6 +24,7 @@ RSpec.describe Admins::ArticlesController do
       it 'returns http found' do
         get edit_admin_article_path(article)
         expect(response).to have_http_status(:found)
+        expect(response).to redirect_to new_admin_session_path
       end
     end
   end

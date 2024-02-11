@@ -1,6 +1,6 @@
 / 汎用フォームエラー
 
-- if model.errors.any?
+- if model&.errors&.any?
   .flash_messages
     .alert
       ul 

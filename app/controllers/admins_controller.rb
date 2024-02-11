@@ -1,5 +1,3 @@
-class AdminsController < ApplicationController
-  before_action :authenticate_admin!
-
+class AdminsController < DeviseAuthenticationController
   def index; end
 end

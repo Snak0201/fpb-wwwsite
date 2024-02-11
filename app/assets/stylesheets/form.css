@@ -4,7 +4,12 @@
   }
 
   .button{
+    display: block;
     margin-top: 10px;
+  }
+
+  .holizontal_buttons{
+    margin-right: 10px;
   }
 
   .wide_text_area{

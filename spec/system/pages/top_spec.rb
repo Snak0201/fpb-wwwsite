@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe 'top page' do
+  describe '#announcement' do
+    let(:announcement) { create(:admins_announcement) }
+
+    context 'when new announcement created' do
+      let(:content) { 'お知らせを更新しました' }
+
+      it 'shows new one' do
+        visit root_path
+        within('#announcement') { expect(page).to have_content announcement.content }
+        create(:admins_announcement, content:)
+        visit root_path
+        within('#announcement') { expect(page).to have_content announcement.content }
+      end
+    end
+  end
+
   describe 'footer' do
     it 'has link to about page' do
       visit root_path

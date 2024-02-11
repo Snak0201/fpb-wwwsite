@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :articles do
       patch :toggle_published, on: :member
     end
+
+    resource :announcement, only: %i[new create] do
+      post :preview, on: :member
+    end
   end
 
   resources :articles, only: %i[index show]

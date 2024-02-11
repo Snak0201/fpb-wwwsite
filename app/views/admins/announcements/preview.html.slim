@@ -1,0 +1,13 @@
+h1 お知らせの更新
+p トップ画面で以下のような表示になります。よろしいですか？
+
+h2 お知らせ
+= convert_markdown_into_html(@announcement&.content)
+
+= form_with model: @announcement, url: admin_announcement_path, class: 'form' do |f|
+  = render 'shared/form_errors', model: f.object
+
+  = f.hidden_field :content
+
+  = f.submit 'キャンセル', class: 'holizontal_buttons'
+  = f.submit '更新', class: 'holizontal_buttons'
