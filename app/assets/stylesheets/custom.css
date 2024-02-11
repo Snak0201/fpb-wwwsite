@@ -67,8 +67,8 @@ footer{
   text-align: center;
 }
 
-/* 個別ページ */
-.articles_show{
+/* 記事 */
+.article{
   #published_at{
     margin-bottom: 0;
   }
@@ -81,6 +81,40 @@ footer{
     margin-right: 5px;
   }
 }
+
+/* フォーム */
+.form{
+  .block{
+    display: block;
+    margin-top: 10px;
+  }
+
+  .button{
+    display: block;
+    margin-top: 10px;
+  }
+
+  .check_boxes{
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  .holizontal_buttons{
+    margin-right: 10px;
+  }
+
+  .wide_text_area{
+    width: 300px;
+    height: 300px;
+  }
+
+  .wide_text_field{
+    width: 300px;
+  }
+}
+
+
+/* 個別ページ */
 
 .pages_top{
   .small{
