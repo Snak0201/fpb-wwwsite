@@ -28,7 +28,7 @@ RSpec.describe 'create an article' do
   end
 
   context 'with 3 bureau' do
-    it 'shows the jurisdiction bureau on admin article show page' do
+    it 'shows the jurisdiction bureaus on admin article show page' do
       visit new_admin_article_path
       fill_in 'タイトル', with: title
       fill_in '内容', with: content
