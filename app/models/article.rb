@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
-  has_many :bureau_articles, class_name: 'BureauArticle', dependent: :destroy
-  has_many :bureaus, through: :bureau_articles, inverse_of: :articles
+  has_many :bureau_articles, class_name: 'BureauArticle', dependent: :destroy, inverse_of: :article
+  has_many :bureaus, through: :bureau_articles
 
   validates :title, :number, presence: true
 
