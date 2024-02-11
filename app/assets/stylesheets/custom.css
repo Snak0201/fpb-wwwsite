@@ -76,6 +76,10 @@ footer{
   #updated_at{
     margin-top: 0;
   }
+
+  .jurisdiction_links{
+    margin-right: 5px;
+  }
 }
 
 .pages_top{
