@@ -7,7 +7,7 @@ h2 お知らせ
 = form_with model: @announcement, url: admin_announcement_path, class: 'form' do |f|
   = render 'shared/form_errors', model: f.object
 
-  = f.hidden_field :content, class: 'wide_text_area'
+  = f.hidden_field :content
 
   = f.submit 'キャンセル', class: 'holizontal_buttons'
   = f.submit '更新', class: 'holizontal_buttons'
