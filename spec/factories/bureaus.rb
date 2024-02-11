@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :bureau do
-    name { 'Test Bureau' }
-    slug { 'test' }
-    content { "Test Bureau's content" }
+    sequence(:name) { |n| "Test Bureau ##{n}" }
+    sequence(:slug) { |n| "test-bureau-#{n}" }
+    sequence(:content) { |n| "Test Bureau ##{n}'s content" }
   end
 end
