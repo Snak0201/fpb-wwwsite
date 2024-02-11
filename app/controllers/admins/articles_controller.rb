@@ -10,12 +10,10 @@ module Admins
 
     def new
       @article = Article.new
-      @bureaus = Bureau.all
     end
 
     def edit
       @article = Article.find(params[:id])
-      @bureaus = Bureau.all
     end
 
     def create
