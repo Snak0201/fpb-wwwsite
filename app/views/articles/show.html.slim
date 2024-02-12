@@ -1,9 +1,3 @@
 - content_for(:title, @article.title)
 
-.articles_show
-  h1#title = @article.title
-
-  p#published_at = "公開日時: #{l @article.published_at}"
-  p#updated_at = "更新日時: #{l @article.updated_at}"
-
-  p#content = convert_markdown_into_html(@article.content)
+= render partial: 'shared/article', locals: { article: @article }

@@ -13,13 +13,4 @@ ul
   li = link_to '記事を削除する', admin_article_path(@article), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'この記事を削除しますか？' }
 
 h2 表示
-.articles_show
-  h1#title= @article.title
-
-  - if @article.published_at.nil?
-    p#published_at = '公開されていません'
-  - else
-    p#published_at= "公開日時: #{l @article.published_at}"
-  p#updated_at= "更新日時: #{l @article.updated_at}"
-
-  p#content= convert_markdown_into_html(@article.content)
+= render partial: 'shared/article', locals: { article: @article }

@@ -1,0 +1,16 @@
+.article
+  h1#title = article.title
+
+  - if article.published_at.nil?
+    p#published_at = '公開されていません'
+  - else
+    p#published_at= "公開日時: #{l article.published_at}"
+  p#updated_at = "更新日時: #{l article.updated_at}"
+
+  - if article.bureaus.present?
+    p#bureaus
+      '管轄局:
+      - article.bureaus.each do |bureau|
+        = link_to bureau.name, '#', class: 'jurisdiction_links'
+
+  p#content = convert_markdown_into_html(article.content)

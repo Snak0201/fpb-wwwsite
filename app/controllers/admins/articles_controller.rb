@@ -61,7 +61,7 @@ module Admins
     private
 
     def article_params
-      params.require(:article).permit(%i[title content number])
+      params.require(:article).permit(%i[title content number], bureau_ids: [])
     end
   end
 end
