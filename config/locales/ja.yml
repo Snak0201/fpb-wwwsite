@@ -52,7 +52,7 @@ ja:
       article:
         title: タイトル
         content: 内容
-        bureau_ids: 局
+        bureau_ids: 管轄局
         number: 分類番号
       admins/announcement:
         content: 内容
