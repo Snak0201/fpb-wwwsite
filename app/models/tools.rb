@@ -1,5 +1,5 @@
 module Tools
   def self.table_name_prefix
-    "tools_"
+    'tools_'
   end
 end
