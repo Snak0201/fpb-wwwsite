@@ -8,7 +8,7 @@ module Tools
     def recover_time
       hours = seconds_to_recover_stamina_for_target / 3600
       minutes = (seconds_to_recover_stamina_for_target % 3600) / 60
-      seconds = seconds_to_recover_stamina_for_target / 60
+      seconds = seconds_to_recover_stamina_for_target % 60
 
       [hours, minutes, seconds]
     end
