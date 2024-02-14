@@ -12,19 +12,29 @@ RSpec.describe Tools::StaminaCalculator do
     subject { calculator.recover_time }
 
     context 'when target_stamina is larger than current_stamina' do
-      it { is_expected.to eq [2, 0, 0] }
+      let(:result) do
+        { hours: 2, minutes: 0, seconds: 0 }
+      end
+
+      it { is_expected.to eq result }
     end
 
     context 'when target_stamina is smaller than current_stamina' do
       let(:current_stamina) { 200 }
+      let(:result) do
+        { hours: 0, minutes: 0, seconds: 0 }
+      end
 
-      it { is_expected.to eq [0, 0, 0] }
+      it { is_expected.to eq result }
     end
 
     context 'when recover_one_stamina_seconds is 0' do
       let(:recover_one_stamina_seconds) { 0 }
+      let(:result) do
+        { hours: 0, minutes: 0, seconds: 0 }
+      end
 
-      it { is_expected.to eq [0, 0, 0] }
+      it { is_expected.to eq result }
     end
   end
 
