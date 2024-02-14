@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Tools::StaminaCalculator do
   let(:calculator) do
-    build(:tools_stamina_calculator, current_stamina:, target_stamina:, recover_one_stamina_seconds:)
+    build(:tools_stamina_calculator, current_stamina:, target_stamina:, recover_stamina_seconds:)
   end
   let(:current_stamina) { 10 }
   let(:target_stamina) { 100 }
-  let(:recover_one_stamina_seconds) { 80 }
+  let(:recover_stamina_seconds) { 80 }
 
   describe '#recover_time' do
     subject { calculator.recover_time }
@@ -28,8 +28,8 @@ RSpec.describe Tools::StaminaCalculator do
       it { is_expected.to eq result }
     end
 
-    context 'when recover_one_stamina_seconds is 0' do
-      let(:recover_one_stamina_seconds) { 0 }
+    context 'when recover_stamina_seconds is 0' do
+      let(:recover_stamina_seconds) { 0 }
       let(:result) do
         { hours: 0, minutes: 0, seconds: 0 }
       end
@@ -53,8 +53,8 @@ RSpec.describe Tools::StaminaCalculator do
       it { is_expected.to eq Time.zone.now }
     end
 
-    context 'when recover_one_stamina_seconds is 0' do
-      let(:recover_one_stamina_seconds) { 0 }
+    context 'when recover_stamina_seconds is 0' do
+      let(:recover_stamina_seconds) { 0 }
 
       it { is_expected.to eq Time.zone.now }
     end
