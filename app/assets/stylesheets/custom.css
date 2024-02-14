@@ -111,6 +111,10 @@ footer{
   .wide_text_field{
     width: 300px;
   }
+
+  .wide_field{
+    width: 300px;
+  }
 }
 
 

@@ -1,2 +1,10 @@
-h1 Tools::StaminaCalculators#show
-p Find me in app/views/tools/stamina_calculators/show.html.slim
+- content_for(:title, 'スタミナ計算機')
+
+h1 スタミナ計算機
+p ソーシャルゲームやその他で用いられている、スタミナを計算するツールです。
+
+h2 入力
+= turbo_frame_tag 'output' do
+  = form_with model: @calculator, url: tools_stamina_calculator_path, method: :post, class: 'form' do |f|
+    = render partial: 'form', locals: { f: }
+

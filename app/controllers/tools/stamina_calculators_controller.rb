@@ -1,7 +1,22 @@
 module Tools
   class StaminaCalculatorsController < ApplicationController
-    def show; end
+    def show
+      @calculator = Tools::StaminaCalculator.new
+    end
 
-    def create; end
+    def create
+      @calculator = Tools::StaminaCalculator.new(stamina_params)
+
+      if @calculator.valid?
+        puts 1
+      else
+        render :show, status: :unprocessable_entity
+      end
+    end
+
+    private
+    def stamina_params
+      params.require(:tools_stamina_calculator).permit(%i[current_stamina target_stamina recover_stamina_seconds])
+    end
   end
 end
