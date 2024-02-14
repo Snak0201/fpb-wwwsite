@@ -3,7 +3,8 @@ module Tools
     include ActiveModel::Model
     attr_accessor :current_stamina, :target_stamina, :recover_one_stamina_seconds
 
-    validates :current_stamina, :target_stamina, :recover_one_stamina_seconds, presence: true
+    validates :current_stamina, :target_stamina, :recover_one_stamina_seconds,
+              presence: true, numericality: { greater_than_or_equal_to: 0 }
 
     def recover_time
       hours = seconds_to_recover_stamina_for_target / 3600
@@ -24,6 +25,7 @@ module Tools
     end
 
     def seconds_to_recover_stamina_for_target
+      # NOTE: 目標までのスタミナが負ならもう達成しているので0
       return 0 if to_target_stamina.negative?
 
       to_target_stamina * recover_one_stamina_seconds
