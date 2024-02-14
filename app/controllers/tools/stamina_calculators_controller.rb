@@ -8,13 +8,15 @@ module Tools
       @calculator = Tools::StaminaCalculator.new(stamina_params)
 
       if @calculator.valid?
-        puts 1
+        @recover_time = @calculator.recover_time
+        render partial: 'output'
       else
         render :show, status: :unprocessable_entity
       end
     end
 
     private
+
     def stamina_params
       params.require(:tools_stamina_calculator).permit(%i[current_stamina target_stamina recover_stamina_seconds])
     end

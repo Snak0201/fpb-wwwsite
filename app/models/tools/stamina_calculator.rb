@@ -11,7 +11,7 @@ module Tools
       minutes = (seconds_to_recover_stamina_for_target % 3600) / 60
       seconds = seconds_to_recover_stamina_for_target % 60
 
-      { hours:, minutes:, seconds: }
+      { hours: hours.floor, minutes: minutes.floor, seconds: seconds.floor }
     end
 
     def recover_at
@@ -26,14 +26,14 @@ module Tools
     end
 
     def to_target_stamina
-      target_stamina - current_stamina
+      target_stamina.to_f - current_stamina.to_f
     end
 
     def seconds_to_recover_stamina_for_target
       # NOTE: 目標までのスタミナが負ならもう達成しているので0
       return 0 if to_target_stamina.negative?
 
-      to_target_stamina * (recover_stamina_seconds / recover_step)
+      (to_target_stamina * (recover_stamina_seconds.to_f / recover_step)).floor
     end
   end
 end

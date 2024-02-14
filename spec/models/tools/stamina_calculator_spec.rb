@@ -19,6 +19,16 @@ RSpec.describe Tools::StaminaCalculator do
       it { is_expected.to eq result }
     end
 
+    context 'when staminas are float value' do
+      let(:current_stamina) { 5.67 }
+      let(:target_stamina) { 12.34 }
+      let(:result)  do
+        { hours: 0, minutes: 8, seconds: 53 }
+      end
+
+      it { is_expected.to eq result }
+    end
+
     context 'when target_stamina is smaller than current_stamina' do
       let(:current_stamina) { 200 }
       let(:result) do
@@ -45,6 +55,13 @@ RSpec.describe Tools::StaminaCalculator do
 
     context 'when target_stamina is larger than current_stamina' do
       it { is_expected.to eq Time.zone.now + 7200 }
+    end
+
+    context 'when staminas are float value' do
+      let(:current_stamina) { 5.67 }
+      let(:target_stamina) { 12.34 }
+
+      it { is_expected.to eq Time.zone.now + 533 }
     end
 
     context 'when target_stamina is smaller than current_stamina' do
