@@ -30,7 +30,6 @@ assignees: ''
 - [ ] `true`が`true`と表示される
 
 ## 原因
-- `true`が`false`を返している
 
 ## 実装方針
 
