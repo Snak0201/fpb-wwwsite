@@ -8,6 +8,20 @@ RSpec.describe Tools::StaminaCalculator do
   let(:target_stamina) { 100 }
   let(:recover_stamina_seconds) { 80 }
 
+  describe '#valid?' do
+    subject { calculator.valid? }
+
+    context 'when input valid values' do
+      it { is_expected.to be true }
+    end
+
+    context 'when recover_stamina_seconds: 0' do
+      let(:recover_stamina_seconds) { 0 }
+
+      it { is_expected.to be false }
+    end
+  end
+
   describe '#recover_time' do
     subject { calculator.recover_time }
 
@@ -37,15 +51,6 @@ RSpec.describe Tools::StaminaCalculator do
 
       it { is_expected.to eq result }
     end
-
-    context 'when recover_stamina_seconds is 0' do
-      let(:recover_stamina_seconds) { 0 }
-      let(:result) do
-        { hours: 0, minutes: 0, seconds: 0 }
-      end
-
-      it { is_expected.to eq result }
-    end
   end
 
   describe '#recover_at' do
@@ -66,12 +71,6 @@ RSpec.describe Tools::StaminaCalculator do
 
     context 'when target_stamina is smaller than current_stamina' do
       let(:current_stamina) { 200 }
-
-      it { is_expected.to eq Time.zone.now }
-    end
-
-    context 'when recover_stamina_seconds is 0' do
-      let(:recover_stamina_seconds) { 0 }
 
       it { is_expected.to eq Time.zone.now }
     end

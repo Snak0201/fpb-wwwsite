@@ -3,8 +3,10 @@ module Tools
     include ActiveModel::Model
     attr_accessor :current_stamina, :target_stamina, :recover_stamina_seconds
 
-    validates :current_stamina, :target_stamina, :recover_stamina_seconds,
+    validates :current_stamina, :target_stamina,
               presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+    validates :recover_stamina_seconds, presence: true, numericality: { greater_than: 0 }
 
     def recover_time
       hours = seconds_to_recover_stamina_for_target / 3600
