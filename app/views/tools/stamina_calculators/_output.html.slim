@@ -1,0 +1,9 @@
+= turbo_frame_tag 'output' do
+  = form_with model: @calculator, url: tools_stamina_calculator_path, method: :post, class: 'form' do |f|
+      = render partial: 'form', locals: { f: }
+  
+  h2 出力
+  ul 
+    li = "現在時刻: #{l Time.zone.now}"
+    li = "回復にかかる時間: 約 #{@recover_time[:hours]} 時間 #{@recover_time[:minutes]} 分 #{@recover_time[:seconds]} 秒"
+    li = "完了予想時刻: #{l @calculator.recover_at}"
