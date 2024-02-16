@@ -56,8 +56,6 @@ ja:
         number: 分類番号
       admins/announcement:
         content: 内容
-      tools/stamina_calculator:
-        current_stamina: 現在のスタミナ
     models:
       user: ユーザー
       admin: 管理者
@@ -70,6 +68,7 @@ ja:
         current_stamina: 現在のスタミナ
         target_stamina: 目標のスタミナ
         recover_stamina_seconds: スタミナを1回復する秒数
+        target_time: 目標の時間
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
