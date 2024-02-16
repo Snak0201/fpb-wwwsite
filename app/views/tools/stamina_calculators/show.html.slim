@@ -5,8 +5,16 @@ p ソーシャルゲームやその他で用いられている「スタミナ」
   目標スタミナまでの回復にかかる時間と完了予想時刻が出力されます。
   スタミナを1回復するのにかかる秒数は、各サービスのヘルプ等を確認するか、ご自身で計算をお願いします。
 
+/ NOTE: リンクでTurboを発火させるには
+/ link_toに置き換えへのpathとdata: {turbo_frame: 'tag_name'}を書く
+
+= link_to 'Answer', one_tools_stamina_calculator_path, data: {turbo_frame: 'one'}
+
+= turbo_frame_tag 'one' do 
+  p one is...
+
 h2 入力
-= turbo_frame_tag 'output' do
+/ = turbo_frame_tag 'output' do
   = form_with model: @calculator, url: tools_stamina_calculator_path, method: :post, class: 'form' do |f|
     = render partial: 'form', locals: { f: }
 

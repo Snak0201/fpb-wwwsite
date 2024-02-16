@@ -15,6 +15,10 @@ module Tools
       end
     end
 
+    def one
+      render partial: 'one'
+    end
+
     private
 
     def stamina_params
