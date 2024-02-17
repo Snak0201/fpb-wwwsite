@@ -10,11 +10,7 @@ module Tools
     validate :target_time_must_be_future
 
     def recover_time
-      hours = seconds_to_recover_stamina_for_target / 3600
-      minutes = (seconds_to_recover_stamina_for_target % 3600) / 60
-      seconds = seconds_to_recover_stamina_for_target % 60
-
-      { hours: hours.floor, minutes: minutes.floor, seconds: seconds.floor }
+      convert_seconds_to_time_hash(seconds_to_recover_stamina_for_target)
     end
 
     def recover_at
@@ -22,12 +18,11 @@ module Tools
     end
 
     def to_target_time
-      # NOTE: 出力は秒
-      target_time - Time.zone.now
+      convert_seconds_to_time_hash(seconds_to_target_time)
     end
 
     def stamina_on_target_time
-      (to_target_time / (recover_stamina_seconds.to_f/recover_step) ) + current_stamina.to_f
+      (seconds_to_target_time / (recover_stamina_seconds.to_f / recover_step)) + current_stamina.to_f
     end
 
     private
@@ -58,6 +53,19 @@ module Tools
       return 0 if to_target_stamina.negative?
 
       (to_target_stamina * (recover_stamina_seconds.to_f / recover_step)).floor
+    end
+
+    def seconds_to_target_time
+      # NOTE: 出力は秒
+      (target_time - Time.zone.now).floor
+    end
+
+    def convert_seconds_to_time_hash(seconds)
+      hours = seconds / 3600
+      minutes = (seconds % 3600) / 60
+      seconds %= 60
+
+      { hours: hours.floor, minutes: minutes.floor, seconds: seconds.floor }
     end
   end
 end

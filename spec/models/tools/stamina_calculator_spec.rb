@@ -95,14 +95,4 @@ RSpec.describe Tools::StaminaCalculator do
       it { is_expected.to eq Time.zone.now }
     end
   end
-
-  describe '#to_target_time' do
-    let(:target_time) { Time.zone.parse('2024-02-17T15:00') }
-
-    subject { calculator.to_target_time }
-
-    it do
-      debugger
-    end
-  end
 end
