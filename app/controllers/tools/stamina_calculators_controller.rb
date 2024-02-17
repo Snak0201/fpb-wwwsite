@@ -21,9 +21,12 @@ module Tools
 
     def create_stamina
       @calculator = Tools::StaminaCalculator.new(stamina_params)
-      return if @calculator.valid?
-
-      render :show_stamina, status: :unprocessable_entity
+      if @calculator.valid?
+        @to_target_time = @calculator.to_target_time
+        render partial: 'output_stamina'
+      else
+        render :show_stamina, status: :unprocessable_entity
+      end
     end
 
     private

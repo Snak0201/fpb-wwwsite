@@ -11,6 +11,6 @@ p
   = link_to 'こちら', tools_stamina_calculator_path
 
 h2 入力
-= turbo_frame_tag 'output' do
+= turbo_frame_tag 'output_stamina' do
   = form_with model: @calculator, url: stamina_tools_stamina_calculator_path, method: :post, class: 'form' do |f|
-    = render partial: 'stamina_form', locals: { f: }
+    = render partial: 'form_stamina', locals: { f: }

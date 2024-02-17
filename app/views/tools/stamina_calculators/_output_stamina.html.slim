@@ -1,0 +1,9 @@
+= turbo_frame_tag 'output_stamina' do
+  = form_with model: @calculator, url: stamina_tools_stamina_calculator_path, method: :post, class: 'form' do |f|
+    = render partial: 'form_stamina', locals: { f: }
+  
+  h2 出力
+  ul 
+    li = "目標時刻でのスタミナ: #{@calculator.stamina_on_target_time}"
+    li = "目標時刻: #{l @calculator.target_time}"
+    li = "目標時刻まで: 約 #{@to_target_time[:hours]} 時間 #{@to_target_time[:minutes]} 分 #{@to_target_time[:seconds]} 秒"
