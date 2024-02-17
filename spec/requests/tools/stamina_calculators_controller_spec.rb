@@ -8,9 +8,9 @@ RSpec.describe Tools::StaminaCalculatorsController do
     end
   end
 
-  describe 'GET /stamina' do
+  describe 'GET /stamina_from_time' do
     it 'returns http success' do
-      get '/tools/stamina_calculator/stamina'
+      get '/tools/stamina_calculator/stamina_from_time'
       expect(response).to have_http_status(:success)
     end
   end
