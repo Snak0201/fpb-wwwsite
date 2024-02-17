@@ -2,21 +2,41 @@ require 'rails_helper'
 
 RSpec.describe Tools::StaminaCalculator do
   let(:calculator) do
-    build(:tools_stamina_calculator, current_stamina:, target_stamina:, recover_stamina_seconds:)
+    build(:tools_stamina_calculator, current_stamina:, target_stamina:, recover_stamina_seconds:, target_time:)
   end
   let(:current_stamina) { '10' }
   let(:target_stamina) { '100' }
   let(:recover_stamina_seconds) { '80' }
+  let(:target_time) { '' }
 
   describe '#valid?' do
     subject { calculator.valid? }
 
-    context 'when input valid values' do
+    context 'when input valid values by time' do
       it { is_expected.to be true }
     end
 
-    context 'when recover_stamina_seconds: 0' do
+    context 'when input valid values by stamina' do
+      let(:target_time) { '2099-12-31T23:59' }
+      let(:target_stamina) { '' }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when target stamina and target time are blank' do
+      let(:target_stamina) { '' }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when recover stamina seconds are 0' do
       let(:recover_stamina_seconds) { '0' }
+
+      it { is_expected.to be false }
+    end
+
+    context 'when target time is nil' do
+      let(:target_time) { nil }
 
       it { is_expected.to be false }
     end

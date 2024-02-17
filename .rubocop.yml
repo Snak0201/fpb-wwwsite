@@ -21,6 +21,8 @@ RSpec/NestedGroups:
   Enabled: false
 Metrics/MethodLength:
   Max: 30
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
 
 
 AllCops:

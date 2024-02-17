@@ -3,11 +3,12 @@ module Tools
     include ActiveModel::Model
     attr_accessor :current_stamina, :target_stamina, :recover_stamina_seconds, :target_time
 
-    validates :current_stamina, :target_stamina,
-              presence: true, numericality: { greater_than_or_equal_to: 0 }
-
     validates :recover_stamina_seconds, presence: true, numericality: { greater_than: 0 }
-    validates :target_time, presence: true
+    validates :current_stamina, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+    validate :blank_all_target
+
+    # validates :target_time, presence: true
 
     def recover_time
       hours = seconds_to_recover_stamina_for_target / 3600
@@ -22,6 +23,12 @@ module Tools
     end
 
     private
+
+    def blank_all_target
+      return unless target_time.nil? || (target_stamina.blank? && target_time.blank?)
+
+      errors.add(:base, '目標（3つめのボックス）を入力してください')
+    end
 
     def recover_step
       # TODO: recover_stamina_seconds経過するといくつスタミナが回復するかを指定できるようにする
