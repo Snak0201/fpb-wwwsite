@@ -6,9 +6,8 @@ module Tools
     validates :recover_stamina_seconds, presence: true, numericality: { greater_than: 0 }
     validates :current_stamina, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-    validate :blank_all_target
-
-    # validates :target_time, presence: true
+    validate :target_must_be_present
+    validate :target_time_must_be_future
 
     def recover_time
       hours = seconds_to_recover_stamina_for_target / 3600
@@ -24,10 +23,16 @@ module Tools
 
     private
 
-    def blank_all_target
+    def target_must_be_present
       return unless target_time.nil? || (target_stamina.blank? && target_time.blank?)
 
       errors.add(:base, '目標（3つめのボックス）を入力してください')
+    end
+
+    def target_time_must_be_future
+      return unless target_time.present? && target_time < Time.zone.now
+
+      errors.add(:target_time, 'は未来の日時を入力してください')
     end
 
     def recover_step
