@@ -17,6 +17,7 @@ RSpec.describe Tools::StaminaCalculator do
     end
 
     context 'when input valid values by stamina' do
+      # FIXME: 2100年になった瞬間確実にテストが落ちる
       let(:target_time) { Time.zone.parse('2099-12-31T23:59') }
       let(:target_stamina) { '' }
 
@@ -29,14 +30,14 @@ RSpec.describe Tools::StaminaCalculator do
       it { is_expected.to be false }
     end
 
-    context 'when recover stamina seconds are 0' do
-      let(:recover_stamina_seconds) { '0' }
+    context 'when target time is nil' do
+      let(:target_time) { nil }
 
       it { is_expected.to be false }
     end
 
-    context 'when target time is nil' do
-      let(:target_time) { nil }
+    context 'when target time is past' do
+      let(:target_time) { Time.zone.parse('2024-01-04T00:00') }
 
       it { is_expected.to be false }
     end
@@ -93,6 +94,55 @@ RSpec.describe Tools::StaminaCalculator do
       let(:current_stamina) { '200' }
 
       it { is_expected.to eq Time.zone.now }
+    end
+  end
+
+  describe '#stamina_on_target_time' do
+    # NOTE: 表示スタミナは少ない方に誤差59秒分まで許容する
+
+    subject(:displayed_stamina) { calculator.stamina_on_target_time }
+
+    let(:target_stamina) { '' }
+    let(:converted_current_stamina) { 10 }
+    let(:converted_recover_stamina_seconds) { 80 }
+
+    context 'without target stamina' do
+      context 'when target time is in an hour' do
+        let(:target_time) { Time.zone.now + 3600 }
+
+        it 'stamina is in acceptable range' do
+          expect(displayed_stamina).to be > converted_current_stamina + (3540 / converted_recover_stamina_seconds)
+          expect(displayed_stamina).to be <= converted_current_stamina + (3600 / converted_recover_stamina_seconds)
+        end
+      end
+
+      context 'when target time is in ten hours' do
+        let(:target_time) { Time.zone.now + 36_000 }
+
+        it 'stamina is in acceptable range' do
+          expect(displayed_stamina).to be > converted_current_stamina + (35_940 / converted_recover_stamina_seconds)
+          expect(displayed_stamina).to be <= converted_current_stamina + (36_000 / converted_recover_stamina_seconds)
+        end
+      end
+    end
+
+    context 'with target_stamina' do
+      let(:target_stamina) { '100' }
+
+      context 'when target time is in an hour' do
+        let(:target_time) { Time.zone.now + 3600 }
+
+        it 'stamina is in acceptable range' do
+          expect(displayed_stamina).to be > converted_current_stamina + (3540 / converted_recover_stamina_seconds)
+          expect(displayed_stamina).to be <= converted_current_stamina + (3600 / converted_recover_stamina_seconds)
+        end
+      end
+
+      context 'when target time is in ten hours' do
+        let(:target_time) { Time.zone.now + 36_000 }
+
+        it { is_expected.to be_nil }
+      end
     end
   end
 end

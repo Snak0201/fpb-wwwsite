@@ -22,7 +22,8 @@ module Tools
     end
 
     def stamina_on_target_time
-      stamina = (seconds_to_target_time / (recover_stamina_seconds.to_f / recover_step)) + current_stamina.to_f
+      stamina = ((seconds_to_target_time / (recover_stamina_seconds.to_f / recover_step)) + current_stamina.to_f)
+                .floor(3)
       return stamina if target_stamina.blank? || stamina < target_stamina.to_f
 
       # NOTE: 上限に達したらnil
