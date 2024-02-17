@@ -21,6 +21,15 @@ module Tools
       Time.zone.now + seconds_to_recover_stamina_for_target
     end
 
+    def to_target_time
+      # NOTE: 出力は秒
+      target_time - Time.zone.now
+    end
+
+    def stamina_on_target_time
+      (to_target_time / (recover_stamina_seconds.to_f/recover_step) ) + current_stamina.to_f
+    end
+
     private
 
     def target_must_be_present
