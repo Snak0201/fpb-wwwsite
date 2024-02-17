@@ -6,8 +6,11 @@ p ソーシャルゲームやその他で用いられている「スタミナ」
   ある時刻にスタミナがいくつになっているかが出力されます。
   スタミナの回復上限を設定すると、上限に達した場合にその時刻を表示します。
   スタミナを1回復するのにかかる秒数は、各サービスのヘルプ等を確認するか、ご自身で計算をお願いします。
+p
+  'あるスタミナになる時刻を計算したい方は 
+  = link_to 'こちら', tools_stamina_calculator_path
 
 h2 入力
 = turbo_frame_tag 'output' do
-  = form_with model: @calculator, url: tools_stamina_calculator_path, method: :post, class: 'form' do |f|
+  = form_with model: @calculator, url: stamina_tools_stamina_calculator_path, method: :post, class: 'form' do |f|
     = render partial: 'stamina_form', locals: { f: }
