@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   resources :tools, only: %i[index]
   namespace :tools do
     resource :character_counter, only: %i[show create]
-    resource :stamina_calculator, only: %i[show create]
+    resource :stamina_calculator, only: %i[show create] do
+      collection do
+        get :stamina, to: 'stamina_calculators#show_stamina', path: 'stamina_from_time'
+        post :stamina, to: 'stamina_calculators#create_stamina', path: 'stamina_from_time'
+      end
+    end
   end
 end

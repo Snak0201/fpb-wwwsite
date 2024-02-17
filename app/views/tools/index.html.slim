@@ -5,4 +5,7 @@ p Railsの勉強のために軽く作成したツールの一覧です。
 
 ul 
   li = link_to '文字数カウンター', tools_character_counter_path
-  li = link_to 'スタミナ計算機', tools_stamina_calculator_path
+  li スタミナ計算機
+  ul 
+    li = link_to 'スタミナ計算機（あるスタミナになる時刻は？）', tools_stamina_calculator_path
+    li = link_to 'スタミナ計算機（ある時刻でのスタミナは？）', stamina_tools_stamina_calculator_path

@@ -1,0 +1,18 @@
+= turbo_frame_tag 'output_stamina' do
+  = form_with model: @calculator, url: stamina_tools_stamina_calculator_path, method: :post, class: 'form' do |f|
+    = render partial: 'form_stamina', locals: { f: }
+  
+  h2 出力
+  ul 
+    - if @calculator.stamina_on_target_time.present?
+      li 目標時刻でのスタミナは以下の通りです
+      ul 
+        li 
+          strong = @calculator.stamina_on_target_time
+        li = "約 #{@to_target_time[:hours]} 時間 #{@to_target_time[:minutes]} 分 #{@to_target_time[:seconds]} 秒後"
+    - else
+      li 下記の時刻で回復上限に達する予定です
+      ul
+        li
+          strong = l @calculator.recover_at
+        li = "約 #{@recover_time[:hours]} 時間 #{@recover_time[:minutes]} 分 #{@recover_time[:seconds]} 秒後"

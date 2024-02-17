@@ -1,0 +1,16 @@
+= render 'shared/form_errors', model: f.object
+
+p スタミナを1回復するために
+= f.number_field :recover_stamina_seconds, step: '0.01', placeholder: Tools::StaminaCalculator.human_attribute_name(:recover_stamina_seconds), class: 'wide_field'
+'秒
+p かかるとき、現在
+= f.number_field :current_stamina, step: '0.01', placeholder: Tools::StaminaCalculator.human_attribute_name(:current_stamina), class: 'wide_field'
+p であるスタミナが
+/ NOTE: デフォルト値を入れるため形式を合わせる
+= f.datetime_field :raw_target_time, value: @calculator.form_value_of_target_time, class: 'wide_field'
+p にいくつになっている？
+
+'※回復上限は
+= f.number_field :target_stamina, step: '0.01', placeholder: '回復上限があれば入力'
+
+= f.submit '計算', class: 'button'
