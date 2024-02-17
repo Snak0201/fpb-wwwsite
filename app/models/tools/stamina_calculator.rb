@@ -22,7 +22,19 @@ module Tools
     end
 
     def stamina_on_target_time
-      (seconds_to_target_time / (recover_stamina_seconds.to_f / recover_step)) + current_stamina.to_f
+      stamina = (seconds_to_target_time / (recover_stamina_seconds.to_f / recover_step)) + current_stamina.to_f
+      return stamina if target_stamina.blank? || stamina < target_stamina.to_f
+
+      # NOTE: 上限に達したらnil
+      nil
+    end
+
+    def form_value_of_target_time
+      if target_time.present?
+        target_time.strftime('%Y-%m-%dT%H:%M')
+      else
+        Time.zone.now.strftime('%Y-%m-%dT%H:%M')
+      end
     end
 
     private
@@ -34,7 +46,7 @@ module Tools
     end
 
     def target_time_must_be_future
-      return unless target_time.present? && target_time < Time.zone.now
+      return if target_time.blank? || target_time > Time.zone.now
 
       errors.add(:target_time, 'は未来の日時を入力してください')
     end

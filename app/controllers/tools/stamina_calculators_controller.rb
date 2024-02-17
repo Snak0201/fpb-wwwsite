@@ -23,6 +23,7 @@ module Tools
       @calculator = Tools::StaminaCalculator.new(stamina_params)
       if @calculator.valid?
         @to_target_time = @calculator.to_target_time
+        @recover_time = @calculator.recover_time
         render partial: 'output_stamina'
       else
         render :show_stamina, status: :unprocessable_entity

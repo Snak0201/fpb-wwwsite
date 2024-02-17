@@ -4,6 +4,11 @@
   
   h2 出力
   ul 
-    li = "目標時刻でのスタミナ: #{@calculator.stamina_on_target_time}"
-    li = "目標時刻: #{l @calculator.target_time}"
-    li = "目標時刻まで: 約 #{@to_target_time[:hours]} 時間 #{@to_target_time[:minutes]} 分 #{@to_target_time[:seconds]} 秒"
+    - if @calculator.stamina_on_target_time.present?
+      li = "目標時刻でのスタミナ: #{@calculator.stamina_on_target_time}"
+      li = "目標時刻まで: 約 #{@to_target_time[:hours]} 時間 #{@to_target_time[:minutes]} 分 #{@to_target_time[:seconds]} 秒"
+    - else
+      li 下記の時刻に回復上限に達する予定です
+      ul
+        li = "#{l @calculator.recover_at}"
+        li = "約 #{@recover_time[:hours]} 時間 #{@recover_time[:minutes]} 分 #{@recover_time[:seconds]} 秒後"

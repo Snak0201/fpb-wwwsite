@@ -7,7 +7,7 @@ p かかるとき、現在
 = f.number_field :current_stamina, step: '0.01', placeholder: Tools::StaminaCalculator.human_attribute_name(:current_stamina), class: 'wide_field'
 p であるスタミナが
 / NOTE: デフォルト値を入れるため形式を合わせる
-= f.datetime_field :raw_target_time, value: Time.zone.now.strftime('%Y-%m-%dT%H:%M'), class: 'wide_field'
+= f.datetime_field :raw_target_time, value: @calculator.form_value_of_target_time, class: 'wide_field'
 p にいくつになっている？
 
 '※回復上限は
