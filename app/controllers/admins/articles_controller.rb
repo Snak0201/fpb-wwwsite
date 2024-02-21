@@ -1,19 +1,26 @@
 module Admins
   class ArticlesController < DeviseAuthenticationController
+    # https://qiita.com/ogomr/items/20822f0a2161af264969
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
     def index
       @articles = Article.admin_index.page(params[:page])
+      authorize @articles
     end
 
     def show
       @article = Article.find(params[:id])
+      authorize @article
     end
 
     def new
       @article = Article.new
+      authorize @article
     end
 
     def edit
       @article = Article.find(params[:id])
+      authorize @article
     end
 
     def create
@@ -62,6 +69,10 @@ module Admins
 
     def article_params
       params.require(:article).permit(%i[title content number], bureau_ids: [])
+    end
+
+    def user_not_authorized
+      redirect_back fallback_location: root_path, alert: '権限がありません'
     end
   end
 end
