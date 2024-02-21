@@ -7,5 +7,5 @@
     li 下記の時間に回復が完了する予定です。
     ul 
       li 
-        strong = l Time.zone.now
+        strong = l @calculator.recover_at
       li = "約 #{@recover_time[:hours]} 時間 #{@recover_time[:minutes]} 分 #{@recover_time[:seconds]} 秒後"
