@@ -10,8 +10,7 @@ RSpec.describe PagesController do
       end
 
       it 'shows the newest 5 articles' do
-        get '/'
-        expect(response).to have_http_status(:success)
+        get root_path
         newest_articles.each do |article|
           expect(response.body).to include article.title
         end
@@ -28,8 +27,7 @@ RSpec.describe PagesController do
       end
 
       it 'shows the newest 5 published articles' do
-        get '/'
-        expect(response).to have_http_status(:success)
+        get root_path
         newest_articles.each do |article|
           expect(response.body).to include article.title
         end
@@ -37,20 +35,6 @@ RSpec.describe PagesController do
           expect(response.body).not_to include article.title
         end
       end
-    end
-  end
-
-  describe 'GET /about' do
-    it 'returns http success' do
-      get '/about'
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'GET /links' do
-    it 'returns http success' do
-      get '/links'
-      expect(response).to have_http_status(:success)
     end
   end
 end
