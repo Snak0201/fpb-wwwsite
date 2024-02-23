@@ -13,10 +13,10 @@ Rails.application.routes.draw do
     resources :articles do
       patch :toggle_published, on: :member
     end
-
     resource :announcement, only: %i[new create] do
       post :preview, on: :member
     end
+    resources :bureaus, only: %i[index show edit update]
   end
 
   resources :articles, only: %i[index show]
