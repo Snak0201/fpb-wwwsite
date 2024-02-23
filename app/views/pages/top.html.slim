@@ -14,7 +14,7 @@
     p = link_to '記事一覧へ', articles_path
   
   #bureaus 
-    h2 局一覧
+    h2 局一覧（記事カテゴリ）
     ul 
       - @bureaus.each do |bureau|
         li = link_to bureau.name, bureau_path(bureau)
