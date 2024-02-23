@@ -12,6 +12,7 @@ module Admins
       @bureau = Bureau.find_by!(slug: params[:slug])
 
       if params[:commit] == 'キャンセル'
+        @bureau = Bureau.new(bureau_params)
         render :edit, status: :see_other
       elsif params[:commit] == '更新'
         if @bureau.update(bureau_params)
