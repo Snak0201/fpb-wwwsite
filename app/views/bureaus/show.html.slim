@@ -1,2 +1,7 @@
-h1 Bureaus#show
-p Find me in app/views/bureaus/show.html.slim
+h1#name = @bureau.name
+p#description = @bureau.description
+h2 記事一覧
+#articles 
+  - @articles.each do |article|
+    = link_to article.name, article_path(article)
+#content = convert_markdown_into_html(@bureau.content)
