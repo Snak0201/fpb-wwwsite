@@ -6,6 +6,7 @@ ul
   li = link_to 'お知らせの更新', new_admin_announcement_path
   li = link_to '記事の作成', new_admin_article_path
   li = link_to '記事の編集', admin_articles_path
+  li = link_to '局の編集', admin_bureaus_path
 
 h2 ログアウト
 p = link_to 'ログアウト', destroy_admin_session_path, method: :delete, data: { turbo_method: :delete }

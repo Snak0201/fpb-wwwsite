@@ -1,8 +1,12 @@
 module Admins
   class BureausController < ApplicationController
-    def index; end
+    def index
+      @bureaus = Bureau.all
+    end
 
-    def show; end
+    def show
+      @bureau = Bureau.find_by!(slug: params[:slug])
+    end
 
     def edit; end
 
