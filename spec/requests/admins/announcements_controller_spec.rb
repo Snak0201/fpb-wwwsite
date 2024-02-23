@@ -4,7 +4,7 @@ RSpec.describe Admins::AnnouncementsController do
   context 'when not log in' do
     describe 'GET /new' do
       it 'returns http found' do
-        get '/admin/announcement/new'
+        get new_admin_announcement_path
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to new_admin_session_path
       end
@@ -12,7 +12,7 @@ RSpec.describe Admins::AnnouncementsController do
 
     describe 'POST /preview' do
       it 'returns http found' do
-        post '/admin/announcement/preview'
+        post preview_admin_announcement_path
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to new_admin_session_path
       end
@@ -28,7 +28,7 @@ RSpec.describe Admins::AnnouncementsController do
 
     describe 'GET /new' do
       it 'returns http success' do
-        get '/admin/announcement/new'
+        get new_admin_announcement_path
         expect(response).to have_http_status(:success)
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe Admins::AnnouncementsController do
       end
 
       it 'shows announcement preview' do
-        post('/admin/announcement/preview', params:)
+        post(preview_admin_announcement_path, params:)
         expect(response).to have_http_status(:see_other)
         expect(response).to redirect_to preview_admin_announcement_path
         expect(response.body).to include content
@@ -58,7 +58,7 @@ RSpec.describe Admins::AnnouncementsController do
           let(:commit) { 'キャンセル' }
 
           it 'redirects new and keeps content' do
-            post('/admin/announcement/', params:)
+            post(admin_announcement_path, params:)
             expect(response).to have_http_status(:see_other)
             expect(response).to redirect_to admin_announcement_path
             expect(response.body).to include content
@@ -69,7 +69,7 @@ RSpec.describe Admins::AnnouncementsController do
           let(:commit) { '更新' }
 
           it 'redirects admin index and create new announcement' do
-            post('/admin/announcement/', params:)
+            post(admin_announcement_path, params:)
             expect(response).to have_http_status(:found)
             expect(response).to redirect_to admin_index_path
             expect(Admins::Announcement.last.content).to eq content
@@ -86,7 +86,7 @@ RSpec.describe Admins::AnnouncementsController do
           let(:commit) { '更新' }
 
           it 'redirects admin index and create new announcement' do
-            post('/admin/announcement/', params:)
+            post(admin_announcement_path, params:)
             expect(response).to have_http_status(:found)
             expect(response).to redirect_to admin_index_path
             expect(Admins::Announcement.last.content).to eq content
