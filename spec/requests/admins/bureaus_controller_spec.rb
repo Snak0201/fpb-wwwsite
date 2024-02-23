@@ -5,22 +5,15 @@ RSpec.describe Admins::BureausController do
 
   describe 'GET /' do
     it 'returns http success' do
-      get '/admin/bureaus'
+      get admin_bureaus_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /edit' do
+  describe 'GET /:bureau_slug/edit' do
     it 'returns http success' do
-      get "/admin/bureaus/#{bureau.slug}/edit"
+      get edit_admin_bureau_path(bureau)
       expect(response).to have_http_status(:success)
     end
   end
-
-  # describe 'GET /update' do
-  #   it 'returns http success' do
-  #     get '/admins/bureaus/update'
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
 end
