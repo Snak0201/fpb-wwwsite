@@ -4,6 +4,9 @@ class Bureau < ApplicationRecord
 
   validates :description, length: { maximum: 100 }
 
+  VALID_SLUG = /[a-z\-]*/
+  validates :slug, presence: true, format: { with: VALID_SLUG }
+
   # NOTE: 局のURLにはslugを利用する
   def to_param
     slug
