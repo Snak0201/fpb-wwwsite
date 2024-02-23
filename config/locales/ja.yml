@@ -56,12 +56,18 @@ ja:
         number: 分類番号
       admins/announcement:
         content: 内容
+      bureau:
+        name: 局名
+        slug: Slug
+        description: 説明文
+        content: コンテンツ
     models:
       user: ユーザー
       admin: 管理者
       article: 記事
       admins/announcement: お知らせ
       tools/stamina_calculator: スタミナ計算機
+      bureau: 局
   activemodel:
     attributes:
       tools/stamina_calculator:
