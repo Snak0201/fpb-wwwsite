@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'article title' do
+RSpec.describe 'article page title' do
   let(:article) { create(:article, :published) }
 
   it 'is correct' do
