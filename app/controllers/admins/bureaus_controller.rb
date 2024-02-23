@@ -4,11 +4,9 @@ module Admins
       @bureaus = Bureau.all
     end
 
-    def show
+    def edit
       @bureau = Bureau.find_by!(slug: params[:slug])
     end
-
-    def edit; end
 
     def update; end
   end
