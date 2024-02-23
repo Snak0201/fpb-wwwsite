@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i[index show]
 
+  resources :bureaus, param: :slug, only: :show
+
   resources :tools, only: %i[index]
   namespace :tools do
     resource :character_counter, only: %i[show create]

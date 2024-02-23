@@ -29,11 +29,20 @@ RSpec.describe 'Downward Compatibility' do
     end
   end
 
-  describe 'GET /articles/:id' do
+  describe 'GET /articles/:id/' do
     let(:article) { create(:article, :published) }
 
     it 'returns http success' do
       get "/articles/#{article.id}"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET /bureaus/:slug/' do
+    let(:bureau) { create(:bureau) }
+
+    it 'returns http success' do
+      get "/bureaus/#{bureau.slug}"
       expect(response).to have_http_status(:success)
     end
   end
