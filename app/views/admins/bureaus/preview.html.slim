@@ -1,0 +1,18 @@
+h1 プレビュー
+
+h2#name = @bureau.name
+p#description = @bureau.description
+h2 記事一覧
+p （ここに記事が表示されます。）
+= convert_markdown_into_html(@bureau.content)
+
+= form_with model: @bureau, url: admin_bureau_path(@update_target_bureau), method: :patch, class: 'form' do |f|
+  = render 'shared/form_errors', model: f.object
+
+  = f.hidden_field :name
+  = f.hidden_field :slug
+  = f.hidden_field :description
+  = f.hidden_field :content
+
+  = f.submit 'キャンセル', class: 'holizontal_buttons'
+  = f.submit '更新', class: 'holizontal_buttons'

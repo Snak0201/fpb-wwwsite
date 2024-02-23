@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resource :announcement, only: %i[new create] do
       post :preview, on: :member
     end
-    resources :bureaus, param: :slug, only: %i[index edit update]
+    resources :bureaus, param: :slug, only: %i[index edit update] do
+      post :preview, on: :member
+    end
   end
 
   resources :articles, only: %i[index show]
