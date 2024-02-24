@@ -23,7 +23,8 @@ Metrics/MethodLength:
   Max: 30
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
-
+FactoryBot/ExcessiveCreateList:
+  Enabled: false
 
 AllCops:
   NewCops: enable

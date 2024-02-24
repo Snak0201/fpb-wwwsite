@@ -7,4 +7,5 @@ h2 記事一覧
   ul 
     - @articles.each do |article|
       li = link_to article.title, article_path(article)
+  = paginate @articles
 #content = convert_markdown_into_html(@bureau.content)

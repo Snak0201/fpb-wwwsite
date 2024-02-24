@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'bureau page title' do
-  let(:bureau){create(:bureau)}
+  let(:bureau) { create(:bureau) }
 
   it 'is correct' do
     visit bureau_path(bureau)
