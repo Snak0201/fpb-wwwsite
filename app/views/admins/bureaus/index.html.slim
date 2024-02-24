@@ -1,0 +1,7 @@
+h1 局一覧
+p 現在存在する局の一覧です。編集する局を選んでください。
+p = link_to '管理画面に戻る', admin_index_path
+
+ul 
+- @bureaus.each do |bureau|
+  li = link_to bureau.name, edit_admin_bureau_path(bureau)

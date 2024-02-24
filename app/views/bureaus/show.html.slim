@@ -1,0 +1,11 @@
+- content_for(:title, @bureau.name)
+
+h1#name = @bureau.name
+p#description = @bureau.description
+h2 記事一覧
+#articles 
+  ul 
+    - @articles.each do |article|
+      li = link_to article.title, article_path(article)
+  = paginate @articles
+#content = convert_markdown_into_html(@bureau.content)

@@ -17,6 +17,21 @@ RSpec.describe 'top page' do
     end
   end
 
+  describe '#bureaus' do
+    before do
+      create_list(:bureau, 3)
+    end
+
+    it 'shows all bureaus' do
+      visit root_path
+      within('#bureaus') do
+        Bureau.find_each do |bureau|
+          expect(page).to have_content bureau.name
+        end
+      end
+    end
+  end
+
   describe 'footer' do
     it 'has link to about page' do
       visit root_path

@@ -3,7 +3,8 @@ class Article < ApplicationRecord
                              inverse_of: :article
   has_many :bureaus, through: :bureau_articles
 
-  validates :title, :number, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :number, presence: true
 
   scope :admin_index, -> { order(published_at: :desc) }
   scope :published, -> { where.not(published_at: nil) }
