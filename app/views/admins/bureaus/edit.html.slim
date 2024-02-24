@@ -1,7 +1,7 @@
 h1 局編集画面
 p = link_to '局一覧に戻る', admin_bureaus_path
 
-p = link_to '局の表示ページ', '#'
+p = link_to '局の表示ページ', bureau_path(@bureau)
 
 h2 編集
 = form_with model: @bureau, url: preview_admin_bureau_path(@bureau), method: :post, class: 'form' do |f|
