@@ -3,6 +3,7 @@ class Bureau < ApplicationRecord
   has_many :articles, through: :bureau_articles
 
   validates :description, length: { maximum: 100 }
+  # TODO: slugは英文字とハイフンのみを許可する
   validates :slug, presence: true, uniqueness: true
 
   # NOTE: 局のURLにはslugを利用する
