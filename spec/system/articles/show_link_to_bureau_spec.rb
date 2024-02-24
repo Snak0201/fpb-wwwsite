@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'show article page' do
-  let(:article){create(:article, :published)}
+  let(:article) { create(:article, :published) }
 
   before do
     create(:bureau_article, article:)
