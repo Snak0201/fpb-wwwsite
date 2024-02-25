@@ -20,15 +20,17 @@
 1. `localhost:8000`で画面を確認できます
 
 ## Rubocopによるコード修正方法
-`docker compose run --rm app bundle exec rubocop -A`
+`rubocop -A`
+
+※修正する必要がない場合、`rubocop -A --disable-uncorrectable`を実行します。
 
 ## Slimcopによるコード検査方法
-`docker compose run --rm app bundle exec slimcop`
+`slimcop`
 
 ※ `-a`オプションで自動修正できますが、変な修正になることもあります。
 
 ## RSpecによるテスト方法
-`docker compose run --rm app bundle exec rspec`を実行します。
+`rspec`を実行します。
 
 ## 本番環境へのデプロイ（リリース）方法
 1. 対象のコードをmainブランチに反映します（プルリクエストが**必須**です）

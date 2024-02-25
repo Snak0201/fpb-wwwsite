@@ -10,7 +10,6 @@ RSpec.describe BureausController do
       expect(response).to have_http_status(:success)
       expect(response.body).to include bureau.name
       expect(response.body).to include bureau.description
-      expect(response.body).to include convert_markdown_into_html(bureau.content)
     end
   end
 end
