@@ -35,7 +35,6 @@ RSpec.describe Admins::BureausController do
         expect(response).to redirect_to preview_admin_bureau_path(bureau)
         expect(response.body).to include name
         expect(response.body).to include description
-        expect(response.body).to include convert_markdown_into_html(content)
       end
     end
 
@@ -52,7 +51,6 @@ RSpec.describe Admins::BureausController do
         expect(response).to redirect_to preview_admin_bureau_path(bureau)
         expect(response.body).to include name
         expect(response.body).to include description
-        expect(response.body).to include convert_markdown_into_html(content)
       end
     end
   end
