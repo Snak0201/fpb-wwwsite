@@ -18,14 +18,24 @@ RSpec.describe ApplicationHelper do
   end
 
   describe '#convert_markdown_into_html' do
-    subject(:html) { convert_markdown_into_html(text) }
+    subject { convert_markdown_into_html(text) }
 
     context 'when text includes div tag' do
       let(:text) { '<div class="a">1</div>' }
 
-      it 'ignores div tag' do
-        expect(html).to include '<p>1</p>'
-      end
+      it { is_expected.to include '<div class="a">1</div>' }
+    end
+
+    context 'when text includes span tag' do
+      let(:text) { '<span id="i">2</span>' }
+
+      it { is_expected.to include '<span id="i">2</span>' }
+    end
+
+    context 'when text includes script tag' do
+      let(:text) { '<script>3</script>' }
+
+      it { is_expected.to include '<p>3</p>' }
     end
 
     context 'when text is nil' do
