@@ -1,4 +1,8 @@
 /* World Dai Star */
+.logo_wds{
+  background-color: #FF5E8F;
+}
+
 .kokona_wds{
   background-color: #F07B7C;
 }
@@ -25,6 +29,7 @@
 
 .noa_wds{
   background-color: #70437B;
+  color: white;
 }
 
 .hatsumi_wds{
@@ -89,6 +94,11 @@
 }
 
 /* IDOLY PRIDE */
+.logo_ipr{
+  background-color: #1428FF;
+  color: white;
+}
+
 .mana_ipr{
   background-color: #F44EB4;
 }
