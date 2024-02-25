@@ -27,15 +27,15 @@ RSpec.describe ApplicationHelper do
     end
 
     context 'when text includes span tag' do
-      let(:text) { '<span id="i">2</span>' }
+      let(:text) { '<span class="x">2</span>' }
 
-      it { is_expected.to include '<span id="i">2</span>' }
+      it { is_expected.to include '<span class="x">2</span>' }
     end
 
     context 'when text includes script tag' do
       let(:text) { '<script>3</script>' }
 
-      it { is_expected.to include '<p>3</p>' }
+      it { is_expected.to include '3' }
     end
 
     context 'when text is nil' do

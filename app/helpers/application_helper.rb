@@ -30,8 +30,7 @@ module ApplicationHelper
     }
 
     renderer = Redcarpet::Render::HTML.new(render_options)
-    # rubocop:disable Rails/OutputSafety
-    Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
-    # rubocop:enable Rails/OutputSafety
+
+    sanitize(Redcarpet::Markdown.new(renderer, extensions).render(text))
   end
 end
