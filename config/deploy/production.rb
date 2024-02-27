@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "118.27.12.187", user: "snak", roles: %w{app db web}, port: 11122
+server "118.27.12.187", user: "snak", roles: %w{app db web}, port: 55522
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -41,7 +41,7 @@ server "118.27.12.187", user: "snak", roles: %w{app db web}, port: 11122
 # Global options
 # --------------
 set :ssh_options, {
-  keys: "~/.ssh/fpb-wwwsite_conoha/id_rsa",
+  keys: "~/.ssh/conoha_fpb-wwwsite/id_rsa",
 }
 #
 # The server-based syntax can be used to override options:

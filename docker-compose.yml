@@ -18,7 +18,7 @@ services:
       SELENIUM_DRIVER_URL: http://selenium_chrome:4444/wd/hub
     volumes:
       - .:/app
-      - ~/.ssh/fpb-wwwsite_conoha:/root/.ssh/fpb-wwwsite_conoha
+      - ~/.ssh/conoha_fpb-wwwsite:/root/.ssh/conoha_fpb-wwwsite
       - rails_gem_volume:/usr/local/bundle
     ports:
       - 8000:3000
