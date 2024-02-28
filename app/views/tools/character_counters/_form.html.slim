@@ -4,5 +4,7 @@
     = f.text_area :characters, class: 'wide_text_area'
     = f.label :upper_limit, '字数上限', class: 'block'
     = f.number_field :upper_limit
+    = f.label :lower_limit, '字数下限', class: 'block'
+    = f.number_field :lower_limit
   .button
     = f.submit 'カウント'
