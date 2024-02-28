@@ -6,7 +6,6 @@ module Tools
     validates :characters, presence: true
     validates :upper_limit, presence: true
 
-
     def count_characters
       characters.length
     end
@@ -40,6 +39,7 @@ module Tools
     end
 
     private
+
     def ratio_to_limit(count_chars, limit)
       (count_chars.to_f / limit * 100).round(2)
     end
