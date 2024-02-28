@@ -10,7 +10,7 @@ module Tools
 
     def show_remains_of_lower_limit(remains_of_lower_limit)
       if remains_of_lower_limit >= 0
-        "下限から#{remains_of_lower_limit}字不足しています"
+        "下限まで#{remains_of_lower_limit}字不足しています"
       else
         "下限をクリアし、#{-remains_of_lower_limit}字多いです"
       end
