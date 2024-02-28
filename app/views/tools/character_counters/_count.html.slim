@@ -9,7 +9,7 @@
       li 上限に対して
       ul
         li = show_remains_of_upper_limit @character_counter.calc_remains_of_upper_limit
-        li = "上限の#{@character_counter.calc_ratio_of_characters_to_upper_limit}%です"
+        li = "上限の#{@character_counter.calc_ratio_of_characters_to_upper_limit}%の字数です"
     - if @character_counter.lower_limit.present?
       li 下限に対して
       ul 
