@@ -13,7 +13,7 @@
     - development.key -> config/credentials
     - production.key -> config/credentials
     - test.key -> config/credentials
-    - id_rsa -> ~/.ssh/fpb-wwwsite_conoha
+    - id_rsa -> ~/.ssh/conoha_fpb-wwwsite
 1. `docker compose build`でコンテナをビルドします
 1. `docker compose run --rm app rails db:create`でローカルにデータベースを作成します
 1. `docker compose up`で起動します
@@ -42,7 +42,7 @@
 ## 本番環境のコンソールへのアクセス方法
 `docker compose run --rm app bundle exec cap production rails:console`を実行します
 
-※ WARNING: UNPROTECTED PRIVATE KEY FILE!が出る場合、`docker compose run --rm app chmod 600 /root/.ssh/fpb-wwwsite_conoha/id_rsa`を実行します
+※ WARNING: UNPROTECTED PRIVATE KEY FILE!が出る場合、`docker compose run --rm app chmod 600 /root/.ssh/conoha_fpb-wwwsite/id_rsa`を実行します
 
 ## 追加機能が反映されていないとき
 unicornがエラーを起こしている可能性があります。以下の手順で確認してください。
