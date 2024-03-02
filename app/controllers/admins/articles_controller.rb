@@ -30,7 +30,7 @@ module Admins
       @article = Article.find(params[:id])
 
       if params[:commit] == 'キャンセル'
-        @article = Article.new(article_params)
+        @article.assign_attributes(article_params)
         render :edit, status: :see_other
       elsif params[:commit] == '更新'
         if @article.update(article_params)
@@ -72,7 +72,7 @@ module Admins
     private
 
     def article_params
-      params.require(:article).permit(%i[title content number], bureau_ids: [])
+      params.require(:article).permit(:title, :content, :number, bureau_ids: [])
     end
   end
 end
