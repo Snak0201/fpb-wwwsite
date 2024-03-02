@@ -1,0 +1,16 @@
+h1 プレビュー
+p 記事詳細画面で以下のような表示になります。よろしいですか？
+
+= render 'shared/article', article: @article
+
+= form_with model: @article, url: admin_article_path(@update_target_article), method: :patch, class: 'form' do |f|
+  = render 'shared/form_errors', model: f.object
+
+  = f.hidden_field :title
+  = f.hidden_field :content
+  = f.hidden_field :number
+  - @article.bureaus.each do |bureau|
+    = f.hidden_field :bureau_ids, multiple: true, value: bureau.id
+
+  = f.submit 'キャンセル', class: 'holizontal_buttons'
+  = f.submit '更新', class: 'holizontal_buttons'

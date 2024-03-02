@@ -1,5 +1,5 @@
 h1 記事編集画面
 p = link_to '記事詳細に戻る', admin_article_path(@article)
 
-= form_with model: @article, url: admin_article_path(@article), class: 'form' do |f|
+= form_with model: @article, url: preview_admin_article_path(@article), method: :post, class: 'form' do |f|
   = render partial: 'form', locals: { f: }

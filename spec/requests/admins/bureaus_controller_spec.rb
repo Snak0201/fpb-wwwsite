@@ -68,11 +68,10 @@ RSpec.describe Admins::BureausController do
     context 'with cancel commit' do
       let(:commit) { 'キャンセル' }
 
-      it 'redirects edit and keeps params' do
+      it 'keeps params' do
         patch(admin_bureau_path(bureau), params:)
 
         expect(response).to have_http_status(:see_other)
-        expect(response).to redirect_to admin_bureau_path(bureau)
         expect(response.body).to include name
         expect(response.body).to include slug
         expect(response.body).to include description

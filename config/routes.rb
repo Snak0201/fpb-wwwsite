@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   namespace :admins, path: Rails.application.credentials.admin[:PATH], as: "admin"  do
     resources :articles do
-      patch :toggle_published, on: :member
+      member do
+        post :preview
+        patch :toggle_published
+      end
     end
     resource :announcement, only: %i[new create] do
       post :preview, on: :member
