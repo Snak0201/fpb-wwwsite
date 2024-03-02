@@ -20,7 +20,7 @@
             td 
               - article.bureaus.each do |bureau|
                 = "#{bureau.name} " 
-            td 公開
+            td = publish_status article.published_at
             - if article.published_at.present?
               td = l article.published_at, format: :short
             - else 
