@@ -29,10 +29,15 @@ module Admins
     def update
       @article = Article.find(params[:id])
 
-      if @article.update(article_params)
-        redirect_to admin_article_path(@article), notice: '記事が更新されました'
-      else
-        render :edit, status: :unprocessable_entity
+      if params[:commit] == 'キャンセル'
+        @article = Article.new(article_params)
+        render :edit, status: :see_other
+      elsif params[:commit] == '更新'
+        if @article.update(article_params)
+          redirect_to admin_article_path(@article), notice: '記事が更新されました'
+        else
+          render :edit, status: :unprocessable_entity
+        end
       end
     end
 
@@ -56,6 +61,12 @@ module Admins
         @article.update(published_at: nil)
       end
       redirect_to admin_article_path(@article)
+    end
+
+    def preview
+      @article = Article.new(article_params)
+      @update_target_article = Article.find(params[:id])
+      render :preview, status: :see_other
     end
 
     private

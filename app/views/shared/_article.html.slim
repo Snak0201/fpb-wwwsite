@@ -5,7 +5,8 @@
     p#published_at = '公開されていません'
   - else
     p#published_at= "公開日時: #{l article.published_at}"
-  p#updated_at = "更新日時: #{l article.updated_at}"
+  - if article.updated_at.present?
+    p#updated_at = "更新日時: #{l article.updated_at}"
 
   - if article.bureaus.present?
     p#bureaus
