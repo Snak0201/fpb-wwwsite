@@ -64,7 +64,9 @@ module Admins
     end
 
     def preview
-      @article = Article.new(article_params)
+      @article = Article.find(params[:id])
+      # NOTE: プレビューで公開日時を正しく表示する
+      @article.assign_attributes(article_params)
       @update_target_article = Article.find(params[:id])
       render :preview, status: :see_other
     end
