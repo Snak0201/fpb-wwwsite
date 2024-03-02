@@ -14,4 +14,7 @@
 = f.label :number, Article.human_attribute_name(:number), class: 'block'
 = f.number_field :number
 
-= f.submit '登録', class: 'button'
+- if f.object.new_record?
+  = f.submit '登録', class: 'button'
+- else 
+  = f.submit '表示確認', class: 'button'
