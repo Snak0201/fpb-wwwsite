@@ -5,7 +5,6 @@ RSpec.describe 'articles index in admin page' do
   let(:unpublished_article) { create(:article) }
   let(:published_article) { create(:article, :published) }
 
-
   before do
     admin_log_in admin
     create_list(:bureau, 2)
