@@ -210,3 +210,4 @@ ja:
   time:
     formats:
       default: "%Y年%m月%d日 %H時%M分"
+      short: "%Y/%m/%d %H:%M"

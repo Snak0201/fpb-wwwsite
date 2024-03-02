@@ -5,6 +5,15 @@ body{
   font-family:'メイリオ','Meiryo','Meiryo UI','ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
 }
 
+table{
+  border-spacing: 0;
+
+  & th, td{
+    border-bottom: 1px solid gray;
+    padding: 5px;
+  }
+}
+
 .content{
   min-height: calc(100vh - 24px);
   overflow: hidden;
@@ -140,5 +149,16 @@ footer{
 .pages_about{
   .logo{
     width: 80%;
+  }
+}
+
+.admin_articles{
+  .scroll_content{
+    overflow-x: auto;
+  }
+
+  .articles{
+    min-width: 1200px;
+    border-spacing: 0;
   }
 }

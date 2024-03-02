@@ -1,7 +1,31 @@
-h1 記事一覧
-p = link_to '管理画面に戻る', admin_index_path
-ul 
-  - @articles.each do |article|
-    li = link_to article.title, admin_article_path(article)
-    
-= paginate @articles
+.admin_articles
+  h1 記事一覧
+  p = link_to '管理画面に戻る', admin_index_path
+
+  .scroll_content
+    table.articles 
+      thead 
+        tr 
+          th 記事ID 
+          th タイトル
+          th 管轄局
+          th ステータス
+          th 公開日時
+          th 更新日時
+      tbody 
+        - @articles.each do |article|
+          tr id="article_#{article.id}" align="center"
+            td align="right" = article.id 
+            td = link_to article.title, admin_article_path(article)
+            td 
+              - article.bureaus.each do |bureau|
+                = "#{bureau.name} " 
+            td = publish_status article.published_at
+            - if article.published_at.present?
+              td = l article.published_at, format: :short
+            - else 
+              td 公開されていません 
+            td = l article.updated_at, format: :short
+
+        
+    = paginate @articles
