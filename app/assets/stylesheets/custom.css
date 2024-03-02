@@ -142,3 +142,19 @@ footer{
     width: 80%;
   }
 }
+
+.admin_articles{
+  .scroll_content{
+    overflow-x: auto;
+  }
+
+  .articles{
+    min-width: 1200px;
+    border-spacing: 0;
+
+    th, td{
+      border-bottom: 1px solid gray;
+      padding: 5px;
+    }
+  }
+}
