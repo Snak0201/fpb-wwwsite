@@ -14,7 +14,7 @@
           th 更新日時
       tbody 
         - @articles.each do |article|
-          tr align="center"
+          tr id="article_#{article.id}" align="center"
             td align="right" = article.id 
             td = link_to article.title, admin_article_path(article)
             td 
