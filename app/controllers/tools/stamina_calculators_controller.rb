@@ -55,11 +55,9 @@ module Tools
 
     def default_recover_stamina_seconds
       recover_stamina_seconds = params[:recover_stamina_seconds].to_f
-      if recover_stamina_seconds <= 0.0
-        return nil
-      else
-        return recover_stamina_seconds
-      end
+      return nil if recover_stamina_seconds <= 0.0
+
+      recover_stamina_seconds
     end
   end
 end
