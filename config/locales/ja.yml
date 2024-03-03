@@ -73,7 +73,7 @@ ja:
       tools/stamina_calculator:
         current_stamina: 現在のスタミナ
         target_stamina: 目標のスタミナ
-        recover_stamina_seconds: スタミナを1回復する秒数
+        recover_stamina_seconds: スタミナが1回復するための秒数
         target_time: 目標の時間
   devise:
     confirmations:
