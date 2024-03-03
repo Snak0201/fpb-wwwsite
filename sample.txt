@@ -1,0 +1,13 @@
+.テスト用記事{
+  background-color: 0;
+  color: white;
+}
+
+.Steller{
+  background-color: 9;
+}
+
+.example{
+  background-color: 10;
+}
+
