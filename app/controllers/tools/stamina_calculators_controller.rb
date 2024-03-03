@@ -1,7 +1,7 @@
 module Tools
   class StaminaCalculatorsController < ApplicationController
     def show
-      @calculator = Tools::StaminaCalculator.new
+      @calculator = Tools::StaminaCalculator.new(recover_stamina_seconds: default_recover_stamina_seconds)
     end
 
     def create
@@ -51,6 +51,15 @@ module Tools
       return nil if datetime.blank?
 
       Time.zone.parse(datetime)
+    end
+
+    def default_recover_stamina_seconds
+      recover_stamina_seconds = params[:recover_stamina_seconds].to_f
+      if recover_stamina_seconds <= 0.0
+        return nil
+      else
+        return recover_stamina_seconds
+      end
     end
   end
 end
