@@ -16,7 +16,7 @@ module Tools
     end
 
     def show_stamina
-      @calculator = Tools::StaminaCalculator.new
+      @calculator = Tools::StaminaCalculator.new(recover_stamina_seconds: default_recover_stamina_seconds)
     end
 
     def create_stamina
