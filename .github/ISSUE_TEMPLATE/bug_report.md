@@ -11,28 +11,26 @@ assignees: ''
 {対象}が{動作}したとき、{起きていること}
 
 ## デバイス情報
-- Device: 
-- OS: 
-- Browser: 
+- Device: PC/SP(iOS)/SP(Android)/PAD
+- OS: Windows/Mac/Linux
+- Browser: Chrome/Firefox/Edge/Safari/
 
 ## 再現手順
 1. トップ画面にアクセスする
-2. `true`が`false`と表示されている
+2. `true`となるはずの部分が`false`と表示されている
 
-## スクリーンショット／ログ等
+## スクリーンショット／ログ等出力
 
 ## 影響範囲
 - サイト全体
 - 特定のページ（ページ名を記載）
 
 ## 修正受け入れ条件
-- [ ] `true`が`true`を返す
-
-## RC版確認項目
 - [ ] `true`が`true`と表示される
+- [ ] `false`を`true`にできる
 
 ## 原因
 
 ## 実装方針
-
+-
 ## その他
