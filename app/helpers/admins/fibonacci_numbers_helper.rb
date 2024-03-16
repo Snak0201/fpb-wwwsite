@@ -1,2 +1,4 @@
-# module Admins::FibonacciNumbersHelper
-# end
+module Admins
+  module FibonacciNumbersHelper
+  end
+end
