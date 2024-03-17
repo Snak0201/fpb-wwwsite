@@ -1,4 +1,10 @@
-h1 Admins::FibonacciNumbers#show
-p Find me in app/views/admins/fibonacci_numbers/show.html.slim
+h1 フィボナッチAPIのテスト
+p フィボナッチAPIのテストです。下のフォームに値を入力すると、n番目のフィボナッチ数が表示されます。
+p = link_to '管理画面に戻る', admin_index_path
 
-p = @number
+strong= @number
+
+= form_with url: admin_fibonacci_number_path, method: :get, class: 'form' do |f|
+  = f.label :n, 'n', class: 'block'
+  = f.number_field :n, value: @default
+  = f.submit "GET"

@@ -1,8 +1,8 @@
 module Api
   module Fibonacci
     class Client
-      # class FibonacciApiError < StandardError
-      # end
+      class FibonacciApiError < StandardError
+      end
 
       attr_accessor :connection
 
@@ -13,7 +13,7 @@ module Api
         @connection = connection
       end
 
-      def get_fibonacci_number(n = 4)
+      def get_fibonacci_number(n) # rubocop:todo Naming/MethodParameterName
         handle_response(get_api('/api/fibonacci/v1/number', n:))
       end
 
@@ -24,7 +24,10 @@ module Api
       end
 
       def handle_response(res)
-        # raise FibonacciApiError, "{\"status\": #{res.status}, \"body\": #{res.body}}" unless res.success?
+        unless res.success?
+          raise FibonacciApiError,
+                "{:status => #{res.status}, :body => #{res.body.deep_symbolize_keys}}"
+        end
 
         response = {}
         response[:status] = res.status

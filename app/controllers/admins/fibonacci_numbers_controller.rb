@@ -1,12 +1,11 @@
 module Admins
   class FibonacciNumbersController < ApplicationController
     def show
-      client = Api::Fibonacci::Client.new
-      @number = client.get_fibonacci_number
+      api_response = Api::Fibonacci::Client.new.get_fibonacci_number(params[:n])
+      @default = params[:n]
+      @number = api_response[:body][:value]
     rescue Api::Fibonacci::Client::FibonacciApiError => e
-      @number = JSON.parse(e.message)
+      @number = eval(e.message)[:body][:errors] # rubocop:todo Security/Eval
     end
-
-    def create; end
   end
 end
