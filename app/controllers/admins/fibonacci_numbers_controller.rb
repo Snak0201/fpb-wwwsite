@@ -9,8 +9,6 @@ module Admins
       @number = response.body['value']
     end
 
-    def create
-
-    end
+    def create; end
   end
 end
