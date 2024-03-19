@@ -7,9 +7,7 @@ module Api
       attr_accessor :connection
 
       def initialize
-        connection = Faraday.new 'https://fpbwwwapi.pythonanywhere.com' do |conn|
-          conn.response :json
-        end
+        connection = Faraday.new 'https://fpbwwwapi.pythonanywhere.com'
         @connection = connection
       end
 
@@ -24,16 +22,14 @@ module Api
       end
 
       def handle_response(res)
-        Rails.logger.debug res.body.class
-
-        unless res.success?
-          raise FibonacciApiError,
-                "{:status => #{res.status}, :body => #{res.body.deep_symbolize_keys}}"
-        end
+        # unless res.success?
+        #   raise FibonacciApiError,
+        #         "{\"status\": #{res.status}, \"body\": #{res.body}}"
+        # end
 
         response = {}
         response[:status] = res.status
-        response[:body] = res.body.deep_symbolize_keys
+        response[:body] = JSON.parse(res.body, symbolize_names: true)
         response
       end
     end
