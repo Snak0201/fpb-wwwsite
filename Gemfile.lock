@@ -396,6 +396,7 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.8)
   redcarpet
+  rspec-mocks
   rspec-rails
   rubocop
   rubocop-performance
