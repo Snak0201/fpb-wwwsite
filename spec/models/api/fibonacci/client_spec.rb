@@ -1,10 +1,22 @@
 require 'rails_helper'
+require 'webmock/rspec'
 
 RSpec.describe Api::Fibonacci::Client do
-  let(:mocked_client){ double(described_class) }
+  let(:client) { described_class.new }
+  let(:fib_response) do
+    {
+      value: 55
+    }.to_json
+  end
 
   before do
-    allow(described_class).to recieve(:new).and_return(mocked_client)
-    allow(mocked_client).to recieve(:get_fibonacci_number).with(10).and_return(55)
+    stub_request(
+      :get, 'https://fpbwwwapi.pythonanywhere.com/api/fibonacci/v1/number?n=10'
+    ).to_return(status: 200, body: fib_response, headers: {})
+  end
+
+  it do
+    response = client.get_fibonacci_number(10)
+    expect(response[:status]).to eq 200
   end
 end

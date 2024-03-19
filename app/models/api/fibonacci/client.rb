@@ -24,6 +24,8 @@ module Api
       end
 
       def handle_response(res)
+        Rails.logger.debug res.body.class
+
         unless res.success?
           raise FibonacciApiError,
                 "{:status => #{res.status}, :body => #{res.body.deep_symbolize_keys}}"
