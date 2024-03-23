@@ -9,8 +9,9 @@ module Admins
     end
 
     private
+
     def api_error_message(err)
-      JSON.parse(err.message.split("body: ")[-1], symbolize_names: true)[:errors]
+      JSON.parse(err.message.split('body: ')[-1], symbolize_names: true)[:errors]
     end
   end
 end
