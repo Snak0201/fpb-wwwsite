@@ -22,10 +22,10 @@ module Api
       end
 
       def handle_response(res)
-        # unless res.success?
-        #   raise FibonacciApiError,
-        #         "{\"status\": #{res.status}, \"body\": #{res.body}}"
-        # end
+        unless res.success?
+          raise FibonacciApiError,
+                "status: #{res.status}, body: #{res.body}"
+        end
 
         response = {}
         response[:status] = res.status
