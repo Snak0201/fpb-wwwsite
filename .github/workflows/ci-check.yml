@@ -1,4 +1,4 @@
-name: Test-RSpec
+name: CI-Check
 
 on:
   push:
@@ -9,7 +9,47 @@ on:
       - main
 
 jobs:
-  backward:
+  Lint-Rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Run Rubocop
+        run: bundle exec rubocop
+  
+  Lint-Slimcop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Run Slimcop
+        run: bundle exec slimcop
+  
+  Test-RSpec-Backward:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -22,7 +62,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -54,7 +94,7 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec spec/requests/backward_compatibility_spec.rb
 
-  request:
+  Test-RSpec-Request:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -67,7 +107,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -99,7 +139,7 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec spec/requests --exclude-pattern "spec/requests/backward_compatibility_spec.rb"
   
-  helper:
+  Test-RSpec-Helper:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -112,7 +152,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -144,7 +184,7 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec spec/helpers
 
-  model:
+  Test-RSpec-Model:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -157,7 +197,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -190,7 +230,7 @@ jobs:
         run: bundle exec rspec spec/models
       
 
-  system:
+  Test-RSpec-System:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -203,7 +243,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -234,3 +274,4 @@ jobs:
 
       - name: Run rspec
         run: bundle exec rspec spec/system
+
