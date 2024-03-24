@@ -7,4 +7,4 @@ strong= @number
 = form_with url: admin_fibonacci_number_path, method: :get, class: 'form' do |f|
   = f.label :n, 'n', class: 'block'
   = f.number_field :n, value: @default
-  = f.submit "GET"
+  = f.submit 'GET'
