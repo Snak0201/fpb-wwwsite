@@ -49,6 +49,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'devise'
+gem 'faraday'
 gem 'kaminari'
 gem 'pundit'
 gem 'redcarpet'
@@ -59,6 +60,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-mocks'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
@@ -89,6 +91,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'webmock'
 end
 
 group :production do
