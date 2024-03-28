@@ -1,13 +1,13 @@
 module Tools
   class CharacterCounter
     include ActiveModel::Model
-    attr_accessor :characters, :upper_limit, :lower_limit
+    attr_accessor :fpl_characters, :upper_limit, :lower_limit
 
-    validates :characters, presence: true
+    validates :fpl_characters, presence: true
     validates :upper_limit, presence: true
 
     def count_characters
-      characters.length
+      fpl_characters.length
     end
 
     def calc_remains_of_upper_limit

@@ -11,14 +11,14 @@ RSpec.describe Tools::CharacterCounter do
 
     context 'when very long characters input' do
       it 'returns 1234' do
-        counter = build(:tools_character_counter, characters: 'a' * 1234)
+        counter = build(:tools_character_counter, fpl_characters: 'a' * 1234)
         expect(counter.count_characters).to eq 1234
       end
     end
 
     context 'when empty strings input' do
       it 'returns 0' do
-        counter = build(:tools_character_counter, characters: '')
+        counter = build(:tools_character_counter, fpl_characters: '')
         expect(counter.count_characters).to eq 0
       end
     end
