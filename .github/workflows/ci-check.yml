@@ -227,4 +227,4 @@ jobs:
           bundle exec rails db:migrate RAILS_ENV=test
 
       - name: Run rspec
-        run: bundle exec rspec --exclude-pattern "spec/{request,system}"
+        run: bundle exec rspec --exclude-pattern "spec/{request,system}/**/*_spec.rb"
