@@ -12,7 +12,7 @@ RSpec.describe Api::Fibonacci::Client do
     {
       value: nil,
       errors: {
-        n: '有効な整数を入力してください'
+        n: ['有効な整数を入力してください。']
       }
     }.to_json
   end
