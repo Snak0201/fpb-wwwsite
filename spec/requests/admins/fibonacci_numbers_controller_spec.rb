@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'webmock/rspec'
 
 RSpec.describe Admins::FibonacciNumbersController do
   describe 'GET /fibonacci' do
