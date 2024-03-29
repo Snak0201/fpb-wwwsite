@@ -54,6 +54,7 @@ gem 'kaminari'
 gem 'pundit'
 gem 'redcarpet'
 gem 'slim-rails'
+gem 'paper_trail'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
