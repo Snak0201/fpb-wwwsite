@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  has_paper_trail only: %i[title content]
+
   has_many :bureau_articles, class_name: 'BureauArticle', dependent: :destroy,
                              inverse_of: :article
   has_many :bureaus, through: :bureau_articles
