@@ -71,9 +71,7 @@ module Admins
       render :preview, status: :see_other
     end
 
-    def restore_previous_version
-
-    end
+    def restore_previous_version; end
 
     private
 
