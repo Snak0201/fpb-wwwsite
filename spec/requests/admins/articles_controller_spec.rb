@@ -212,8 +212,6 @@ RSpec.describe Admins::ArticlesController do
 
       context 'when post twice' do
         it 'cancel restore article' do
-          article.title
-          article.content
           article.update(title:, content:)
 
           post restore_previous_version_admin_article_path(article)
