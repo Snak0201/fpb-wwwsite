@@ -188,5 +188,23 @@ RSpec.describe Admins::ArticlesController do
         expect(response.body).to include bureau.name
       end
     end
+
+    describe 'POST restore_previous_version_admin_article_path' do
+      let(:title){'更新後の記事'}
+      let(:content){'更新されたコンテンツ'}
+
+      before do
+        article.update(title:, content:)
+      end
+
+      it do
+        post restore_previous_version_admin_article_path(article)
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to admin_article_path(article)
+        article.reload
+        expect(article.title).to eq title
+        expect(article.title).to eq content
+      end
+    end
   end
 end
