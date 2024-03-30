@@ -190,20 +190,39 @@ RSpec.describe Admins::ArticlesController do
     end
 
     describe 'POST restore_previous_version_admin_article_path' do
-      let(:title){'更新後の記事'}
-      let(:content){'更新されたコンテンツ'}
+      let(:title) { '更新後の記事' }
+      let(:content) { '更新されたコンテンツ' }
 
-      before do
-        article.update(title:, content:)
+      context 'when post once' do
+        it 'restore previous article' do
+          previous_title = article.title
+          previous_content = article.content
+          article.update(title:, content:)
+
+          post restore_previous_version_admin_article_path(article)
+
+          expect(response).to have_http_status(:found)
+          expect(response).to redirect_to admin_article_path(article)
+
+          article.reload
+          expect(article.title).to eq previous_title
+          expect(article.content).to eq previous_content
+        end
       end
 
-      it do
-        post restore_previous_version_admin_article_path(article)
-        expect(response).to have_http_status(:found)
-        expect(response).to redirect_to admin_article_path(article)
-        article.reload
-        expect(article.title).to eq title
-        expect(article.title).to eq content
+      context 'when post twice' do
+        it 'cancel restore article' do
+          article.title
+          article.content
+          article.update(title:, content:)
+
+          post restore_previous_version_admin_article_path(article)
+          post restore_previous_version_admin_article_path(article)
+
+          article.reload
+          expect(article.title).to eq title
+          expect(article.content).to eq content
+        end
       end
     end
   end
