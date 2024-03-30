@@ -71,6 +71,17 @@ module Admins
       render :preview, status: :see_other
     end
 
+    def restore_previous_version
+      @article = Article.find(params[:id])
+
+      # NOTE: 1バージョンのみ復元できる
+      if @article.paper_trail.previous_version&.save
+        redirect_to admin_article_path(@article), notice: '記事を復元しました'
+      else
+        redirect_to admin_article_path(@article), alert: '記事を復元できませんでした'
+      end
+    end
+
     private
 
     def article_params

@@ -51,6 +51,7 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'faraday'
 gem 'kaminari'
+gem 'paper_trail'
 gem 'pundit'
 gem 'redcarpet'
 gem 'slim-rails'
