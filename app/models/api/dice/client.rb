@@ -12,7 +12,7 @@ module Api
       end
 
       def dice_number(n) # rubocop:todo Naming/MethodParameterName
-        handle_response(post_api('/api/dice/v1/simple', n:))
+        handle_response(post_api('/api/dice/v1/simple'))
       end
 
       private
