@@ -26,6 +26,14 @@ Rails.application.routes.draw do
     resource :fibonacci_number, path: :fibonacci, only: %i[show]
   end
 
+  namespace :api do
+    namespace :dice do
+      namespace :v1 do
+        post :simple
+      end
+    end
+  end
+
   resources :articles, only: %i[index show]
 
   resources :bureaus, param: :slug, only: :show
