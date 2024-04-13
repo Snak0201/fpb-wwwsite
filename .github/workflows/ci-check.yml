@@ -272,4 +272,4 @@ jobs:
             bundle exec rails db:migrate RAILS_ENV=test
 
         - name: Run zeitwerk check
-          run: rails zeitwerk:check
+          run: bin/rails zeitwerk:check
