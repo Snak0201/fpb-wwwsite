@@ -8,5 +8,6 @@
   = button_to "サイコロを振る", tools_dice_path
 
   h2 出力
-  p = "ステータスコード: #{@status}"
-  p = "値: #{@value}"
+  li 
+    strong = "値: #{@value}"
+  li = "ステータスコード: #{@status}"

@@ -7,18 +7,19 @@ module Api
       attr_accessor :connection
 
       def initialize
-        connection = Faraday.new 'https://fpbwwwapi.pythonanywhere.com'
-        @connection = connection
+        @connection = Faraday.new 'https://fpbwwwapi.pythonanywhere.com'
       end
 
-      def dice_number(n) # rubocop:todo Naming/MethodParameterName
+      def dice_number
         handle_response(post_api('/api/dice/v1/simple'))
       end
 
       private
 
-      def post_api(url, params)
-        connection.post url, params
+      def post_api(url)
+        connection.post url
+      rescue Faraday::Error
+        raise Error, 'status: 500, body: 通信エラーが発生しました'
       end
 
       def handle_response(res)
