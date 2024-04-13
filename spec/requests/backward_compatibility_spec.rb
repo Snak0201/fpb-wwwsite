@@ -74,4 +74,11 @@ RSpec.describe 'Backward Compatibility' do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'GET /tools/dices/show/' do
+    it 'returns http success' do
+      get '/tools/dices/show'
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
