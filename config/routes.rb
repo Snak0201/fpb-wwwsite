@@ -39,5 +39,6 @@ Rails.application.routes.draw do
         post :stamina, to: 'stamina_calculators#create_stamina', path: 'stamina_from_time'
       end
     end
+    resource :dice, only: %i[show create]
   end
 end
