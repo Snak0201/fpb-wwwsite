@@ -23,6 +23,7 @@ describe Tools::DicesController do
         expect(response).to redirect_to tools_dice_path
         expect(response.body).to include '6'
         expect(response.body).to include '201'
+        expect(a_request(:post, endpoint)).to have_been_made.once
       end
     end
 
@@ -47,6 +48,7 @@ describe Tools::DicesController do
         expect(response).to redirect_to tools_dice_path
         expect(response.body).to include 'エラー'
         expect(response.body).to include '400'
+        expect(a_request(:post, endpoint)).to have_been_made.once
       end
     end
   end
