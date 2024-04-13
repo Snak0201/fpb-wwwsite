@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Downward Compatibility' do
+RSpec.describe 'Backward Compatibility' do
   describe 'GET /' do
     it 'returns http success' do
       get '/'

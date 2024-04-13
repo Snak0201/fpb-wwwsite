@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       member do
         post :preview
         patch :toggle_published
+        post :restore_previous_version
       end
     end
     resource :announcement, only: %i[new create] do
