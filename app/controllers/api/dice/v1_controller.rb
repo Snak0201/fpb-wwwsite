@@ -4,12 +4,11 @@ module Api
       skip_before_action :verify_authenticity_token
 
       def simple
-        client = Api::Dice::Client.new
-        response = client.simple_dice_value
-        if response[:status] == 201
+        response = ::Dice::ApiRequest.run
+        if response.valid?
           render json: response, status: :ok
         else
-          render json: {}, status: :bad_request
+          render json: response.errors.full_messages, status: :unprocessable_entity
         end
       end
     end

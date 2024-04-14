@@ -17,7 +17,7 @@ module Api
       private
 
       def post_api(url)
-        connection.post url
+        connection.get url
       rescue Faraday::Error
         raise Error, 'status: 500, body: 通信エラーが発生しました'
       end
