@@ -5,7 +5,12 @@ module Api
 
       def simple
         client = Api::Dice::Client.new
-        client.simple_dice_value
+        response = client.simple_dice_value
+        if response[:status] == 201
+          render json: response, status: :ok
+        else
+          render json: {}, status: :bad_request
+        end
       end
     end
   end
