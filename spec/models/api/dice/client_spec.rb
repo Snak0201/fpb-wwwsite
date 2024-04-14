@@ -17,7 +17,7 @@ RSpec.describe Api::Dice::Client do
     end
 
     it 'responses 201' do
-      response = client.dice_number
+      response = client.simple_dice_value
       expect(response[:status]).to eq 201
       expect(response[:body]).to eq JSON.parse(dice_response, symbolize_names: true)
       expect(a_request(:post, endpoint)).to have_been_made.once
@@ -39,7 +39,7 @@ RSpec.describe Api::Dice::Client do
     end
 
     it 'responses 400' do
-      expect { client.dice_number }.to raise_error(
+      expect { client.simple_dice_value }.to raise_error(
         Api::Dice::Client::Error, "status: 400, body: #{dice_response}"
       )
       expect(a_request(:post, endpoint)).to have_been_made.once

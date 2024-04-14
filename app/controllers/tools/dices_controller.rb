@@ -3,7 +3,7 @@ module Tools
     def show; end
 
     def create
-      response = Api::Dice::Client.new.dice_number
+      response = Api::Dice::Client.new.simple_dice_value
       @status = response[:status]
       @value = response[:body][:value]
       render :show, status: :see_other

@@ -10,7 +10,7 @@ module Api
         @connection = Faraday.new 'https://fpbwwwapi.pythonanywhere.com'
       end
 
-      def dice_number
+      def simple_dice_value
         handle_response(post_api('/api/dice/v1/simple'))
       end
 
