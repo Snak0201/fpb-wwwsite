@@ -1,14 +1,14 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: enhancement
+title: '{価値を提供したい人}として{ゴール}できるようになる'
+labels: enhancement, epic
 assignees: ''
 
 ---
 
-# ユーザーストーリー
-{価値を提供したい人}として、{理由}のために、{ゴール}をしたい
+# 理由
+- 
 ## 詳細
 - 
 ## 受け入れ条件
@@ -16,6 +16,11 @@ assignees: ''
 - [ ] `false`を`true`にできる
 
 ## 実装方針
--
+- 
+## リリース種別（選択）
+- メジャーリリース
+- マイナーリリース
+- パッチリリース
+- 不要
 ## その他
--
+- 
