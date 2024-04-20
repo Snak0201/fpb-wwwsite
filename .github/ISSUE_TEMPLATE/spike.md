@@ -17,4 +17,4 @@ assignees: ''
 開始後4hまで
 ## 注意
 - スパイク結果はコメントに書く
-- スパイクの作成物は、`spike-N-hoge`ブランチにpushする（NはこのIssueの番号）
+- スパイクの作成物がある場合は、`spike-N-hoge`ブランチにpushする（NはこのIssueの番号）
