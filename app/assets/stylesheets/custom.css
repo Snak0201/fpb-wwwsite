@@ -85,8 +85,8 @@ footer{
   padding: 1rem 4rem;
   font-weight: bold;
   border: 2px solid #4E5BA8;
-  color: #4E5BA8;
-  background-color: #FFFFFF;
+  color: #FFFFFF;
+  background-color: #4E5BA8;
   border-radius: 100vh;
   transition: 0.5s;
   display: block;
@@ -96,19 +96,20 @@ footer{
     margin-right: 10px;
   }
 
-  /* &:hover{
-    color: #fff;
-    background: #4E5BA8;
-  } */
+  &:hover{
+    color: #4E5BA8;
+    background-color: #FFFFFF;
+  }
 
   &.danger{
     border: 2px solid #F05A5A;
-    color: #F05A5A;
+    color: #FFFFFF;
+    background: #F05A5A;
 
-    /* &:hover{
-      color: #fff;
-      background: #F05A5A;
-    } */
+    &:hover{
+      color: #F05A5A;
+      background-color: #FFFFFF;
+    }
   }
 }
 
