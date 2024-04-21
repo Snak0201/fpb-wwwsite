@@ -95,19 +95,19 @@ footer{
     margin-right: 10px;
   }
 
-  &:hover{
+  /* &:hover{
     color: #fff;
     background: #4E5BA8;
-  }
+  } */
 
   &.danger{
     border: 2px solid #F05A5A;
     color: #F05A5A;
 
-    &:hover{
+    /* &:hover{
       color: #fff;
       background: #F05A5A;
-    }
+    } */
   }
 }
 
