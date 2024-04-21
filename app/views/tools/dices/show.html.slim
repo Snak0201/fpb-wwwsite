@@ -1,11 +1,11 @@
 - content_for(:title, 'サイコロ')
 
-.tools_character_counter
+.tools_dice
   h1 サイコロ
   p 1～6までの値がランダムに出力されます。
 
   h2 入力
-  = button_to 'サイコロを振る', tools_dice_path
+  = button_to 'サイコロを振る', tools_dice_path, class: 'button'
 
   h2 出力
   li 

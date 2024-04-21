@@ -76,6 +76,39 @@ footer{
   text-align: center;
 }
 
+.button{
+  text-align: center;
+  text-decoration: none;
+  margin-right: auto;
+  padding: 1rem 4rem;
+  font-weight: bold;
+  border: 2px solid #27acd9;
+  color: #27acd9;
+  border-radius: 100vh;
+  transition: 0.5s;
+  display: block;
+
+  &.holizontal{
+    display: inline;
+    margin-right: 10px;
+  }
+
+  &:hover{
+    color: #fff;
+    background: #27acd9;
+  }
+
+  &.danger{
+    border: 2px solid #F05A5A;
+    color: #F05A5A;
+
+    &:hover{
+      color: #fff;
+      background: #F05A5A;
+    }
+  }
+}
+
 /* 記事 */
 .article{
   #published_at{
@@ -99,17 +132,12 @@ footer{
   }
 
   .button{
-    display: block;
     margin-top: 10px;
   }
 
   .check_boxes{
     margin-right: 5px;
     white-space: nowrap;
-  }
-
-  .holizontal_buttons{
-    margin-right: 10px;
   }
 
   .wide_text_area{
@@ -160,5 +188,11 @@ footer{
   .articles{
     min-width: 1200px;
     border-spacing: 0;
+  }
+}
+
+.tools_stamina_calculator{
+  .button{
+    width: 300px;
   }
 }
