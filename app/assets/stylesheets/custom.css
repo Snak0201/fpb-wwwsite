@@ -77,15 +77,16 @@ footer{
 }
 
 .button{
-	text-align: center;
-	text-decoration: none;
-	margin: auto;
-	padding: 1rem 4rem;
-	font-weight: bold;
-	border: 2px solid #27acd9;
-	color: #27acd9;
-	border-radius: 100vh;
-	transition: 0.5s;
+  text-align: center;
+  text-decoration: none;
+  margin-right: auto;
+  padding: 1rem 4rem;
+  font-weight: bold;
+  border: 2px solid #27acd9;
+  color: #27acd9;
+  border-radius: 100vh;
+  transition: 0.5s;
+  display: block;
 
   &:hover{
     color: #fff;
