@@ -88,9 +88,24 @@ footer{
   transition: 0.5s;
   display: block;
 
+  &.holizontal{
+    display: inline;
+    margin-right: 10px;
+  }
+
   &:hover{
     color: #fff;
     background: #27acd9;
+  }
+
+  &.danger{
+    border: 2px solid #F05A5A;
+    color: #F05A5A;
+
+    &:hover{
+      color: #fff;
+      background: #F05A5A;
+    }
   }
 }
 
@@ -123,10 +138,6 @@ footer{
   .check_boxes{
     margin-right: 5px;
     white-space: nowrap;
-  }
-
-  .holizontal_buttons{
-    margin-right: 10px;
   }
 
   .wide_text_area{
