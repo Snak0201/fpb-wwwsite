@@ -77,6 +77,8 @@ footer{
 }
 
 .button{
+  appearance: none;
+  -webkit-appearance: none;
   text-align: center;
   text-decoration: none;
   margin-right: auto;
