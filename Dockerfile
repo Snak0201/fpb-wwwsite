@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-bookworm
+FROM ruby:3.2.4-bookworm
 RUN apt update -qq && apt install -y build-essential libpq-dev nodejs default-mysql-client vim
 RUN mkdir /app
 WORKDIR /app

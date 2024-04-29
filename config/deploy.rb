@@ -44,7 +44,7 @@ set :keep_releases, 5
 
 # rubyのバージョン
 # rbenvで設定したサーバー側のrubyのバージョン
-set :rbenv_ruby, '3.2.2'
+set :rbenv_ruby, '3.2.4'
 
 # 出力するログのレベル。
 set :log_level, :debug
