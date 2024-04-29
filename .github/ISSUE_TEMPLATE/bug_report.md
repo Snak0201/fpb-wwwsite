@@ -1,19 +1,18 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
+title: '{利用者}が{動作}したとき、{何が起きる}'
 labels: bug
 assignees: ''
 
 ---
 
-# 何が起こっている？
-{対象}が{動作}したとき、{起きていること}
+# 対象ページURL
 
 ## デバイス情報
-- Device: PC/SP(iOS)/SP(Android)/PAD
+- Device: PC/SP(iOS)/SP(Android)/Tablet
 - OS: Windows/Mac/Linux
-- Browser: Chrome/Firefox/Edge/Safari/
+- Browser: Chrome/Firefox/Edge/Safari
 
 ## 再現手順
 1. トップ画面にアクセスする
@@ -21,12 +20,7 @@ assignees: ''
 
 ## スクリーンショット／ログ等出力
 
-## 影響範囲
-- サイト全体
-- 特定のページ（ページ名を記載）
-
 ## 修正受け入れ条件
-- [ ] `true`が`true`と表示される
 - [ ] `false`を`true`にできる
 
 ## 原因
