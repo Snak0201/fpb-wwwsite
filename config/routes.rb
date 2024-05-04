@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
   get "links" => "pages#links"
 
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+  post "/graphql", to: "graphql#execute"
+
   resources :admins, only: %i[index], path: Rails.application.credentials.admin[:PATH], as: "admin"
   devise_for :admin, path: Rails.application.credentials.admin[:PATH]
 
