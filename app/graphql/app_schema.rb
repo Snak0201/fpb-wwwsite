@@ -19,8 +19,8 @@ class AppSchema < GraphQL::Schema
   # Limit the size of incoming queries:
   max_query_string_tokens(5000)
 
-  max_complexity 30
-  max_depth 3
+  max_complexity 300
+  max_depth 30
 
   # Stop validating when it encounters this many errors:
   validate_max_errors(100)
