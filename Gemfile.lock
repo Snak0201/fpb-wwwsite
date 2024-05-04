@@ -135,6 +135,10 @@ GEM
       net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphiql-rails (1.10.0)
+      railties
+    graphql (2.3.2)
+      base64
     hashdiff (1.1.0)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
@@ -295,6 +299,8 @@ GEM
       rubocop (~> 1.41)
     rubocop-factory_bot (2.25.1)
       rubocop (~> 1.41)
+    rubocop-graphql (1.5.1)
+      rubocop (>= 0.90, < 2)
     rubocop-performance (1.21.0)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
@@ -406,6 +412,8 @@ DEPENDENCIES
   factory_bot_rails
   faker
   faraday
+  graphiql-rails
+  graphql
   importmap-rails
   jbuilder
   kaminari
@@ -418,6 +426,7 @@ DEPENDENCIES
   rspec-mocks
   rspec-rails
   rubocop
+  rubocop-graphql
   rubocop-performance
   rubocop-rails
   rubocop-rspec

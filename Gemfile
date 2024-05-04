@@ -50,6 +50,7 @@ gem 'bootsnap', require: false
 
 gem 'devise'
 gem 'faraday'
+gem 'graphql'
 gem 'kaminari'
 gem 'paper_trail'
 gem 'pundit'
@@ -64,6 +65,7 @@ group :development, :test do
   gem 'rspec-mocks'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'rubocop-graphql', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
@@ -81,6 +83,7 @@ group :development do
 
   gem 'bcrypt_pbkdf'
   gem 'ed25519'
+  gem 'graphiql-rails'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
