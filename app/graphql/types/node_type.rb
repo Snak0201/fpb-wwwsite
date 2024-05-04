@@ -2,7 +2,7 @@
 
 module Types
   module NodeType
-    description 'node'
+    description 'nodes'
 
     include Types::BaseInterface
     # Add the `id` field
