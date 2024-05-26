@@ -1,0 +1,2 @@
+module Tools::PositiveImpressionsHelper
+end
