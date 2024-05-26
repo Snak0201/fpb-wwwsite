@@ -5,10 +5,6 @@ class Tools::PositiveImpression
 
   validates :positive_impression_value, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  def show_value
-    positive_impression_value
-  end
-
   def transitions
     value = positive_impression_value.to_i
     transition = []
@@ -32,5 +28,9 @@ class Tools::PositiveImpression
     end
 
     gains
+  end
+
+  def transitions_and_status_gains
+    transitions.zip(status_gains)
   end
 end
