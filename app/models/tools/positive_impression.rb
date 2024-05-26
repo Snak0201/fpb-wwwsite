@@ -22,8 +22,15 @@ class Tools::PositiveImpression
     transition
   end
 
-  def gain_status
-    transitions
+  def status_gains
+    status_gain = 0
+    gains = []
 
+    transitions.each do |value|
+      status_gain += value
+      gains << status_gain
+    end
+
+    gains
   end
 end

@@ -10,6 +10,7 @@ class Tools::PositiveImpressionsController < ApplicationController
 
     if @positive_impression.valid?
       @transitions = @positive_impression.transitions
+      @status_gains = @positive_impression.status_gains
       render :show, status: :see_other
     else
       render :show, status: :see_other
