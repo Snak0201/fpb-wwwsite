@@ -4,4 +4,10 @@
   h1 学マス 好印象ステータス計算
   p 学園アイドルマスターにある好印象でのステータス上昇量を計算するツールです。
 
+  = form_with model: @positive_impression, url: tools_positive_impression_path, method: :post, class: 'form' do |f|
+    = f.label :positive_impression_value, 'ターン終了時の好印象の値', class: 'block'
+    = f.number_field :positive_impression_value, class: 'wide_field'
+    
+    = f.submit '計算', class: 'button'
+
   = @value
