@@ -1,17 +1,17 @@
 class Tools::PositiveImpressionsController < ApplicationController
   def show
     @positive_impression = Tools::PositiveImpression.new
-    @value = ''
+    @transitions = []
+    @status_gains = []
   end
 
   def create
     @positive_impression = Tools::PositiveImpression.new(positive_impression_params)
 
     if @positive_impression.valid?
-      @value = @positive_impression.transition_list
+      @transitions = @positive_impression.transitions
       render :show, status: :see_other
     else
-      @value = '失敗'
       render :show, status: :see_other
     end
   end

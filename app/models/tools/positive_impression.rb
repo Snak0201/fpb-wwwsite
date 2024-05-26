@@ -9,16 +9,21 @@ class Tools::PositiveImpression
     positive_impression_value
   end
 
-  def transition_list
-    list_value = positive_impression_value.to_i
+  def transitions
+    value = positive_impression_value.to_i
     transition = []
 
     12.times do
-      break if list_value < 1
-      transition << list_value
-      list_value -= 1
+      break if value < 1
+      transition << value
+      value -= 1
     end
 
     transition
+  end
+
+  def gain_status
+    transitions
+
   end
 end
