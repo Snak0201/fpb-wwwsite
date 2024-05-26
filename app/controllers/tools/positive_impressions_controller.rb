@@ -8,7 +8,7 @@ class Tools::PositiveImpressionsController < ApplicationController
     @positive_impression = Tools::PositiveImpression.new(positive_impression_params)
 
     if @positive_impression.valid?
-      @value = '成功'
+      @value = @positive_impression.transition_list
       render :show, status: :see_other
     else
       @value = '失敗'

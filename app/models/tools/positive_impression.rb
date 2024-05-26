@@ -8,4 +8,17 @@ class Tools::PositiveImpression
   def show_value
     positive_impression_value
   end
+
+  def transition_list
+    list_value = positive_impression_value.to_i
+    transition = []
+
+    12.times do
+      break if list_value < 1
+      transition << list_value
+      list_value -= 1
+    end
+
+    transition
+  end
 end
