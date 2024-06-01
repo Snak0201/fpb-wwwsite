@@ -45,5 +45,6 @@ Rails.application.routes.draw do
       end
     end
     resource :dice, only: %i[show create]
+    resource :positive_impression, only: %i[show create]
   end
 end

@@ -68,7 +68,7 @@ RSpec.describe 'Backward Compatibility' do
     end
   end
 
-  describe 'GET /tools/stamina_calculator/stamina_from_time/stamina_from_time/' do
+  describe 'GET /tools/stamina_calculator/stamina_from_time' do
     it 'returns http success' do
       get '/tools/stamina_calculator/stamina_from_time'
       expect(response).to have_http_status(:success)
@@ -78,6 +78,13 @@ RSpec.describe 'Backward Compatibility' do
   describe 'GET /tools/dice/' do
     it 'returns http success' do
       get '/tools/dice/'
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET /tools/positive_impression' do
+    it 'returns http success' do
+      get '/tools/positive_impression/'
       expect(response).to have_http_status(:success)
     end
   end

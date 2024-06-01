@@ -1,0 +1,32 @@
+- content_for(:title, '【学マス】好印象のステータス計算')
+
+.tools_positive_impression
+  h1 【学マス】好印象のステータス計算
+  p ソーシャルゲーム「学園アイドルマスター」にある「好印象」でのステータス上昇量を計算するツールです。
+
+  h2 利用方法
+  p ターン終了時の好印象の値を入力すると、11ターン後までの好印象の値とステータス上昇量が出力されます。
+  p 0ターン後は、ターン終了時の好印象とステータス上昇量を表しています。
+
+  = render 'shared/form_errors', model: @positive_impression
+  = form_with model: @positive_impression, url: tools_positive_impression_path, method: :post, class: 'form' do |f|
+    = f.label :value, 'ターン終了時の好印象の値', class: 'block'
+    = f.number_field :value, class: 'wide_field'
+    
+    = f.submit '計算', class: 'button'
+  
+  - if @transitions.present? && @status_gains.present?
+    .output
+      h2 出力
+      table 
+        thead 
+          tr
+            th ターン後
+            th 好印象
+            th ステータス上昇量
+        tbody 
+          - @transitions.zip(@status_gains).each_with_index do |(transitions, status_gains), index|
+            tr 
+              td.center = index
+              td.right = transitions
+              td.right = status_gains
