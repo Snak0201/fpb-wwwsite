@@ -1,18 +1,18 @@
 class Tools::PositiveImpression
   include ActiveModel::Model
 
-  attr_accessor :positive_impression_value
+  attr_accessor :value
 
-  validates :positive_impression_value, presence: true, numericality: { greater_than: 0 }
+  validates :value, presence: true, numericality: { greater_than: 0 }
 
   def transitions
-    value = positive_impression_value.to_i
+    int_value = value.to_i
     transition = []
 
     12.times do
-      break if value < 1
-      transition << value
-      value -= 1
+      break if int_value < 1
+      transition << int_value
+    int_value -= 1
     end
 
     transition

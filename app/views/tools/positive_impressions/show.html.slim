@@ -13,8 +13,8 @@
 
   = render 'shared/form_errors', model: @positive_impression
   = form_with model: @positive_impression, url: tools_positive_impression_path, method: :post, class: 'form' do |f|
-    = f.label :positive_impression_value, 'ターン終了時の好印象の値', class: 'block'
-    = f.number_field :positive_impression_value, class: 'wide_field'
+    = f.label :value, 'ターン終了時の好印象の値', class: 'block'
+    = f.number_field :value, class: 'wide_field'
     
     = f.submit '計算', class: 'button'
   

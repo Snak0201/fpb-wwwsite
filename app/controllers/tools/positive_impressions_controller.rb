@@ -18,6 +18,6 @@ class Tools::PositiveImpressionsController < ApplicationController
   end
 
   def positive_impression_params
-    params.require(:tools_positive_impression).permit(:positive_impression_value)
+    params.require(:tools_positive_impression).permit(:value)
   end
 end
