@@ -198,3 +198,15 @@ footer{
     width: 300px;
   }
 }
+
+.tools_positive_impression{
+  .output{
+    .center{
+      text-align: center;
+    }
+
+    .right{
+      text-align: right;
+    }
+  }
+}

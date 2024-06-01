@@ -19,16 +19,17 @@
     = f.submit '計算', class: 'button'
   
   - if @transitions.present? && @status_gains.present?
-    h2 出力
-    table 
-      thead 
-        tr
-          th ターン後
-          th 好印象
-          th ステータス上昇量
-      tbody 
-        - @transitions.zip(@status_gains).each_with_index do |(transitions, status_gains), index|
-          tr 
-            td style="text-align: center;" = index
-            td style="text-align: right;" = transitions
-            td style="text-align: right;" = status_gains
+    .output
+      h2 出力
+      table 
+        thead 
+          tr
+            th ターン後
+            th 好印象
+            th ステータス上昇量
+        tbody 
+          - @transitions.zip(@status_gains).each_with_index do |(transitions, status_gains), index|
+            tr 
+              td.center = index
+              td.right = transitions
+              td.right  = status_gains
