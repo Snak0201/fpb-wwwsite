@@ -1,2 +1,4 @@
-module Tools::PositiveImpressionsHelper
+module Tools
+  module PositiveImpressionsHelper
+  end
 end
