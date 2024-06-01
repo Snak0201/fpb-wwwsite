@@ -13,7 +13,7 @@ class Tools::PositiveImpressionsController < ApplicationController
       @status_gains = @positive_impression.status_gains
       render :show, status: :see_other
     else
-      render :show, status: :see_other
+      render :show, status: :unprocessable_entity
     end
   end
 

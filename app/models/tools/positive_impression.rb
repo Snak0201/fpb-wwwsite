@@ -3,7 +3,7 @@ class Tools::PositiveImpression
 
   attr_accessor :positive_impression_value
 
-  validates :positive_impression_value, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :positive_impression_value, presence: true, numericality: { greater_than: 0 }
 
   def transitions
     value = positive_impression_value.to_i
