@@ -76,7 +76,7 @@ ja:
         recover_stamina_seconds: スタミナが1回復するための秒数
         target_time: 目標の時間
       tools/positive_impression:
-        positive_impression_value: ターン終了時の好印象の値
+        value: ターン終了時の好印象の値
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
