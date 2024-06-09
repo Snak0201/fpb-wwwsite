@@ -2,14 +2,14 @@
 
 module Types
   class ArticleType < Types::BaseObject
-    field :id, ID, null: false
-    field :title, String, null: false
-    field :content, String
-    field :number, Integer, null: false
-    field :bureaus, [Types::BureauType], null: true
-    field :published_at, GraphQL::Types::ISO8601DateTime
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :id, ID, null: false, description: 'id'
+    field :title, String, null: false, description: 'title'
+    field :content, String, description: 'markdown content'
+    field :number, Integer, null: false, description: 'category number'
+    field :bureaus, [Types::BureauType], null: true, description: 'jurisdiction bureau'
+    field :published_at, GraphQL::Types::ISO8601DateTime, description: 'published at'
+    field :created_at, GraphQL::Types::ISO8601DateTime, null: false, description: 'created at'
+    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false, description: 'updated at'
   
     def bureaus
       object.bureaus
