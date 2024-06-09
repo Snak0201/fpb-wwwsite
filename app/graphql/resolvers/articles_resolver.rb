@@ -3,7 +3,7 @@ module Resolvers
     description 'get all articles'
 
     type Types::ArticleType.connection_type, null: true do
-      description "article connection"
+      description 'article connection'
     end
 
     def resolve
