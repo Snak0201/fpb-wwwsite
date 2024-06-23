@@ -24,7 +24,6 @@ module App
     config.i18n.default_locale = :ja
     # config.eager_load_paths << Rails.root.join("extras")
     
-    config.hosts << "wwwsite-app"
 
     config.action_view.sanitized_allowed_tags = Loofah::HTML5::SafeList::ALLOWED_ELEMENTS
     config.action_view.sanitized_allowed_attributes = Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES
