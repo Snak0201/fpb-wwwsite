@@ -8,6 +8,8 @@ services:
       - 3306:3306
     volumes:
       - mysql_db_volume:/var/lib/mysql
+    networks:
+      - wwwsite
 
   app:
     container_name: wwwsite-app
@@ -23,13 +25,22 @@ services:
       - 8000:3000
     depends_on:
       - db
-  
+    networks:
+      - wwwsite
+      - wwwsite_view
+
   browser:
     container_name: wwwsite-browser
     image: selenium/standalone-chrome-debug
-  
-
+    networks:
+      - wwwsite
 
 volumes:
   mysql_db_volume:
   rails_gem_volume:
+
+networks:
+  wwwsite:
+    name: wwwsite
+  wwwsite_view:
+    name: wwwsite_view
