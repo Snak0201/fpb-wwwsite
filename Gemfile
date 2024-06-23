@@ -54,6 +54,7 @@ gem 'graphql'
 gem 'kaminari'
 gem 'paper_trail'
 gem 'pundit'
+gem 'rack-cors'
 gem 'redcarpet'
 gem 'slim-rails'
 
