@@ -1,5 +1,5 @@
 ---
-name: Epic issue
+name: [Project] Epic issue
 about: Issue in epic
 title: '{価値を提供したい人}が{ゴール}できる'
 labels: enhancement
@@ -20,7 +20,6 @@ assignees: ''
 - 不要
 ## Ready条件
 - IssueやEpicの理由を読んだうえで、上記の項目がすべて記載されている
-- 実装方針に参考になるファイル・外部の記事などが記載されている
 - 実装方針に実装するファイルが記載されている
 ## その他
 - 
