@@ -1,7 +1,7 @@
 ---
-name: Technical issue
+name: [Project] Technical issue
 about: Old packages, codes, or other problem in the long run
-title: '{対象}を更新する'
+title: '{価値を提供したい人}が{ゴール}できる'
 labels: maintenance
 assignees: ''
 
