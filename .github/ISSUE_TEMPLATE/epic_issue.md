@@ -1,5 +1,5 @@
 ---
-name: [Project] Epic issue
+name: Epic issue
 about: Issue in epic
 title: '{価値を提供したい人}が{ゴール}できる'
 labels: enhancement

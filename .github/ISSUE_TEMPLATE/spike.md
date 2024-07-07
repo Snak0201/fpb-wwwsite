@@ -1,5 +1,5 @@
 ---
-name: [Project] Spike
+name: Spike
 about: Research or make a prototype for estimate
 title: '{調査したいこと}が分かる'
 labels: spike
