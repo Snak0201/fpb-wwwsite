@@ -7,7 +7,7 @@ module Resolvers
     end
 
     def resolve
-      Article.published
+      Article.published.newer
     end
   end
 end
