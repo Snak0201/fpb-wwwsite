@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Article' do
   describe 'POST /graphql' do
     subject(:request) { post '/graphql', params: { query: } }
+
     let(:response_data) { JSON.parse(response.body, symbolize_names: true).dig(:data, :articles) }
     let(:response_nodes) { response_data[:nodes] }
 
