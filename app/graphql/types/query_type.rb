@@ -4,7 +4,8 @@ module Types
   class QueryType < Types::BaseObject
     description 'queries'
 
-    field :bureau, resolver: Resolvers::BureauResolver, description: 'get single bureau with slug'
-    field :bureaus, resolver: Resolvers::BureausResolver, description: 'get all bureaus'
+    field :articles, resolver: Resolvers::ArticlesResolver, description: 'all published articles'
+    field :bureau, resolver: Resolvers::BureauResolver, description: 'single bureau with slug'
+    field :bureaus, resolver: Resolvers::BureausResolver, description: 'all bureaus'
   end
 end
