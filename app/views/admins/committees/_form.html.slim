@@ -15,4 +15,7 @@
 = f.label :bureau_id, Committee.human_attribute_name(:bureau), class: 'block'
 = f.collection_select :bureau_id, Bureau.all, :id, :name, options = { include_blank: true }
 
-= f.submit '確認', class: 'button'
+- if f.object.new_record?
+  = f.submit '登録', class: 'button'
+- else 
+  = f.submit '表示確認', class: 'button'

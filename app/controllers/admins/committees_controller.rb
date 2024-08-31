@@ -4,8 +4,22 @@ module Admins
       @committees = Committee.by_bureau
     end
 
+    def new
+      @committee = Committee.new
+    end
+
     def edit
       @committee = Committee.find_by!(slug: params[:slug])
+    end
+
+    def create
+      @committee = Committee.new(committee_params)
+
+      if @committee.save
+        redirect_to admin_committees_path, notice: '委員会が登録されました'
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
 
     def update
