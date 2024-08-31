@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_31_083720) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -30,6 +30,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_31_083720) do
 
   create_table "admins_announcements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "api_dice_logs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_31_083720) do
     t.string "description", default: "", null: false
     t.text "content"
     t.bigint "bureau_id"
+    t.boolean "special", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bureau_id"], name: "index_committees_on_bureau_id"
