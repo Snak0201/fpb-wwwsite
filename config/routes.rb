@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :admins, only: %i[index], path: Rails.application.credentials.admin[:PATH], as: "admin"
   devise_for :admin, path: Rails.application.credentials.admin[:PATH]
 
+  # NOTE: 管理画面の機能はこのnamespaceに追加する
   namespace :admins, path: Rails.application.credentials.admin[:PATH], as: "admin"  do
     resources :articles do
       member do
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
     resources :bureaus, param: :slug, only: %i[index edit update] do
       post :preview, on: :member
     end
+    resources :committees, param: :slug, only: %i[index]
     resource :fibonacci_number, path: :fibonacci, only: %i[show]
   end
 
