@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   has_many :bureau_articles, class_name: 'BureauArticle', dependent: :destroy,
                              inverse_of: :article
   has_many :bureaus, through: :bureau_articles
+  has_many :committee_article_tags, dependent: :destroy, inverse_of: :article
 
   validates :title, presence: true, length: { maximum: 100 }
   validates :number, presence: true
