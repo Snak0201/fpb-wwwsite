@@ -1,40 +1,42 @@
 /* 全体 */
-body{
+body {
   margin: 0;
   padding: 0;
-  font-family:'メイリオ','Meiryo','Meiryo UI','ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+  font-family: "メイリオ", "Meiryo", "Meiryo UI", "ＭＳ ゴシック",
+    "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
 }
 
-table{
+table {
   border-spacing: 0;
 
-  & th, td{
+  & th,
+  td {
     border-bottom: 1px solid gray;
     padding: 5px;
   }
 }
 
-.content{
+.content {
   min-height: calc(100vh - 24px);
   overflow: hidden;
 }
 
-.header_logo{
+.header_logo {
   width: 200px;
   height: 70px;
 }
 
-.header_nav{
+.header_nav {
   background-color: aquamarine;
   height: 70px;
   display: flex;
 
-  ul{
+  ul {
     list-style: none;
     display: flex;
     margin-block-start: 0;
     padding-inline-start: 0;
-    & li{
+    & li {
       width: 150px;
       height: 70px;
       text-align: center;
@@ -42,170 +44,179 @@ table{
     }
   }
 
-  .small{
+  .small {
     display: none;
   }
 
-  @media screen and (max-width:1000px) {
-    .big{
+  @media screen and (max-width: 1000px) {
+    .big {
       display: none;
     }
-    .small{
+    .small {
       display: flex;
     }
   }
-  
 }
 
-.flash_messages{
-  .notice{
+.flash_messages {
+  .notice {
     background-color: skyblue;
   }
 
-  .alert{
+  .alert {
     background-color: darksalmon;
   }
 }
 
-main{
+main {
   margin: 8px;
 }
 
-footer{
+footer {
   background-color: aqua;
   text-align: center;
 }
 
-.button{
+.button {
   text-align: center;
   text-decoration: none;
   margin-right: auto;
   padding: 1rem 4rem;
   font-weight: bold;
-  border: 2px solid #4E5BA8;
-  color: #FFFFFF;
-  background-color: #4E5BA8;
+  border: 2px solid #4e5ba8;
+  color: #ffffff;
+  background-color: #4e5ba8;
   border-radius: 100vh;
   transition: 0.5s;
   display: block;
 
-  &.holizontal{
+  &.holizontal {
     display: inline;
     margin-right: 10px;
   }
 
-  &:hover{
-    color: #4E5BA8;
-    background-color: #FFFFFF;
+  &:hover {
+    color: #4e5ba8;
+    background-color: #ffffff;
   }
 
-  &.danger{
-    border: 2px solid #F05A5A;
-    color: #FFFFFF;
-    background: #F05A5A;
+  &.danger {
+    border: 2px solid #f05a5a;
+    color: #ffffff;
+    background: #f05a5a;
 
-    &:hover{
-      color: #F05A5A;
-      background-color: #FFFFFF;
+    &:hover {
+      color: #f05a5a;
+      background-color: #ffffff;
     }
   }
 }
 
 /* 記事 */
-.article{
-  #published_at{
+.article {
+  #published_at {
     margin-bottom: 0;
   }
 
-  #updated_at{
+  #updated_at {
     margin-top: 0;
   }
 
-  .jurisdiction_links{
+  .jurisdiction_links {
     margin-right: 5px;
   }
 }
 
 /* フォーム */
-.form{
-  .block{
+.form {
+  .block {
     display: block;
     margin-top: 10px;
   }
 
-  .button{
+  .button {
     margin-top: 10px;
   }
 
-  .check_boxes{
+  .check_boxes {
     margin-right: 5px;
     white-space: nowrap;
   }
 
-  .wide_text_area{
+  .wide_text_area {
     width: 300px;
     height: 300px;
   }
 
-  .wide_text_field{
+  .wide_text_field {
     width: 300px;
   }
 
-  .wide_field{
+  .wide_field {
     width: 300px;
     height: 30px;
     font-size: 120%;
   }
 }
 
-
 /* 個別ページ */
 
-.pages_top{
-  .small{
+.pages_top {
+  .small {
     display: none;
   }
 
-  @media screen and (max-width:1000px) {
-    .big{
+  @media screen and (max-width: 1000px) {
+    .big {
       display: none;
     }
-    .small{
+    .small {
       display: flex;
     }
   }
 }
 
-.pages_about{
-  .logo{
+.pages_about {
+  .logo {
     width: 80%;
   }
 }
 
-.admin_articles{
-  .scroll_content{
+.admin_articles {
+  .scroll_content {
     overflow-x: auto;
   }
 
-  .articles{
+  .articles {
     min-width: 1200px;
     border-spacing: 0;
   }
 }
 
-.tools_stamina_calculator{
-  .button{
+.admin_committees {
+  .scroll_content {
+    overflow-x: auto;
+  }
+
+  .committees {
+    min-width: 1000px;
+    border-spacing: 0;
+  }
+}
+
+.tools_stamina_calculator {
+  .button {
     width: 300px;
   }
 }
 
-.tools_positive_impression{
-  .output{
-    .center{
+.tools_positive_impression {
+  .output {
+    .center {
       text-align: center;
     }
 
-    .right{
+    .right {
       text-align: right;
     }
   }

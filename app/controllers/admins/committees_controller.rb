@@ -1,5 +1,7 @@
 module Admins
   class CommitteesController < ApplicationController
-    def index; end
+    def index
+      @committees = Committee.by_bureau
+    end
   end
 end
