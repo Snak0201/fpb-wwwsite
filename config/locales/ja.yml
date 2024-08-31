@@ -67,6 +67,8 @@ ja:
         description: 説明文
         content: コンテンツ
         bureau: 管轄局
+        special: 特別委員会
+        classification: 種別
     models:
       user: ユーザー
       admin: 管理者

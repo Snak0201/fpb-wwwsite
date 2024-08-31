@@ -62,7 +62,7 @@ module Admins
     private
 
     def committee_params
-      params.require(:committee).permit(:name, :slug, :description, :content, :bureau_id)
+      params.require(:committee).permit(:name, :slug, :description, :content, :bureau_id, :special)
     end
   end
 end

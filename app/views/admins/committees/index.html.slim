@@ -7,7 +7,7 @@
     table.committees 
       thead 
         tr
-          th= Committee.human_attribute_name(:bureau)
+          th= Committee.human_attribute_name(:classification)
           th= Committee.human_attribute_name(:name)
           th= Committee.human_attribute_name(:slug)
           th 作成日時
@@ -15,7 +15,7 @@
       tbody
         - @committees.each do |committee|
           tr id="committee_#{committee.id}" align="center"
-            td = committee&.bureau&.name
+            td = committee.classification
             td = link_to committee.name, edit_admin_committee_path(committee)
             td = committee.slug
             td = l committee.created_at, format: :short
