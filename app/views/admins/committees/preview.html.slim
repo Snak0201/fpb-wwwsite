@@ -7,7 +7,7 @@ h2 記事一覧
 p#articles （ここに記事が表示されます）
 #content = convert_markdown_into_html(@committee.content)
 
-= form_with model: @committee, url: admin_bureau_path(@update_target_committee), method: :patch, class: 'form' do |f|
+= form_with model: @committee, url: admin_committee_path(@update_target_committee), method: :patch, class: 'form' do |f|
   = render 'shared/form_errors', model: f.object
 
   = f.hidden_field :name
