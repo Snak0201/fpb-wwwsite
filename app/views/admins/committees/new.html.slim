@@ -1,5 +1,5 @@
 h1 委員会作成画面
-p = link_to '管理画面に戻る', admin_index_path
+p= link_to '管理画面に戻る', admin_index_path
 
 = form_with model: @committee, url: create_preview_admin_committees_path, class: 'form' do |f|
   = render partial: 'form', locals: { f: }

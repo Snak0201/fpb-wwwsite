@@ -30,7 +30,7 @@ module Admins
         render :edit, status: :see_other
       elsif params[:commit] == '更新'
         if @committee.update(committee_params)
-          redirect_to admin_committees_path, notice: '委員会を更新しました。'
+          redirect_to admin_committees_path, notice: '委員会を更新しました'
         else
           render :edit, status: :unprocessable_entity
         end
