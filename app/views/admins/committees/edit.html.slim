@@ -9,5 +9,5 @@ ul
 
 h2= "#{@committee.name}の編集"
 
-= form_with model: @committee, url: preview_admin_committee_path(@committee), method: :post, class: 'form' do |f|
+= form_with model: @committee, url: update_preview_admin_committee_path(@committee), method: :post, class: 'form' do |f|
   = render partial: 'form', locals: { f: }

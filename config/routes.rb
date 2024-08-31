@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       post :preview, on: :member
     end
     resources :committees, param: :slug, only: %i[index edit update new create destroy] do
-      post :preview, on: :member
+      post :update_preview, on: :member
     end
     resource :fibonacci_number, path: :fibonacci, only: %i[show]
   end

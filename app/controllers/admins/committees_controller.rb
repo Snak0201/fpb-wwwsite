@@ -47,11 +47,11 @@ module Admins
       end
     end
 
-    def preview
+    def update_preview
       @committee = Committee.new(committee_params)
       # NOTE: slugの変更があった時、元のslugに対してリクエストしないと404になるため
       @update_target_committee = Committee.find_by!(slug: params[:slug])
-      render :preview, status: :see_other
+      render :update_preview, status: :see_other
     end
 
     private
