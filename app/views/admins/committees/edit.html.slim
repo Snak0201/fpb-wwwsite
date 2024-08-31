@@ -1,0 +1,10 @@
+h1 委員会編集画面
+p = link_to '委員会一覧に戻る', admin_committees_path
+
+/ TODO: 委員会ページを作成後に有効化
+/ p = link_to '委員会の表示ページ', committee_path(@committee)
+
+h2= "#{@committee.name}の編集"
+
+/ = form_with model: @bureau, url: preview_admin_bureau_path(@bureau), method: :post, class: 'form' do |f|
+/   = render partial: 'form', locals: { f: }

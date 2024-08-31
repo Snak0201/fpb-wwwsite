@@ -3,5 +3,9 @@ module Admins
     def index
       @committees = Committee.by_bureau
     end
+
+    def edit
+      @committee = Committee.find_by!(slug: params[:slug])
+    end
   end
 end
