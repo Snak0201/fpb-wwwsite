@@ -3,6 +3,7 @@ class Committee < ApplicationRecord
   has_many :committee_article_tags, dependent: :destroy, inverse_of: :committee
 
   scope :by_bureau, -> { order(:bureau_id) }
+  scope :by_special, -> { order(special: :desc) }
 
   validates :name, presence: true, uniqueness: true
   validates :description, length: { maximum: 100 }
@@ -11,5 +12,23 @@ class Committee < ApplicationRecord
 
   def to_param
     slug
+  end
+
+  def classification
+    bureau_string + special_string
+  end
+
+  private
+
+  def bureau_string
+    return bureau.name if bureau
+
+    '独立委員会'
+  end
+
+  def special_string
+    return ' 特別委員会' if special
+
+    ''
   end
 end

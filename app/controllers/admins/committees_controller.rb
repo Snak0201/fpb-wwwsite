@@ -1,7 +1,7 @@
 module Admins
   class CommitteesController < ApplicationController
     def index
-      @committees = Committee.by_bureau
+      @committees = Committee.by_bureau.by_special
     end
 
     def new
