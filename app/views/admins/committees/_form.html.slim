@@ -1,0 +1,14 @@
+= render 'shared/form_errors', model: f.object
+
+= f.label :name, Committee.human_attribute_name(:name), class: 'block'
+= f.text_field :name, class: 'wide_text_field'
+
+= f.label :slug, Committee.human_attribute_name(:slug), class: 'block'
+= f.text_field :slug
+
+= f.label :description, Committee.human_attribute_name(:description), class: 'block'
+= f.text_field :description, class: 'wide_text_field'
+
+= f.label :content, Committee.human_attribute_name(:content), class: 'block'
+= f.text_area :content, class: 'wide_text_area'
+= f.submit '確認', class: 'button'

@@ -29,7 +29,9 @@ Rails.application.routes.draw do
     resources :bureaus, param: :slug, only: %i[index edit update] do
       post :preview, on: :member
     end
-    resources :committees, param: :slug, only: %i[index edit]
+    resources :committees, param: :slug, only: %i[index edit] do
+      post :preview, on: :member
+    end
     resource :fibonacci_number, path: :fibonacci, only: %i[show]
   end
 

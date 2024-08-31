@@ -6,5 +6,5 @@ p = link_to '委員会一覧に戻る', admin_committees_path
 
 h2= "#{@committee.name}の編集"
 
-/ = form_with model: @bureau, url: preview_admin_bureau_path(@bureau), method: :post, class: 'form' do |f|
-/   = render partial: 'form', locals: { f: }
+= form_with model: @committee, url: preview_admin_committee_path(@committee), method: :post, class: 'form' do |f|
+  = render partial: 'form', locals: { f: }

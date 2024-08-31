@@ -7,5 +7,9 @@ module Admins
     def edit
       @committee = Committee.find_by!(slug: params[:slug])
     end
+
+    def preview
+
+    end
   end
 end
