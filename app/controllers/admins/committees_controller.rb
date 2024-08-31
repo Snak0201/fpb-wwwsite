@@ -47,6 +47,11 @@ module Admins
       end
     end
 
+    def create_preview
+      @committee = Committee.new(committee_params)
+      render :create_preview, status: :see_other
+    end
+
     def update_preview
       @committee = Committee.new(committee_params)
       # NOTE: slugの変更があった時、元のslugに対してリクエストしないと404になるため
