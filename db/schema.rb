@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_29_014749) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_31_081848) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,6 +66,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_014749) do
     t.index ["slug"], name: "index_bureaus_on_slug", unique: true
   end
 
+  create_table "committees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.string "description", default: "", null: false
+    t.text "content"
+    t.bigint "bureau_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bureau_id"], name: "index_committees_on_bureau_id"
+    t.index ["name"], name: "index_committees_on_name", unique: true
+    t.index ["slug"], name: "index_committees_on_slug", unique: true
+  end
+
   create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "item_type", limit: 191, null: false
     t.bigint "item_id", null: false
@@ -78,4 +91,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_014749) do
 
   add_foreign_key "bureau_articles", "articles"
   add_foreign_key "bureau_articles", "bureaus"
+  add_foreign_key "committees", "bureaus"
 end
