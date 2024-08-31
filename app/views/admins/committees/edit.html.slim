@@ -1,8 +1,11 @@
 h1 委員会編集画面
-p = link_to '委員会一覧に戻る', admin_committees_path
+p= link_to '委員会一覧に戻る', admin_committees_path
 
-/ TODO: 委員会ページを作成後に有効化
-/ p = link_to '委員会の表示ページ', committee_path(@committee)
+h2 機能
+ul 
+  / TODO: 委員会ページを作成後に有効化
+  / li= link_to '委員会の表示ページ', committee_path(@committee)
+  li = link_to '委員会を削除する', admin_committee_path(@committee), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'この委員会を削除しますか？' }
 
 h2= "#{@committee.name}の編集"
 

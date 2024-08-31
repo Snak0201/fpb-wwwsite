@@ -37,6 +37,16 @@ module Admins
       end
     end
 
+    def destroy
+      @committee = Committee.find_by!(slug: params[:slug])
+
+      if @committee.destroy
+        redirect_to admin_committees_path, notice: '委員会が削除されました'
+      else
+        render :show, status: :unprocessable_entity
+      end
+    end
+
     def preview
       @committee = Committee.new(committee_params)
       # NOTE: slugの変更があった時、元のslugに対してリクエストしないと404になるため
