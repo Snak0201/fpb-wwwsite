@@ -11,4 +11,8 @@
 
 = f.label :content, Committee.human_attribute_name(:content), class: 'block'
 = f.text_area :content, class: 'wide_text_area'
+
+= f.label :bureau_id, Committee.human_attribute_name(:bureau), class: 'block'
+= f.collection_select :bureau_id, Bureau.all, :id, :name, options = { include_blank: true }
+
 = f.submit '確認', class: 'button'

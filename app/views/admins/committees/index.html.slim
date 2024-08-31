@@ -7,9 +7,9 @@
     table.committees 
       thead 
         tr
-          th 管轄局 
-          th 委員会名
-          th 委員会slug
+          th= Committee.human_attribute_name(:bureau)
+          th= Committee.human_attribute_name(:name)
+          th= Committee.human_attribute_name(:slug)
           th 作成日時
           th 更新日時
       tbody

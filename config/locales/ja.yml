@@ -66,6 +66,7 @@ ja:
         slug: Slug
         description: 説明文
         content: コンテンツ
+        bureau: 管轄局
     models:
       user: ユーザー
       admin: 管理者
