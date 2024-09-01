@@ -51,54 +51,59 @@ RSpec.describe Admins::CommitteesController do
     end
   end
 
-  # describe 'POST /' do
-  #   let(:name) { '作成された委員会' }
-  #   let(:slug) { 'created' }
-  #   let(:description) { 'committee.description' }
-  #   let(:content) { 'committee.content' }
-  #   let(:params) do
-  #     { committee: { name:, slug:, description:, content: }, commit: }
-  #   end
+  describe 'POST /' do
+    let(:name) { '作成後委員会' }
+    let(:slug) { 'created' }
+    let(:description) { 'committee.description' }
+    let(:content) { 'committee.content' }
+    let(:commit) { '作成' }
+    let(:params) do
+      { committee: { name:, slug:, description:, content: }, commit: }
+    end
 
-  #   context 'with create commit and valid params' do
-  #     let(:commit) { '作成' }
+    context 'with cancel commit' do
+      let(:commit) { 'キャンセル' }
 
-  #     it 'creates the article' do
-  #       post(admin_committees_path, params:)
-  #       expect(response).to have_http_status(:found)
-  #       expect(response).to redirect_to admin_committees_path
-  #       puts Committee.last
-  #       # puts response.body
-  #       # expect{post(admin_committees_path, params:)}.to change(Committee, :count).by(1)
-  #     end
-  #   end
+      it 'keeps params' do
+        post(admin_committees_path, params:)
 
-  #   # context 'with create commit and invalid params' do
-  #   #   let(:commit) { '作成' }
-  #   #   let(:name){nil}
+        expect(response).to have_http_status(:see_other)
+        expect(response.body).to include name
+        expect(response.body).to include slug
+        expect(response.body).to include description
+        expect(response.body).to include content
+      end
+    end
 
-  #   #   it 'creates the article' do
-  #   #     post(admin_committees_path, params:)
-  #   #     expect(response).to have_http_status(:found)
-  #   #     expect(response).to redirect_to admin_committees_path
-  #   #     # puts response.body
-  #   #     # expect{post(admin_committees_path, params:)}.to change(Committee, :count).by(1)
-  #   #   end
-  #   # end
+    context 'with update commit' do
+      it 'redirects admin bureaus and updates the bureau' do
+        post(admin_committees_path, params:)
 
-  #   # context 'with cancel commit' do
-  #   #   let(:commit) { 'キャンセル' }
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to admin_committees_path
 
-  #   #   it 'keeps params on form' do
-  #   #     post(admin_committees_path, params:)
-  #   #     expect(response).to have_http_status(:see_other)
-  #   #     expect(response.body).to have_content name
-  #   #     expect(response.body).to have_content slug
-  #   #     expect(response.body).to have_content description
-  #   #     expect(response.body).to have_content content
-  #   #   end
-  #   # end
-  # end
+        target_committee = Committee.first
+
+        expect(target_committee.name).to eq name
+        expect(target_committee.slug).to eq slug
+        expect(target_committee.description).to eq description
+        expect(target_committee.content).to eq content
+      end
+    end
+
+    context 'with update commit and invalid params' do
+      let(:name) { nil }
+      let(:slug) { nil }
+
+      it 'raises error message' do
+        post(admin_committees_path, params:)
+
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response.body).to include '名称を入力してください'
+        expect(response.body).to include 'Slugを入力してください'
+      end
+    end
+  end
 
   describe 'GET /:slug/edit/' do
     it 'returns http success' do

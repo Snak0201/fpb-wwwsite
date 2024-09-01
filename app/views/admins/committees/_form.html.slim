@@ -3,6 +3,7 @@
 = f.label :name, Committee.human_attribute_name(:name), class: 'block'
 = f.text_field :name, class: 'wide_text_field'
 
+/ TODO: 更新時にslugを空にするとバグが起きる
 = f.label :slug, Committee.human_attribute_name(:slug), class: 'block'
 = f.text_field :slug
 
