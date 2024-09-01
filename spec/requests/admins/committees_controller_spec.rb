@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admins::CommitteesController do
-  let(:committee){create(:committee)}
+  let(:committee) { create(:committee) }
 
   describe 'GET /' do
     it 'returns http success' do
@@ -58,6 +58,20 @@ RSpec.describe Admins::CommitteesController do
         expect(response).to redirect_to update_preview_admin_committee_path(committee)
         expect(response.body).to include name
         expect(response.body).to include description
+      end
+    end
+
+    context 'with invalid input' do
+      let(:name) { nil }
+      let(:slug) { nil }
+      let(:description) { 'updated bureau' }
+      let(:content) { "## updated bureau's content" }
+
+      it 'returns http see_other' do
+        post(update_preview_admin_committee_path(committee), params:)
+
+        expect(response).to have_http_status(:see_other)
+        expect(response).to redirect_to update_preview_admin_committee_path(committee)
       end
     end
   end
