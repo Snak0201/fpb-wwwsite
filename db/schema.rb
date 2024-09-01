@@ -34,11 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "api_dice_logs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "content"
