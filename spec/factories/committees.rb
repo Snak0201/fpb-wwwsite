@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :committee do
-    sequence(:name) { |n| "Test Bureau ##{n}" }
-    sequence(:slug) { |n| "test-bureau-#{n}" }
-    description { 'description' }
-    content { 'content' }
+    sequence(:name) { |n| "Test Committee ##{n}" }
+    sequence(:slug) { |n| "test-committee-#{n}" }
+    sequence(:content) { |n| "Test Committee ##{n}'s content" }
   end
 
   trait :special do
