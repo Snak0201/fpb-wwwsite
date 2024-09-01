@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+# NOTE: 公開されているURLにアクセスできることをテストする
+# 公開ページを作った際、アクセスが可能かを固定値のURLでテストする
+# このテストが恒常的に落ちる変更を加えた場合、メジャーリリースが必要
 RSpec.describe 'Backward Compatibility' do
   describe 'GET /' do
     it 'returns http success' do
