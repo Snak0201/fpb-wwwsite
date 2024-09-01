@@ -61,11 +61,20 @@ ja:
         slug: Slug
         description: 説明文
         content: コンテンツ
+      committee:
+        name: 名称
+        slug: Slug
+        description: 説明文
+        content: コンテンツ
+        bureau: 管轄局
+        special: 特別委員会
+        classification: 種別
     models:
       user: ユーザー
       admin: 管理者
       article: 記事
       admins/announcement: お知らせ
+      committee: 委員会
       tools/stamina_calculator: スタミナ計算機
       bureau: 局
   activemodel:
