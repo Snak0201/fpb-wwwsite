@@ -16,7 +16,7 @@ module Admins
       @committee = Committee.new(committee_params)
 
       if params[:commit] == 'キャンセル'
-        render :edit, status: :see_other
+        render :new, status: :see_other
       elsif params[:commit] == '作成'
         if @committee.save
           redirect_to admin_committees_path, notice: '委員会が登録されました'
