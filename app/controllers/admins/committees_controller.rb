@@ -15,10 +15,14 @@ module Admins
     def create
       @committee = Committee.new(committee_params)
 
-      if @committee.save
-        redirect_to admin_committees_path, notice: '委員会が登録されました'
-      else
-        render :new, status: :unprocessable_entity
+      if params[:commit] == 'キャンセル'
+        render :edit, status: :see_other
+      elsif params[:commit] == '作成'
+        if @committee.save
+          redirect_to admin_committees_path, notice: '委員会が登録されました'
+        else
+          render :new, status: :unprocessable_entity
+        end
       end
     end
 
