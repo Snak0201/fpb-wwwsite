@@ -2,22 +2,23 @@ require 'rails_helper'
 
 RSpec.describe Admins::CommitteesController do
   let(:committee) { create(:committee) }
+  let(:bureau) { create(:bureau) }
 
-  describe 'GET /' do
+  describe 'GET admin_committees_path' do
     it 'returns http success' do
       get admin_committees_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET /new/' do
+  describe 'GET new_admin_committee_path' do
     it 'returns http success' do
       get new_admin_committee_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'POST /create_preview/' do
+  describe 'POST create_preview_admin_committees_path' do
     let(:name) { '作成された委員会' }
     let(:slug) { 'created' }
     let(:description) { 'committee.description' }
@@ -34,6 +35,23 @@ RSpec.describe Admins::CommitteesController do
         expect(response).to redirect_to create_preview_admin_committees_path
         expect(response.body).to include name
         expect(response.body).to include description
+        expect(response.body).not_to include bureau.name
+      end
+    end
+
+    context 'with bureau' do
+      let(:params) do
+        { committee: { name:, slug:, description:, content:, bureau_id: bureau.id } }
+      end
+
+      it 'returns http see_other and display correct contents' do
+        post(create_preview_admin_committees_path, params:)
+
+        expect(response).to have_http_status(:see_other)
+        expect(response).to redirect_to create_preview_admin_committees_path
+        expect(response.body).to include name
+        expect(response.body).to include description
+        expect(response.body).to include bureau.name
       end
     end
 
@@ -51,7 +69,7 @@ RSpec.describe Admins::CommitteesController do
     end
   end
 
-  describe 'POST /' do
+  describe 'POST admin_committees_path' do
     let(:name) { '作成後委員会' }
     let(:slug) { 'created' }
     let(:description) { 'committee.description' }
@@ -88,6 +106,28 @@ RSpec.describe Admins::CommitteesController do
         expect(target_committee.slug).to eq slug
         expect(target_committee.description).to eq description
         expect(target_committee.content).to eq content
+        expect(target_committee.bureau).to be_nil
+      end
+    end
+
+    context 'with update commit and bureau' do
+      let(:params) do
+        { committee: { name:, slug:, description:, content:, bureau_id: bureau.id }, commit: }
+      end
+
+      it 'redirects admin bureaus and updates the bureau' do
+        post(admin_committees_path, params:)
+
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to admin_committees_path
+
+        target_committee = Committee.first
+
+        expect(target_committee.name).to eq name
+        expect(target_committee.slug).to eq slug
+        expect(target_committee.description).to eq description
+        expect(target_committee.content).to eq content
+        expect(target_committee.bureau).to eq bureau
       end
     end
 
@@ -105,14 +145,14 @@ RSpec.describe Admins::CommitteesController do
     end
   end
 
-  describe 'GET /:slug/edit/' do
+  describe 'GET edit_admin_committee_path' do
     it 'returns http success' do
       get edit_admin_committee_path(committee)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'POST /:slug/update_preview/' do
+  describe 'POST update_preview_admin_committee_path' do
     include ApplicationHelper
     let(:name) { committee.name }
     let(:slug) { committee.slug }
@@ -136,8 +176,8 @@ RSpec.describe Admins::CommitteesController do
     context 'when update input' do
       let(:name) { '更新後' }
       let(:slug) { 'updated' }
-      let(:description) { 'updated bureau' }
-      let(:content) { "## updated bureau's content" }
+      let(:description) { 'updated committee' }
+      let(:content) { "## updated committee's content" }
 
       it 'returns http see_other' do
         post(update_preview_admin_committee_path(committee), params:)
@@ -146,6 +186,26 @@ RSpec.describe Admins::CommitteesController do
         expect(response).to redirect_to update_preview_admin_committee_path(committee)
         expect(response.body).to include name
         expect(response.body).to include description
+      end
+    end
+
+    context 'with bureau' do
+      let(:name) { '更新後' }
+      let(:slug) { 'updated' }
+      let(:description) { 'updated committee' }
+      let(:content) { "## updated committee's content" }
+      let(:params) do
+        { committee: { name:, slug:, description:, content:, bureau_id: bureau.id } }
+      end
+
+      it 'returns http see_other and display correct contents' do
+        post(create_preview_admin_committees_path, params:)
+
+        expect(response).to have_http_status(:see_other)
+        expect(response).to redirect_to create_preview_admin_committees_path
+        expect(response.body).to include name
+        expect(response.body).to include description
+        expect(response.body).to include bureau.name
       end
     end
 
@@ -164,7 +224,7 @@ RSpec.describe Admins::CommitteesController do
     end
   end
 
-  describe 'PATCH /:slug/' do
+  describe 'PATCH admin_committee_path' do
     let(:name) { '更新後委員会' }
     let(:slug) { 'updated' }
     let(:description) { 'committee.description' }
@@ -201,6 +261,28 @@ RSpec.describe Admins::CommitteesController do
         expect(target_committee.slug).to eq slug
         expect(target_committee.description).to eq description
         expect(target_committee.content).to eq content
+        expect(target_committee.bureau).to be_nil
+      end
+    end
+
+    context 'with update commit and bureau' do
+      let(:params) do
+        { committee: { name:, slug:, description:, content:, bureau_id: bureau.id }, commit: }
+      end
+
+      it 'redirects admin bureaus and updates the bureau' do
+        patch(admin_committee_path(committee), params:)
+
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to admin_committees_path
+
+        target_committee = Committee.first
+
+        expect(target_committee.name).to eq name
+        expect(target_committee.slug).to eq slug
+        expect(target_committee.description).to eq description
+        expect(target_committee.content).to eq content
+        expect(target_committee.bureau).to eq bureau
       end
     end
 
