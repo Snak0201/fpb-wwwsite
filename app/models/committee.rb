@@ -3,7 +3,7 @@ class Committee < ApplicationRecord
   has_many :committee_article_tags, dependent: :destroy, inverse_of: :committee
   has_many :articles, through: :committee_article_tags
 
-  scope :sorted, -> {order(:bureau_id, special: :desc)}
+  scope :sorted, -> { order(:bureau_id, special: :desc) }
 
   validates :name, presence: true, uniqueness: true
   validates :description, length: { maximum: 100 }
