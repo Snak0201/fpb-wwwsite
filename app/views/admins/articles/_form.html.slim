@@ -6,12 +6,12 @@
 = f.label :content, Article.human_attribute_name(:content), class: 'block'
 = f.text_area :content, class: 'wide_text_area'
 
-= f.label :bureau_ids, Article.human_attribute_name(:bureau_ids), class: 'block'
+= f.label :bureau_ids, Article.human_attribute_name(:bureaus), class: 'block'
 = f.collection_check_boxes :bureau_ids, Bureau.all, :id, :name do |b|
   = b.label class: 'check_boxes' do 
     = b.check_box + b.text 
 
-= f.label :committee_ids, Article.human_attribute_name(:committee_ids), class: 'block'
+= f.label :committee_ids, Article.human_attribute_name(:committees), class: 'block'
 = f.collection_check_boxes :committee_ids, Committee.all, :id, :name do |b|
   = b.label class: 'check_boxes' do 
     = b.check_box + b.text 

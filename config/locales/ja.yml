@@ -50,11 +50,15 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
       article:
+        id: ID
         title: タイトル
         content: 内容
-        bureau_ids: 管轄局
-        committee_ids: 管轄委員会
+        bureaus: 管轄局
+        committees: 管轄委員会
+        status: ステータス
         number: 分類番号
+        published_at: 公開日時
+        updated_at: 更新日時
       admins/announcement:
         content: 内容
       bureau:
