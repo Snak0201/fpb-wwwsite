@@ -11,6 +11,11 @@
   = b.label class: 'check_boxes' do 
     = b.check_box + b.text 
 
+= f.label :committee_ids, Article.human_attribute_name(:committee_ids), class: 'block'
+= f.collection_check_boxes :committee_ids, Committee.all, :id, :name do |b|
+  = b.label class: 'check_boxes' do 
+    = b.check_box + b.text 
+
 = f.label :number, Article.human_attribute_name(:number), class: 'block'
 = f.number_field :number
 
