@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { maximum: 100 }
   validates :number, presence: true
 
-  scope :admin_index, -> { order(created_at: :desc) }
+  scope :sorted, -> { order(created_at: :desc) }
   scope :published, -> { where.not(published_at: nil) }
   scope :newer, -> { published.order(published_at: :desc) }
   scope :newest, -> { newer.limit(5) }

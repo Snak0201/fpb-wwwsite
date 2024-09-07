@@ -1,7 +1,7 @@
 module Admins
   class ArticlesController < DeviseAuthenticationController
     def index
-      @articles = Article.admin_index.page(params[:page])
+      @articles = Article.sorted.page(params[:page])
     end
 
     def show
