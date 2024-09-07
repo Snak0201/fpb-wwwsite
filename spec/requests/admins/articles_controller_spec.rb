@@ -55,8 +55,11 @@ RSpec.describe Admins::ArticlesController do
       let(:number) { 0 }
       let(:bureau) { create(:bureau) }
       let(:bureau_ids) { '' }
+      let(:committee) { create(:committee) }
+      let(:committee2) { create(:committee) }
+      let(:committee_ids) { '' }
       let(:params) do
-        { article: { title:, content:, number:, bureau_ids: } }
+        { article: { title:, content:, number:, bureau_ids:, committee_ids: } }
       end
 
       context 'with right content' do
@@ -68,15 +71,18 @@ RSpec.describe Admins::ArticlesController do
         end
       end
 
-      context 'with bureau' do
+      context 'with bureau and committees' do
         let(:bureau_ids) { [bureau.id.to_s] }
+        let(:committee_ids) { [committee.id.to_s, committee2.id.to_s] }
 
-        it 'creates article with a bureau' do
+        it 'creates article with a bureau and committees' do
           post admin_articles_path(params:)
           expect(response).to have_http_status(:found)
           expect(response).to redirect_to admin_articles_path
           article = Article.find_by(title:)
           expect(article.bureaus).to include bureau
+          expect(article.committees).to include committee
+          expect(article.committees).to include committee2
         end
       end
     end
@@ -102,8 +108,11 @@ RSpec.describe Admins::ArticlesController do
       let(:number) { 0 }
       let(:bureau) { create(:bureau) }
       let(:bureau_ids) { [bureau.id.to_s] }
+      let(:committee) { create(:committee) }
+      let(:committee2) { create(:committee) }
+      let(:committee_ids) { [committee.id.to_s, committee2.id.to_s] }
       let(:params) do
-        { article: { title:, content:, number:, bureau_ids: }, commit: }
+        { article: { title:, content:, number:, bureau_ids:, committee_ids: }, commit: }
       end
 
       context 'with update commit' do
@@ -118,6 +127,8 @@ RSpec.describe Admins::ArticlesController do
           expect(article.content).to eq content
           expect(article.number).to eq number
           expect(article.bureaus).to include bureau
+          expect(article.committees).to include committee
+          expect(article.committees).to include committee2
         end
       end
 
@@ -169,7 +180,7 @@ RSpec.describe Admins::ArticlesController do
 
     describe 'POST preview_admin_article_path' do
       let(:params) do
-        { article: { title:, content:, number:, bureau_ids: } }
+        { article: { title:, content:, number:, bureau_ids:, committee_ids: } }
       end
 
       let(:title) { '更新後' }
@@ -177,6 +188,9 @@ RSpec.describe Admins::ArticlesController do
       let(:number) { 0 }
       let(:bureau) { create(:bureau) }
       let(:bureau_ids) { [bureau.id.to_s] }
+      let(:committee) { create(:committee) }
+      let(:committee2) { create(:committee) }
+      let(:committee_ids) { [committee.id.to_s, committee2.id.to_s] }
 
       it do
         post preview_admin_article_path(article, params:)
@@ -186,6 +200,8 @@ RSpec.describe Admins::ArticlesController do
         expect(response.body).to include title
         expect(response.body).to include content
         expect(response.body).to include bureau.name
+        expect(response.body).to include committee.name
+        expect(response.body).to include committee2.name
       end
     end
 
