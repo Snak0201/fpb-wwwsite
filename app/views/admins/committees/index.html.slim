@@ -1,0 +1,23 @@
+.admin_committees
+  h1 委員会一覧
+  p 現在存在する委員会の一覧です。編集する委員会を選んでください。
+  p = link_to '管理画面に戻る', admin_index_path
+
+  .scroll_content
+    table.committees 
+      thead 
+        tr
+          th= Committee.human_attribute_name(:classification)
+          th= Committee.human_attribute_name(:name)
+          th= Committee.human_attribute_name(:slug)
+          th 作成日時
+          th 更新日時
+      tbody
+        - @committees.each do |committee|
+          tr id="committee_#{committee.id}" align="center"
+            td = committee.classification
+            td = link_to committee.name, edit_admin_committee_path(committee)
+            td = committee.slug
+            td = l committee.created_at, format: :short
+            td = l committee.updated_at, format: :short
+

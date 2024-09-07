@@ -1,0 +1,17 @@
+h1 プレビュー
+p = "#{@committee.name}の詳細ページは以下のように表示されます。よろしいですか？"
+
+= render 'preview', committee: @committee
+
+= form_with model: @committee, url: admin_committee_path(@update_target_committee), method: :patch, class: 'form' do |f|
+  = render 'shared/form_errors', model: f.object
+
+  = f.hidden_field :name
+  = f.hidden_field :slug
+  = f.hidden_field :description
+  = f.hidden_field :content
+  = f.hidden_field :bureau_id
+  = f.hidden_field :special
+
+  = f.submit 'キャンセル', class: 'button holizontal danger'
+  = f.submit '更新', class: 'button holizontal'
