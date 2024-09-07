@@ -12,7 +12,7 @@
     = b.check_box + b.text 
 
 = f.label :committee_ids, Article.human_attribute_name(:committees), class: 'block'
-= f.collection_check_boxes :committee_ids, Committee.all, :id, :name do |b|
+= f.collection_check_boxes :committee_ids, Committee.sorted, :id, :name do |b|
   = b.label class: 'check_boxes' do 
     = b.check_box + b.text 
 
