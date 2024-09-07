@@ -1,6 +1,7 @@
 class Committee < ApplicationRecord
   belongs_to :bureau, optional: true
   has_many :committee_article_tags, dependent: :destroy, inverse_of: :committee
+  has_many :articles, through: :committee_article_tags
 
   scope :by_bureau, -> { order(:bureau_id) }
   scope :by_special, -> { order(special: :desc) }
