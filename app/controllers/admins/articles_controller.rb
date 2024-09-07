@@ -1,7 +1,7 @@
 module Admins
   class ArticlesController < DeviseAuthenticationController
     def index
-      @articles = Article.sorted.page(params[:page])
+      @articles = Article.sorted.eager_load(:bureaus, :committees).page(params[:page])
     end
 
     def show

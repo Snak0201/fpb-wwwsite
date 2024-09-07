@@ -1,7 +1,7 @@
 module Admins
   class CommitteesController < ApplicationController
     def index
-      @committees = Committee.sorted
+      @committees = Committee.sorted.eager_load(:bureau)
     end
 
     def new
