@@ -17,7 +17,7 @@
         - @articles.each do |article|
           tr id="article_#{article.id}" align="center"
             td align="right" = article.id 
-            td= link_to article.title, admin_article_path(article)
+            td#title= link_to article.title, admin_article_path(article)
             td 
               - article.bureaus.each do |bureau|
                 = "#{bureau.name} " 

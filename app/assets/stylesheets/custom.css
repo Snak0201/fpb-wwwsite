@@ -198,6 +198,10 @@ footer {
   .articles {
     min-width: 1200px;
     border-spacing: 0;
+
+    #title {
+      max-width: 200px;
+    }
   }
 }
 
