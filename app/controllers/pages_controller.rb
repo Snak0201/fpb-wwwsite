@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     @announcement = ::Admins::Announcement.last
     @articles = Article.newest
     @bureaus = Bureau.all
-    @committees = Committee.sorted
+    @committees = Committee.sorted.eager_load(:bureau)
   end
 
   def about; end
