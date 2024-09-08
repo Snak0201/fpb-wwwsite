@@ -1,6 +1,10 @@
 h1#name= committee.name
-p#classification= committee.classification
 p#description= committee.description
+- if committee.bureau
+  h2 管轄局
+  p#bureau= link_to committee.bureau_name, bureau_path(committee.bureau)
+h2 委員会種別
+p#classification= committee.classification
 
 h2 記事一覧
 p#articles （ここに記事が表示されます）
