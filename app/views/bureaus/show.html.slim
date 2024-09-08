@@ -4,10 +4,11 @@ h1#name = @bureau.name
 p#description = @bureau.description
 
 - if @committees.present?
-  h2#committees 委員会一覧
-  ul 
-    - @committees.each do |committee|
-      li= link_to committee.name, '#'
+  h2 委員会一覧
+  #committees 
+    ul
+      - @committees.each do |committee|
+        li= link_to committee.name, '#'
 
 - if @articles.present?
   h2 記事一覧
