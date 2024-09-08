@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   resources :bureaus, param: :slug, only: :show
 
+  resources :committees, param: :slug, only: :show
+
   resources :tools, only: %i[index]
   namespace :tools do
     resource :character_counter, only: %i[show create]
