@@ -4,7 +4,7 @@ h1#name= @committee.name
 p#description= @committee.description
 - if @committee.bureau
   h2 管轄局
-  p#bureau= @committee.bureau.name
+  p#bureau= @committee.bureau_name
 h2 委員会種別
 p#classification= @committee.classification
 - if @articles.present?

@@ -23,4 +23,4 @@
     h2 委員会一覧（記事タグ）
     ul 
       - @committees.each do |committee|
-        li = link_to "#{committee.name} (#{committee.classification})", '#'
+        li = link_to "#{committee.name} (#{committee.bureau_name})", committee_path(committee)

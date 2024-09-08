@@ -15,16 +15,16 @@ class Committee < ApplicationRecord
   end
 
   def classification
-    bureau_string + special_string
+    bureau_name + special_string
   end
 
-  private
-
-  def bureau_string
+  def bureau_name
     return bureau.name if bureau
 
     '独立委員会'
   end
+
+  private
 
   def special_string
     return ' 特別委員会' if special
