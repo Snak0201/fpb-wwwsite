@@ -50,10 +50,15 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
       article:
+        id: ID
         title: タイトル
         content: 内容
-        bureau_ids: 管轄局
+        bureaus: 管轄局
+        committees: 管轄委員会
+        status: ステータス
         number: 分類番号
+        published_at: 公開日時
+        updated_at: 更新日時
       admins/announcement:
         content: 内容
       bureau:
@@ -207,7 +212,7 @@ ja:
       invalid: は不正な値です
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
-      model_invalid: 'バリデーションに失敗しました: %{errors}'
+      model_invalid: "バリデーションに失敗しました: %{errors}"
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
       odd: は奇数にしてください

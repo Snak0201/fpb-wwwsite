@@ -18,3 +18,9 @@
     ul 
       - @bureaus.each do |bureau|
         li = link_to bureau.name, bureau_path(bureau)
+  
+  #committees 
+    h2 委員会一覧（記事タグ）
+    ul 
+      - @committees.each do |committee|
+        li = link_to "#{committee.name} (#{committee.bureau_name})", committee_path(committee)
