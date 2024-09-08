@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @announcement = ::Admins::Announcement.last
     @articles = Article.newest
     @bureaus = Bureau.all
+    @committees = Committee.sorted
   end
 
   def about; end
