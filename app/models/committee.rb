@@ -29,6 +29,6 @@ class Committee < ApplicationRecord
   def special_string
     return ' 特別委員会' if special
 
-    ''
+    ' 常任委員会'
   end
 end
