@@ -51,7 +51,7 @@ RSpec.describe 'Backward Compatibility' do
   end
 
   describe 'GET /committees/:slug/' do
-    let(:committee){create(:committee)}
+    let(:committee) { create(:committee) }
 
     it 'returns http success' do
       get "/committees/#{committee.slug}"
