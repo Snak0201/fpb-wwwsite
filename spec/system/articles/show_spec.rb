@@ -25,7 +25,7 @@ RSpec.describe 'show article page' do
       committee = Committee.first
 
       visit article_path(article)
-      within('#committees') { expect(page).to have_content committee.name }
+      within('#committees') { expect(page).to have_link committee.name, href: committee_path(committee) }
     end
   end
 end

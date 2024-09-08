@@ -69,7 +69,7 @@ RSpec.describe 'show bureau page' do
         expect(page).to have_content '委員会一覧'
 
         within('#committees') do
-          expect(page).to have_content committee.name
+          expect(page).to have_link committee.name, href: committee_path(committee)
         end
       end
     end

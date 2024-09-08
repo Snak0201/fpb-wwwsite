@@ -47,6 +47,8 @@ RSpec.describe 'top page' do
       within('#committees') do
         expect(page).to have_content '委員会一覧'
         expect(page.text).to match(/C-4.*C-2.*C-3.*C-1/)
+        expect(page).to have_no_content '常任委員会'
+        expect(page).to have_no_content '特別委員会'
       end
     end
   end
