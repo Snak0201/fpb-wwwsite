@@ -4,7 +4,8 @@ module Types
   class ArticleType < Types::BaseObject
     description 'published article on Hoshinonaka Government'
 
-    field :bureaus, [Types::BureauType], null: true, description: 'jurisdiction bureau'
+    field :bureaus, [Types::BureauType], null: true, description: 'jurisdiction bureaus'
+    field :committees, [Types::CommitteeType], null: true, description: 'jurisdiction committees'
     field :content, String, description: 'markdown content'
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false, description: 'created at'
     field :id, ID, null: false, description: 'id'
