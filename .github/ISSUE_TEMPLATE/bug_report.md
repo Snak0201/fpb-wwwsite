@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: '{利用者}が{動作}したとき、{何が起きる}'
+title: "{利用者}が{動作}したとき、{何が起きる}"
 labels: bug
 assignees: ''
 

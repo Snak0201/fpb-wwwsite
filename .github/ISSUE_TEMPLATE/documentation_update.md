@@ -1,7 +1,7 @@
 ---
 name: Documentation update
 about: Update WIKI, README and other documents
-title: '{文書}が{状態}になっている'
+title: "{文書}が{状態}になっている"
 labels: documentation
 assignees: ''
 
