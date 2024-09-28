@@ -14,6 +14,8 @@ module Types
     field :title, String, null: false, description: 'title'
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false, description: 'updated at'
 
+    # NOTE: ArticleTypeから局や委員会を直接呼び出せるようにする
     delegate :bureaus, to: :object
+    delegate :committees, to: :object
   end
 end
