@@ -45,7 +45,9 @@ RSpec.describe 'Committee' do
           committee(slug: "#{committee.slug}"){
             name
             special
-            bureauId
+            bureau{
+              name
+            }
             articles(first: 5){
               nodes{
                 title
@@ -60,7 +62,9 @@ RSpec.describe 'Committee' do
       {
         name: committee.name,
         special: true,
-        bureauId: committee.bureau.id,
+        bureau:{
+          name: committee.bureau.name
+        },
         articles: {
           nodes: [
             { title: article.title }

@@ -5,7 +5,7 @@ module Types
     description 'article tags'
 
     field :articles, Types::ArticleType.connection_type, null: true, description: 'committee articles list'
-    field :bureau_id, Integer, description: 'jurisdiction bureau id'
+    field :bureau, Types::BureauType, description: 'jurisdiction bureau'
     field :content, String, description: 'markdown content'
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false, description: 'created_at'
     field :description, String, null: false, description: 'short description'
