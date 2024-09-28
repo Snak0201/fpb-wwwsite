@@ -7,5 +7,17 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :with_bureau do
+      after(:build) do |article|
+        article.bureaus << build(:bureau)
+      end
+    end
+
+    trait :with_committee do
+      after(:build) do |article|
+        article.committees << build(:committee)
+      end
+    end
   end
 end
