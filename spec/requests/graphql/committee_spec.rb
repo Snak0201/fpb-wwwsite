@@ -62,7 +62,7 @@ RSpec.describe 'Committee' do
       {
         name: committee.name,
         special: true,
-        bureau:{
+        bureau: {
           name: committee.bureau.name
         },
         articles: {
