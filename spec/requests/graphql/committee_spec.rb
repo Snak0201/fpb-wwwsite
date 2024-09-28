@@ -3,32 +3,73 @@ require 'rails_helper'
 RSpec.describe 'Committee' do
   subject(:request) { post '/graphql', params: { query: } }
 
-  # NOTE: 3-1-5-2-4の順が正しい
-  let!(:first_committee) { create(:committee) }
-  let!(:second_committee) { create(:committee, :with_bureau) }
-  let!(:third_committee) { create(:committee, :special) }
-  let!(:fourth_committee) { create(:committee, :with_bureau) }
-  let!(:fifth_committee) { create(:committee, :with_bureau, :special, bureau: Bureau.first) }
-
   describe 'committees query' do
     subject(:result) { JSON.parse(response.body, symbolize_names: true).dig(:data, :committees) }
+
+    # NOTE: 3-1-5-2-4の順が正しい
+    let!(:first_committee) { create(:committee) }
+    let!(:second_committee) { create(:committee, :with_bureau) }
+    let!(:third_committee) { create(:committee, :special) }
+    let!(:fourth_committee) { create(:committee, :with_bureau) }
+    let!(:fifth_committee) { create(:committee, :with_bureau, :special, bureau: Bureau.first) }
 
     let(:query) do
       <<~QUERY
         {
           committees{
-            id
+            name
           }
         }
       QUERY
     end
 
     let(:expected_data) do
-      [{ id: third_committee.id.to_s }, { id: first_committee.id.to_s }, { id: fifth_committee.id.to_s },
-       { id: second_committee.id.to_s }, { id: fourth_committee.id.to_s }]
+      [{ name: third_committee.name }, { name: first_committee.name }, { name: fifth_committee.name },
+       { name: second_committee.name }, { name: fourth_committee.name }]
     end
 
     it 'returns expected_data' do
+      request
+      expect(result).to eq expected_data
+    end
+  end
+
+  describe 'committee query' do
+    subject(:result) { JSON.parse(response.body, symbolize_names: true).dig(:data, :committee) }
+
+    let!(:committee) { create(:committee, :with_bureau, :special) }
+    let!(:article) { create(:article, committees: [committee]) }
+    let(:query) do
+      <<~QUERY
+        {
+          committee(slug: "#{committee.slug}"){
+            name
+            special
+            bureauId
+            articles(first: 5){
+              nodes{
+                title
+              }
+            }
+          }
+        }
+      QUERY
+    end
+
+    let(:expected_data) do
+      {
+        name: committee.name,
+        special: true,
+        bureauId: committee.bureau.id,
+        articles: {
+          nodes: [
+            { title: article.title }
+          ]
+        }
+      }
+    end
+
+    it do
       request
       expect(result).to eq expected_data
     end
