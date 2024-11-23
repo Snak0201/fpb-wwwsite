@@ -186,7 +186,9 @@ footer {
 
 .pages_about {
   .logo {
-    width: 80%;
+    max-height: 150px;
+    max-width: 400px;
+    width: 90%;
   }
 }
 
