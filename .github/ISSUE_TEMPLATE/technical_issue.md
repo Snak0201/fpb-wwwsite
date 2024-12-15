@@ -1,7 +1,7 @@
 ---
 name: Technical issue
 about: Old packages, codes, or other problem in the long run
-title: "{価値を提供したい人}が{ゴール}できる"
+title: "{価値を提供したい人}として、{やりたいこと}したい"
 labels: maintenance
 assignees: ''
 

@@ -1,7 +1,7 @@
 ---
 name: Spike
 about: Research or make a prototype for estimate
-title: "{調査したいこと}が分かる"
+title: "{価値を提供したい人}として、{調査したいこと}を知りたい"
 labels: spike
 assignees: ''
 
@@ -15,8 +15,6 @@ assignees: ''
 - [ ] `true`が`true`であると分かっている
 - [ ] 次のアクションに応じてIssueが切られている
 
-## 期限
-開始後4hまで
 ## 結果
 -
 ## 次のアクション

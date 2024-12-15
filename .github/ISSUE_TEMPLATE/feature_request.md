@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: "{価値を提供したい人}が{ゴール}できる"
+title: "{価値を提供したい人}として、{やりたいこと}したい"
 labels: enhancement
 assignees: ''
 
