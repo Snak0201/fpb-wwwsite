@@ -97,7 +97,8 @@ RSpec.describe Admins::ArticlesController do
 
       context 'without existing article' do
         it 'raises record not found' do
-          expect { get "/admin/articles/#{article.id + 1}" }.to raise_error(ActiveRecord::RecordNotFound)
+          get "/admin/articles/#{article.id + 1}"
+          expect(response).to have_http_status(:not_found)
         end
       end
     end

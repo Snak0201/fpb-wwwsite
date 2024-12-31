@@ -25,8 +25,9 @@ RSpec.describe ArticlesController do
     context 'when article is not published' do
       let(:article) { create(:article) }
 
-      it 'raises record not found error' do
-        expect { get article_path(article) }.to raise_error(ActiveRecord::RecordNotFound)
+      it 'returns not found' do
+        get article_path(article)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
