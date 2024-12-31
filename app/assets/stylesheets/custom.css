@@ -69,7 +69,9 @@ table {
 }
 
 main {
-  margin: 8px;
+  /* ページ内部のコンテンツを中央寄せにする */
+  margin: auto;
+  max-width: 800px;
 }
 
 footer {
