@@ -6,11 +6,13 @@ class CreateEventCartCarts < ActiveRecord::Migration[7.2]
       t.string :place, comment: "会場"
       t.string :atlas, comment: "会場の地図"
       t.text :memo, comment: "メモ"
-      t.string :unique_code, comment: "ユニークコード", null: false, unique: true
+      t.string :unique_code, comment: "ユニークコード", null: false
       t.boolean :disabled, comment: "無効化", default: false, null: false
       t.datetime :disabled_at, comment: "無効化日時"
 
       t.timestamps
     end
+
+    add_index :event_cart_carts, :unique_code, unique: true
   end
 end
