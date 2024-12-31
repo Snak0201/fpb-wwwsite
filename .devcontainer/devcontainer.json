@@ -5,10 +5,14 @@
   "dockerComposeFile": "../docker-compose.yml",
   "customizations": {
     "vscode": {
+      "settings": {
+        "solargraph.definitions": true
+      },
       "extensions": [
         "mhutchie.git-graph",
         "esbenp.prettier-vscode",
-        "shopify.ruby-lsp"
+        "shopify.ruby-lsp",
+        "castwide.solargraph"
       ]
     }
   }
