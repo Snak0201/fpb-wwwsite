@@ -6,8 +6,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-          "mhutchie.git-graph",
-          "esbenp.prettier-vscode"
+        "mhutchie.git-graph",
+        "esbenp.prettier-vscode",
+        "shopify.ruby-lsp"
       ]
     }
   }
