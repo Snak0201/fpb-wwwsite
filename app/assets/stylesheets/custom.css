@@ -112,6 +112,10 @@ footer {
   }
 }
 
+.markdown_content {
+  overflow-wrap: break-word;
+}
+
 /* 記事 */
 .article {
   .jurisdiction_links {
