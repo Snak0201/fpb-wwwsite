@@ -7,7 +7,6 @@
     "vscode": {
       "settings": {
         "solargraph.definitions": true,
-        "solargraph.diagnostics": true,
         "todo-tree.general.tags": [
           "BUG",
           "HACK",
