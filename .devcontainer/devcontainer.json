@@ -1,0 +1,14 @@
+{
+  "name": "Hoshinonaka Government Rails Server",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "dockerComposeFile": "../docker-compose.yml",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+          "mhutchie.git-graph",
+          "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
