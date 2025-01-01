@@ -10,10 +10,14 @@ module EventCart
 
     def create
       @cart = EventCart::Cart.new(create_cart_params)
-      EventCart::CreateCart.run!
       if @cart.valid?
-        @cart.save!
-        redirect_to event_cart_cart_path
+        service = EventCart::CreateCart.run(create_cart_params)
+
+        if service.result
+          redirect_to event_cart_cart_path(service.result), notice: '登録しました。URLを保存しておいてください。'
+        else
+          redirect_to event_cart_root_path, alert: '登録に失敗しました。'
+        end
       else
         render :index, status: :unprocessable_entity
       end
