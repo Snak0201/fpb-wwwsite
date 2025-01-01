@@ -180,9 +180,11 @@ footer {
 
 /* gridレイアウトのフォーム */
 .grid_form {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 1em;
+  .form_content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1em;
+  }
 
   .submit {
     grid-column: 2;
