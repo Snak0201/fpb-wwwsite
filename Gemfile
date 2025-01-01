@@ -88,6 +88,7 @@ group :development do
   gem 'bcrypt_pbkdf'
   gem 'ed25519'
   gem 'graphiql-rails'
+  gem 'solargraph', require: false
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
