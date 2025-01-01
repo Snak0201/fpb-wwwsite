@@ -1,2 +1,27 @@
-h1 EventCart::Carts#index
-p Find me in app/views/event_cart/carts/index.html.slim
+- content_for(:title, "EventCart - イベントカートで即売会の買いたいものを管理する")
+
+h1 EventCart
+p EventCart（イベントカート）は、即売会で買いたいものを管理するサービスです。
+
+h2 カートを作成する
+p ※情報は後から修正できます。
+
+= form_with model: @cart, url: event_cart_carts_path, class: 'form' do |f|
+  = render 'shared/form_errors', model: f.object
+  
+  = f.label :name
+  = f.text_field :name
+  
+  = f.label :held_at
+  = f.date_field :held_at
+
+  = f.label :place
+  = f.text_field :place
+
+  = f.label :atlas
+  = f.text_field :atlas
+
+  = f.label :memo
+  = f.text_area :memo
+
+  = f.submit

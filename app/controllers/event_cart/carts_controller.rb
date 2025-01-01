@@ -1,6 +1,8 @@
 module EventCart
   class CartsController < ApplicationController
-    def index; end
+    def index
+      @cart = EventCart::Cart.new
+    end
 
     def show; end
 
