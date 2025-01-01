@@ -10,6 +10,7 @@ module EventCart
 
     def create
       @cart = EventCart::Cart.new(create_cart_params)
+      EventCart::CreateCart.run!
       if @cart.valid?
         @cart.save!
         redirect_to event_cart_cart_path
