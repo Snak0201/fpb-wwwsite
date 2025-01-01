@@ -6,7 +6,7 @@ p EventCart（イベントカート）は、即売会で買いたいものを管
 h2 カートを作成する
 p ※情報は後から修正できます。
 
-= form_with model: @cart, url: event_cart_carts_path, class: 'form' do |f|
+= form_with model: @cart, url: event_cart_carts_path, class: 'grid_form' do |f|
   = render 'shared/form_errors', model: f.object
   
   = f.label :name
@@ -24,4 +24,4 @@ p ※情報は後から修正できます。
   = f.label :memo
   = f.text_area :memo
 
-  = f.submit
+  = f.submit 'カートの作成', class: 'submit'
