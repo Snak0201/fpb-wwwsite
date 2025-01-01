@@ -1,0 +1,12 @@
+/* gridレイアウトのフォーム */
+.grid_form {
+  .form_content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1em;
+  }
+
+  .submit {
+    grid-column: 2;
+  }
+}
