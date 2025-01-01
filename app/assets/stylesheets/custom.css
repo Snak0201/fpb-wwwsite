@@ -6,16 +6,6 @@ body {
     "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
 }
 
-table {
-  border-spacing: 0;
-
-  & th,
-  td {
-    border-bottom: 1px solid gray;
-    padding: 5px;
-  }
-}
-
 .content {
   min-height: calc(100vh - 24px);
   overflow: hidden;
@@ -76,6 +66,16 @@ main {
 
   h1 {
     margin-top: 0;
+  }
+
+  table {
+    border-spacing: 0;
+
+    & th,
+    td {
+      border-bottom: 1px solid gray;
+      padding: 5px;
+    }
   }
 }
 
