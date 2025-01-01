@@ -4,7 +4,9 @@ module EventCart
       @cart = EventCart::Cart.new
     end
 
-    def show; end
+    def show
+      @cart = EventCart::Cart.find_by!(unique_code: params[:unique_code])
+    end
 
     def edit; end
 
