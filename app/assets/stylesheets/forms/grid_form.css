@@ -9,6 +9,24 @@
     text-align: right;
   }
 
+  .text_field {
+    width: auto;
+    height: 1.5em;
+    font-size: 16px;
+  }
+
+  .date_field {
+    width: auto;
+    height: 1.5em;
+    font-size: 16px;
+  }
+
+  .text_area {
+    width: auto;
+    height: 3em;
+    font-size: 16px;
+  }
+
   .submit {
     grid-column: 2;
     text-align: center !important;

@@ -1,14 +1,14 @@
 = f.label :name
-= f.text_field :name
+= f.text_field :name, class: 'text_field'
 
 = f.label :held_at
-= f.date_field :held_at
+= f.date_field :held_at, class: 'date_field'
 
 = f.label :place
-= f.text_field :place
+= f.text_field :place, class: 'text_field'
 
 = f.label :atlas
-= f.text_field :atlas
+= f.text_field :atlas, placeholder: '（任意）URLのみ入力可', class: 'text_field'
 
 = f.label :memo
-= f.text_area :memo
+= f.text_area :memo, placeholder: '（任意）', class: 'text_area'
