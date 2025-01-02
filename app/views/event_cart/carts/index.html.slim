@@ -1,13 +1,13 @@
 - content_for(:title, "EventCart - イベントカートで即売会の買いたいものを管理する")
+.event_cart_carts_index
+  h1 EventCart
+  p EventCart（イベントカート）は、即売会で買いたいものを管理するサービスです。
 
-h1 EventCart
-p EventCart（イベントカート）は、即売会で買いたいものを管理するサービスです。
+  h2 カートを作成する
+  p ※情報は後から修正できます。
 
-h2 カートを作成する
-p ※情報は後から修正できます。
-
-= form_with model: @cart, url: event_cart_carts_path, class: 'grid_form' do |f|
-  = render 'shared/form_errors', model: f.object
-  .form_content
-    = render 'form_fields', f:
-    = f.submit 'カートの作成', class: 'submit'
+  = form_with model: @cart, url: event_cart_carts_path, class: 'grid_form' do |f|
+    = render 'shared/form_errors', model: f.object
+    .form_content
+      = render 'form_fields', f:
+      = f.submit 'カートの作成', class: 'submit'

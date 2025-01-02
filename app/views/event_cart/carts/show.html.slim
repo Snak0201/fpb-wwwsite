@@ -3,9 +3,8 @@
   h1 イベントカート
   p= "#{@cart.held_at}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
   - if @cart.atlas.present?
-    p= link_to '会場地図', @cart.atlas
+    p= link_to '会場地図', @cart.atlas, target: :_blank, rel: "noopener noreferrer"
   .system_links
-    = link_to 'カート情報の編集','#'
-    = link_to 'カート情報の削除', event_cart_cart_path(@cart.unique_code), data: { turbo_method: :delete, turbo_confirm: 'このカートを削除しますか？' }
+    = link_to 'カート情報の編集', edit_event_cart_cart_path(@cart.unique_code)
   h2 買いたいもの一覧
   = link_to '買いたいものの登録','#'

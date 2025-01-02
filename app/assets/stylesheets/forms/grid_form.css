@@ -2,11 +2,15 @@
 .grid_form {
   .form_content {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 10em auto;
     gap: 1em;
+  }
+  .form_content > :nth-child(odd) {
+    text-align: right;
   }
 
   .submit {
     grid-column: 2;
+    text-align: center !important;
   }
 }

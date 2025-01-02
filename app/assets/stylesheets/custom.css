@@ -49,11 +49,23 @@
   }
 }
 
+.event_cart_carts_index {
+  .form_content {
+    grid-template-columns: 5em auto !important;
+  }
+}
+
 .event_cart_carts_show {
   .system_links {
     display: grid;
     grid-template-columns: 8em 8em;
     gap: 1em;
+  }
+}
+
+.event_cart_carts_edit {
+  .form_content {
+    grid-template-columns: 5em auto !important;
   }
 }
 

@@ -1,18 +1,16 @@
 module EventCart
   class CartsController < ApplicationController
+    before_action :set_x_robots_tag, only: %i[show edit create update destroy]
+
     def index
       @cart = EventCart::Cart.new
     end
 
     def show
-      # NOTE: 検索画面に出てこないようにする
-      response.set_header('X-Robots-Tag', 'noindex')
       @cart = EventCart::Cart.enabled.find_by!(unique_code: params[:unique_code])
     end
 
     def edit
-      # NOTE: 検索画面に出てこないようにする
-      response.set_header('X-Robots-Tag', 'noindex')
       @cart = EventCart::Cart.enabled.find_by!(unique_code: params[:unique_code])
     end
 
@@ -47,6 +45,11 @@ module EventCart
 
     def create_cart_params
       params.require(:event_cart_cart).permit(:name, :held_at, :place, :atlas, :memo)
+    end
+
+    def set_x_robots_tag
+      # NOTE: 検索画面に出てこないようにする
+      response.set_header('X-Robots-Tag', 'noindex, nofollow')
     end
   end
 end

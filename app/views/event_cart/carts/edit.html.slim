@@ -1,2 +1,13 @@
-h1 EventCart::Carts#edit
-p Find me in app/views/event_cart/carts/edit.html.slim
+.event_cart_carts_edit
+  h1 カート情報の編集
+  p= link_to 'カートに戻る', event_cart_cart_path(@cart.unique_code)
+
+  = form_with model: @cart, url: event_cart_carts_path, method: :patch, class: 'grid_form' do |f|
+    = render 'shared/form_errors', model: f.object
+    .form_content
+      = render 'form_fields', f:
+      = link_to '情報の削除', event_cart_cart_path(@cart.unique_code), data: { turbo_method: :delete, turbo_confirm: 'このカートを削除しますか？' }
+      = f.submit '保存', class: 'submit'
+  
+
+  
