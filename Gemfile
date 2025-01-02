@@ -50,6 +50,7 @@ gem 'bootsnap', require: false
 
 gem 'active_interaction'
 gem 'devise'
+gem 'draper'
 gem 'faraday'
 gem 'graphql'
 gem 'kaminari'
