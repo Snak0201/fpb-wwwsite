@@ -2,7 +2,7 @@
 .event_cart_carts_show
   h1 イベントカート
   - if @cart.atlas.present?
-  p= "#{@cart.held_at}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
+  p= "#{l @cart.held_at, format: :with_dow}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
   .links
     - if @cart.atlas.present?
       = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: "noopener noreferrer"

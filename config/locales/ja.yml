@@ -230,6 +230,18 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+  date:
+    abbr_day_names:
+      - 日
+      - 月
+      - 火
+      - 水
+      - 木
+      - 金
+      - 土
+    formats:
+      default: "%Y年%m月%d日"
+      with_dow: "%Y年%m月%d日(%a)"
   time:
     formats:
       default: "%Y年%m月%d日 %H時%M分"
