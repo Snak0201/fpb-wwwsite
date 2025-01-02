@@ -3,10 +3,11 @@ FactoryBot.define do
     name { 'Event' }
     held_at { Time.zone.today }
     place { 'Event Place' }
-    atlas { nil }
-    memo { nil }
     unique_code { SecureRandom.uuid }
-    disabled { false }
-    disabled_at { nil }
+  end
+
+  trait :disabled do
+    disabled { true }
+    disabled_at { Time.current }
   end
 end
