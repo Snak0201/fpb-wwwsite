@@ -8,10 +8,17 @@ html lang="en"
 
     = csrf_meta_tags
     = csp_meta_tag
-
+    
+    / NOTE: スタイルシートの適用
     = stylesheet_link_tag 'application', { 'data-turbo-track': 'reload' }
-    = stylesheet_link_tag 'custom', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag 'article', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag 'button', { 'data-turbo-track': 'reload' }
     = stylesheet_link_tag 'color', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag 'custom', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag '/assets/forms/form', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag '/assets/forms/grid_form', { 'data-turbo-track': 'reload' }
+    = stylesheet_link_tag 'layout', { 'data-turbo-track': 'reload' }
+    
     = javascript_importmap_tags
   body 
     .content

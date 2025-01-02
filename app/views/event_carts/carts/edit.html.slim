@@ -1,0 +1,13 @@
+.event_carts_carts_edit
+  h1 カート情報の編集
+  p= link_to 'カートに戻る', event_carts_cart_path(@cart.unique_code)
+
+  = form_with model: @cart, url: event_carts_cart_path(@cart.unique_code), method: :patch, class: 'grid_form' do |f|
+    = render 'shared/form_errors', model: f.object
+    .form_content
+      = render 'form_fields', f:
+      = link_to '情報の削除', event_carts_cart_path(@cart.unique_code), data: { turbo_method: :delete, turbo_confirm: 'このカートを削除しますか？' }
+      = f.submit '保存', class: 'submit'
+  
+
+  

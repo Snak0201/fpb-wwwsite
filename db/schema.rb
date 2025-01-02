@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_31_113113) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,6 +88,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
     t.index ["bureau_id"], name: "index_committees_on_bureau_id"
     t.index ["name"], name: "index_committees_on_name", unique: true
     t.index ["slug"], name: "index_committees_on_slug", unique: true
+  end
+
+  create_table "event_carts_carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", comment: "カート", force: :cascade do |t|
+    t.string "name", null: false, comment: "イベント名"
+    t.date "held_at", null: false, comment: "開催日"
+    t.string "place", comment: "会場"
+    t.string "atlas", comment: "会場の地図"
+    t.text "memo", comment: "メモ"
+    t.string "unique_code", null: false, comment: "ユニークコード"
+    t.boolean "disabled", default: false, null: false, comment: "無効化"
+    t.datetime "disabled_at", comment: "無効化日時"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unique_code"], name: "index_event_carts_carts_on_unique_code", unique: true
   end
 
   create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

@@ -42,6 +42,11 @@ Rails.application.routes.draw do
 
   resources :committees, param: :slug, only: :show
 
+  namespace :event_carts, path: 'event_cart' do
+    root to: 'carts#index'
+    resources :carts, param: :unique_code, only: %i[show edit create update destroy]
+  end
+
   resources :tools, only: %i[index]
   namespace :tools do
     resource :character_counter, only: %i[show create]
