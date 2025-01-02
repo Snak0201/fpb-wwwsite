@@ -5,7 +5,7 @@
   p= "#{l @cart.held_at, format: :with_dow}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
   .links
     - if @cart.atlas.present?
-      = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: "noopener noreferrer"
+      = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: 'noopener noreferrer'
     = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart.unique_code)
   h2 買いたいもの一覧
-  = link_to '買いたいものの登録','#'
+  = link_to '買いたいものの登録', '#'

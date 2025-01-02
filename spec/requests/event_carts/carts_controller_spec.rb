@@ -36,4 +36,16 @@ RSpec.describe EventCarts::CartsController do
       end
     end
   end
+
+  describe '#destroy' do
+    subject(:request) { delete event_carts_cart_path(cart.unique_code) }
+
+    let!(:cart) { create(:'event_carts/cart') }
+
+    it 'returns http found and disables cart' do
+      expect { request }.not_to change(EventCarts::Cart, :count)
+      expect(cart.reload.disabled).to be true
+      expect(response).to have_http_status(:found)
+    end
+  end
 end
