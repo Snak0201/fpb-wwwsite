@@ -5,10 +5,16 @@ module EventCart
     end
 
     def show
+      # NOTE: 検索画面に出てこないようにする
+      response.set_header('X-Robots-Tag', 'noindex')
       @cart = EventCart::Cart.enabled.find_by!(unique_code: params[:unique_code])
     end
 
-    def edit; end
+    def edit
+      # NOTE: 検索画面に出てこないようにする
+      response.set_header('X-Robots-Tag', 'noindex')
+      @cart = EventCart::Cart.enabled.find_by!(unique_code: params[:unique_code])
+    end
 
     def create
       @cart = EventCart::Cart.new(create_cart_params)
