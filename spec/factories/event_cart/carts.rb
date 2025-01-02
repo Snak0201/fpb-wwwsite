@@ -1,12 +1,12 @@
 FactoryBot.define do
-  factory :event_cart_cart, class: 'EventCart::Cart' do
-    name { 'MyString' }
-    held_at { '2024-12-31' }
-    place { 'MyString' }
-    atlas { 'MyString' }
-    memo { 'MyText' }
-    unique_code { 'MyString' }
+  factory :'event_cart/cart', class: 'EventCart::Cart' do
+    name { 'Event' }
+    held_at { Time.zone.today }
+    place { 'Event Place' }
+    atlas { nil }
+    memo { nil }
+    unique_code { SecureRandom.uuid }
     disabled { false }
-    disabled_at { '2024-12-31 11:31:17' }
+    disabled_at { nil }
   end
 end

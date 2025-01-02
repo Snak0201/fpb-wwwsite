@@ -66,19 +66,23 @@ RSpec.describe 'Backward Compatibility' do
     end
   end
 
-  # describe 'GET /show' do
-  #   it 'returns http success' do
-  #     get '/event_cart/carts/show'
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+  describe 'GET /event_cart/carts/:uuid/' do
+    let!(:cart) { create(:'event_cart/cart') }
 
-  # describe 'GET /edit' do
-  #   it 'returns http success' do
-  #     get '/event_cart/carts/edit'
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+    it 'returns http success' do
+      get "/event_cart/carts/#{cart.unique_code}"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET /event_cart/carts/:uuid/edit' do
+    let!(:cart) { create(:'event_cart/cart') }
+
+    it 'returns http success' do
+      get "/event_cart/carts/#{cart.unique_code}/edit"
+      expect(response).to have_http_status(:success)
+    end
+  end
 
   describe 'GET /tools/' do
     it 'returns http success' do
