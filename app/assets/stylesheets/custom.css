@@ -56,9 +56,9 @@
 }
 
 .event_cart_carts_show {
-  .system_links {
+  .links {
     display: grid;
-    grid-template-columns: 8em 8em;
+    grid-template-columns: 8em auto;
     gap: 1em;
   }
 }

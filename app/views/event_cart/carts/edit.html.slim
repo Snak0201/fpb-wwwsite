@@ -2,7 +2,7 @@
   h1 カート情報の編集
   p= link_to 'カートに戻る', event_cart_cart_path(@cart.unique_code)
 
-  = form_with model: @cart, url: event_cart_carts_path, method: :patch, class: 'grid_form' do |f|
+  = form_with model: @cart, url: event_cart_cart_path(@cart.unique_code), method: :patch, class: 'grid_form' do |f|
     = render 'shared/form_errors', model: f.object
     .form_content
       = render 'form_fields', f:

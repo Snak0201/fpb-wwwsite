@@ -1,10 +1,11 @@
 - content_for(:title, "#{@cart.name}のイベントカート - EventCart")
 .event_cart_carts_show
   h1 イベントカート
-  p= "#{@cart.held_at}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
   - if @cart.atlas.present?
-    p= link_to '会場地図', @cart.atlas, target: :_blank, rel: "noopener noreferrer"
-  .system_links
+  p= "#{@cart.held_at}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
+  .links
+    - if @cart.atlas.present?
+      = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: "noopener noreferrer"
     = link_to 'カート情報の編集', edit_event_cart_cart_path(@cart.unique_code)
   h2 買いたいもの一覧
   = link_to '買いたいものの登録','#'
