@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EventCart::CartsController do
-  describe 'GET /event_cart/carts/:uuid/' do
+  describe '#show' do
     context 'with invalid uuid' do
       it 'returns http not_found' do
         get '/event_cart/carts/0/'
@@ -19,7 +19,7 @@ RSpec.describe EventCart::CartsController do
     end
   end
 
-  describe 'GET /event_cart/carts/:uuid/edit' do
+  describe '#edit' do
     context 'with invalid uuid' do
       it 'returns http not_found' do
         get '/event_cart/carts/0/edit'
