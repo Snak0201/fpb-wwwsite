@@ -1,0 +1,22 @@
+/* 記事 */
+.article {
+  .jurisdiction_links {
+    margin-right: 5px;
+  }
+
+  #published_at {
+    margin-bottom: 0;
+  }
+
+  #updated_at {
+    margin-top: 0;
+  }
+
+  #bureaus {
+    margin-bottom: 0;
+  }
+
+  #committees {
+    margin-top: 0;
+  }
+}

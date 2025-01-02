@@ -74,12 +74,19 @@ ja:
         bureau: 管轄局
         special: 特別委員会
         classification: 種別
+      event_carts/cart:
+        name: イベント名
+        held_at: 開催日
+        place: 会場
+        atlas: 会場地図
+        memo: メモ
     models:
       user: ユーザー
       admin: 管理者
       article: 記事
       admins/announcement: お知らせ
       committee: 委員会
+      event_carts/cart: カート
       tools/stamina_calculator: スタミナ計算機
       bureau: 局
   activemodel:
@@ -223,6 +230,18 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+  date:
+    abbr_day_names:
+      - 日
+      - 月
+      - 火
+      - 水
+      - 木
+      - 金
+      - 土
+    formats:
+      default: "%Y年%m月%d日"
+      with_dow: "%Y年%m月%d日(%a)"
   time:
     formats:
       default: "%Y年%m月%d日 %H時%M分"
