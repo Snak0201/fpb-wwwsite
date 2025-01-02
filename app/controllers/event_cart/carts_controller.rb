@@ -5,7 +5,7 @@ module EventCart
     end
 
     def show
-      @cart = EventCart::Cart.find_by!(unique_code: params[:unique_code])
+      @cart = EventCart::Cart.enabled.find_by!(unique_code: params[:unique_code])
     end
 
     def edit; end
@@ -27,7 +27,15 @@ module EventCart
 
     def update; end
 
-    def destroy; end
+    def destroy
+      @cart = EventCart::Cart.enabled.find_by!(unique_code: params[:unique_code])
+
+      if @cart.update(disabled: true, disabled_at: Time.current)
+        redirect_to event_cart_root_path, notice: 'カートを削除しました。ご利用ありがとうございました。'
+      else
+        render :show, status: :unprocessable_entity
+      end
+    end
 
     private
 

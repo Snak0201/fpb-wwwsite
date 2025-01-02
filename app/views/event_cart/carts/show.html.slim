@@ -1,4 +1,10 @@
 h1 イベントカート
-= "#{@cart.name}のイベントカート"
-h2 サークル一覧
-h2 カート情報の編集
+p= "#{@cart.held_at}に#{@cart.place}で開催される#{@cart.name}のイベントカートです。"
+- if @cart.atlas.present?
+  p= link_to '会場地図', @cart.atlas
+- if @cart.memo.present?
+  p= "メモ: #{@cart.memo}"
+= link_to 'カート情報の編集','#'
+= link_to 'カート情報の削除', event_cart_cart_path(@cart.unique_code), data: { turbo_method: :delete, turbo_confirm: 'このカートを削除しますか？' }
+h2 買いたいもの一覧
+= link_to '買いたいものの登録','#'
