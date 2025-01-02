@@ -20,6 +20,7 @@ RSpec.describe 'event_cart create cart' do
     it 'creates cart' do
       visit event_carts_root_path
       click_on 'カートの作成'
+
       expect(page).to have_content 'イベント名を入力してください'
       expect(page).to have_content '開催日を入力してください'
       expect(page).to have_content '会場を入力してください'
