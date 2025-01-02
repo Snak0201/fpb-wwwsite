@@ -10,4 +10,8 @@ FactoryBot.define do
     disabled { true }
     disabled_at { Time.current }
   end
+
+  trait :with_atlas do
+    atlas { 'https://example.com/atlas' }
+  end
 end

@@ -45,6 +45,7 @@ RSpec.describe EventCarts::CartsController do
     it 'returns http found and disables cart' do
       expect { request }.not_to change(EventCarts::Cart, :count)
       expect(cart.reload.disabled).to be true
+      expect(cart.reload.disabled_at).not_to be_nil
       expect(response).to have_http_status(:found)
     end
   end
