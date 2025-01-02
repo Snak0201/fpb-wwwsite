@@ -1,4 +1,4 @@
-module EventCart
+module EventCarts
   class Cart < ApplicationRecord
     scope :enabled, -> { where(disabled: false) }
 

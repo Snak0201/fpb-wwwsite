@@ -49,13 +49,13 @@
   }
 }
 
-.event_cart_carts_index {
+.event_carts_carts_index {
   .form_content {
     grid-template-columns: 5em auto !important;
   }
 }
 
-.event_cart_carts_show {
+.event_carts_carts_show {
   .links {
     display: grid;
     grid-template-columns: 8em auto;
@@ -63,7 +63,7 @@
   }
 }
 
-.event_cart_carts_edit {
+.event_carts_carts_edit {
   .form_content {
     grid-template-columns: 5em auto !important;
   }

@@ -1,4 +1,4 @@
-module EventCart
+module EventCarts
   class CreateCart < ApplicationInteraction
     string :name
     date :held_at
@@ -8,7 +8,7 @@ module EventCart
 
     def execute
       unique_code = SecureRandom.uuid
-      EventCart::Cart.create!(name:, held_at:, place:, atlas:, memo:, unique_code:)
+      EventCarts::Cart.create!(name:, held_at:, place:, atlas:, memo:, unique_code:)
       unique_code
     end
   end

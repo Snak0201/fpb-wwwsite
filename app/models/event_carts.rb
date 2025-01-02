@@ -1,5 +1,5 @@
-module EventCart
+module EventCarts
   def self.table_name_prefix
-    'event_cart_'
+    'event_carts_'
   end
 end

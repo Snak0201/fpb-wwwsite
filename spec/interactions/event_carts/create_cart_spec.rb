@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EventCart::CreateCart do
+RSpec.describe EventCarts::CreateCart do
   subject(:service) { described_class.run(name:, held_at:, place:) }
 
   let(:name) { 'event' }
@@ -15,7 +15,7 @@ RSpec.describe EventCart::CreateCart do
     end
 
     it 'creates records and returns unique_code' do
-      expect { service }.to change(EventCart::Cart, :count).by(1)
+      expect { service }.to change(EventCarts::Cart, :count).by(1)
       expect(service.result).to eq unique_code
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe EventCart::CreateCart do
     let(:place) { nil }
 
     it 'does not create records and returns nil' do
-      expect { service }.not_to change(EventCart::Cart, :count)
+      expect { service }.not_to change(EventCarts::Cart, :count)
       expect(service.result).to be_nil
     end
   end

@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe EventCart::CartsController do
+RSpec.describe EventCarts::CartsController do
   describe '#show' do
     context 'with invalid uuid' do
       it 'returns http not_found' do
-        get '/event_cart/carts/0/'
+        get '/event_carts/carts/0/'
         expect(response).to have_http_status(:not_found)
       end
     end
 
     context 'with disabled uuid' do
-      let!(:cart) { create(:'event_cart/cart', :disabled) }
+      let!(:cart) { create(:'event_carts/cart', :disabled) }
 
       it 'returns http not_found' do
-        get event_cart_cart_path(cart.unique_code)
+        get event_carts_cart_path(cart.unique_code)
         expect(response).to have_http_status(:not_found)
       end
     end
@@ -22,16 +22,16 @@ RSpec.describe EventCart::CartsController do
   describe '#edit' do
     context 'with invalid uuid' do
       it 'returns http not_found' do
-        get '/event_cart/carts/0/edit'
+        get '/event_carts/carts/0/edit'
         expect(response).to have_http_status(:not_found)
       end
     end
 
     context 'with disabled uuid' do
-      let!(:cart) { create(:'event_cart/cart', :disabled) }
+      let!(:cart) { create(:'event_carts/cart', :disabled) }
 
       it 'returns http not_found' do
-        get edit_event_cart_cart_path(cart.unique_code)
+        get edit_event_carts_cart_path(cart.unique_code)
         expect(response).to have_http_status(:not_found)
       end
     end

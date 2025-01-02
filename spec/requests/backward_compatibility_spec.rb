@@ -67,7 +67,7 @@ RSpec.describe 'Backward Compatibility' do
   end
 
   describe 'GET /event_cart/carts/:uuid/' do
-    let!(:cart) { create(:'event_cart/cart') }
+    let!(:cart) { create(:'event_carts/cart') }
 
     it 'returns http success' do
       get "/event_cart/carts/#{cart.unique_code}"
@@ -76,7 +76,7 @@ RSpec.describe 'Backward Compatibility' do
   end
 
   describe 'GET /event_cart/carts/:uuid/edit' do
-    let!(:cart) { create(:'event_cart/cart') }
+    let!(:cart) { create(:'event_carts/cart') }
 
     it 'returns http success' do
       get "/event_cart/carts/#{cart.unique_code}/edit"

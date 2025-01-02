@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :'event_cart/cart', class: 'EventCart::Cart' do
+  factory :'event_carts/cart', class: 'EventCarts::Cart' do
     name { 'Event' }
     held_at { Time.zone.today }
     place { 'Event Place' }

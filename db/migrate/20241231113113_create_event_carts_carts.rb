@@ -1,6 +1,6 @@
-class CreateEventCartCarts < ActiveRecord::Migration[7.2]
+class CreateEventCartsCarts < ActiveRecord::Migration[7.2]
   def change
-    create_table :event_cart_carts, comment: "カート" do |t|
+    create_table :event_carts_carts, comment: "カート" do |t|
       t.string :name, comment: "イベント名", null: false
       t.date :held_at, comment: "開催日", null: false
       t.string :place, comment: "会場"
@@ -13,6 +13,6 @@ class CreateEventCartCarts < ActiveRecord::Migration[7.2]
       t.timestamps
     end
 
-    add_index :event_cart_carts, :unique_code, unique: true
+    add_index :event_carts_carts, :unique_code, unique: true
   end
 end

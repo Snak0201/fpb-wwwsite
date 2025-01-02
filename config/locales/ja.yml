@@ -74,7 +74,7 @@ ja:
         bureau: 管轄局
         special: 特別委員会
         classification: 種別
-      event_cart/cart:
+      event_carts/cart:
         name: イベント名
         held_at: 開催日
         place: 会場
@@ -86,7 +86,7 @@ ja:
       article: 記事
       admins/announcement: お知らせ
       committee: 委員会
-      event_cart/cart: カート
+      event_carts/cart: カート
       tools/stamina_calculator: スタミナ計算機
       bureau: 局
   activemodel:
