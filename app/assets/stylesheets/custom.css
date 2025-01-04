@@ -61,6 +61,10 @@
     grid-template-columns: 8em auto;
     gap: 1em;
   }
+
+  .marks {
+    min-width: 500px;
+  }
 }
 
 .event_carts_carts_edit {
@@ -82,17 +86,5 @@
 .tools_stamina_calculator {
   .button {
     width: 300px;
-  }
-}
-
-.tools_positive_impression {
-  .output {
-    .center {
-      text-align: center;
-    }
-
-    .right {
-      text-align: right;
-    }
   }
 }

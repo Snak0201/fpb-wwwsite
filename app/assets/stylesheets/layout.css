@@ -80,11 +80,12 @@ footer {
   overflow-wrap: break-word;
 }
 
-/* あふれる場合 */
-.overflow_x {
+/* 横スクロール（min-width） */
+.scroll_content_x {
   overflow-x: auto;
 }
 
-.overflow_y {
+/* 縦スクロール（min-height） */
+.scroll_content_y {
   overflow-y: auto;
 }

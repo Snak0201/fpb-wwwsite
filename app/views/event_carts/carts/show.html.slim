@@ -9,6 +9,18 @@
     = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart)
   h2 買いたいもの一覧
   = link_to '買いたいものの登録', new_event_carts_cart_mark_path(@cart)
-  - @cart.marks.each do |mark|
-    = mark.name
+
+  .scroll_content_x
+    table.table.marks
+      tr 
+        th ステータス
+        th 名称
+        th 場所
+        th サークル名
+      - @cart.marks.each do |mark|
+        tr 
+          td = mark.status
+          td = mark.name
+          td = mark.place_1st
+          td = mark.circle_name
 
