@@ -24,10 +24,6 @@
 }
 
 .admin_articles {
-  .scroll_content {
-    overflow-x: auto;
-  }
-
   .articles {
     min-width: 1200px;
     border-spacing: 0;
@@ -39,10 +35,6 @@
 }
 
 .admin_committees {
-  .scroll_content {
-    overflow-x: auto;
-  }
-
   .committees {
     min-width: 1000px;
     border-spacing: 0;

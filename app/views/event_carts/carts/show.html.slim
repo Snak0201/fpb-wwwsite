@@ -10,17 +10,17 @@
   h2 買いたいもの一覧
   = link_to '買いたいものの登録', new_event_carts_cart_mark_path(@cart)
 
-  .scroll_content_x
+  .scroll_x_content
     table.table.marks
       tr 
-        th ステータス
+        th 
         th 名称
         th 場所
         th サークル名
       - @cart.marks.each do |mark|
         tr 
-          td = mark.status
-          td = mark.name
-          td = mark.place_1st
-          td = mark.circle_name
+          td.center = mark.status
+          td.center = mark.name
+          td.center = mark.place_1st
+          td.center = mark.circle_name
 

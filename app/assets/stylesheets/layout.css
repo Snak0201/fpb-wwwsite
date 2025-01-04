@@ -81,11 +81,11 @@ footer {
 }
 
 /* 横スクロール（min-width） */
-.scroll_content_x {
+.scroll_x_content {
   overflow-x: auto;
 }
 
 /* 縦スクロール（min-height） */
-.scroll_content_y {
+.scroll_y_content {
   overflow-y: auto;
 }
