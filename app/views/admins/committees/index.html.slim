@@ -4,7 +4,7 @@
   p = link_to '管理画面に戻る', admin_index_path
 
   .scroll_content
-    table.committees 
+    table.table.committees 
       thead 
         tr
           th= Committee.human_attribute_name(:classification)

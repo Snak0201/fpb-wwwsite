@@ -1,176 +1,177 @@
+/* 色の定義 */
 /* World Dai Star */
-.logo_wds{
-  background-color: #FF5E8F;
+.logo_wds {
+  background-color: #ff5e8f;
 }
 
-.kokona_wds{
-  background-color: #F07B7C;
+.kokona_wds {
+  background-color: #f07b7c;
 }
 
-.shizuka_wds{
-  background-color: #6F93E7;
+.shizuka_wds {
+  background-color: #6f93e7;
 }
 
-.kathrina_wds{
-  background-color: #FFB83C;
+.kathrina_wds {
+  background-color: #ffb83c;
 }
 
-.yae_wds{
-  background-color: #C7BEF6;
+.yae_wds {
+  background-color: #c7bef6;
 }
 
-.panda_wds{
-  background-color: #70DCF3;
+.panda_wds {
+  background-color: #70dcf3;
 }
 
-.chisa_wds{
-  background-color: #F3AF9C;
+.chisa_wds {
+  background-color: #f3af9c;
 }
 
-.noa_wds{
-  background-color: #70437B;
+.noa_wds {
+  background-color: #70437b;
   color: white;
 }
 
-.hatsumi_wds{
-  background-color: #998EDD;
+.hatsumi_wds {
+  background-color: #998edd;
 }
 
-.daikoku_wds{
+.daikoku_wds {
   background-color: #505053;
   color: white;
 }
 
-.nikako_wds{
-  background-color: #4195DD;
+.nikako_wds {
+  background-color: #4195dd;
 }
 
-.iruru_wds{
-  background-color: #B59158;
+.iruru_wds {
+  background-color: #b59158;
 }
 
-.shigure_wds{
-  background-color: #B5303C;
+.shigure_wds {
+  background-color: #b5303c;
 }
 
-.koyomi_wds{
-  background-color: #4E5BA8;
+.koyomi_wds {
+  background-color: #4e5ba8;
 }
 
-.ramona_wds{
-  background-color: #FF9B5E;
+.ramona_wds {
+  background-color: #ff9b5e;
 }
 
-.xue_wds{
-  background-color: #F05A5A;
+.xue_wds {
+  background-color: #f05a5a;
 }
 
-.lilja_wds{
-  background-color: #83D3D6;
+.lilja_wds {
+  background-color: #83d3d6;
 }
 
-.hikari_wds{
-  background-color: #E8557E;
+.hikari_wds {
+  background-color: #e8557e;
 }
 
-.iroha_wds{
-  background-color: #BAC4D7;
+.iroha_wds {
+  background-color: #bac4d7;
 }
 
-.mito_wds{
-  background-color: #FFA866;
+.mito_wds {
+  background-color: #ffa866;
 }
 
-.kamira_wds{
-  background-color: #C0F297;
+.kamira_wds {
+  background-color: #c0f297;
 }
 
-.tsubomi_wds{
-  background-color: #AE7AD4;
+.tsubomi_wds {
+  background-color: #ae7ad4;
 }
 
-.towa_wds{
-  background-color: #FF92B1;
+.towa_wds {
+  background-color: #ff92b1;
 }
 
 /* IDOLY PRIDE */
-.logo_ipr{
-  background-color: #1428FF;
+.logo_ipr {
+  background-color: #1428ff;
   color: white;
 }
 
-.mana_ipr{
-  background-color: #F44EB4;
+.mana_ipr {
+  background-color: #f44eb4;
 }
 
-.kotono_ipr{
-  background-color: #5985DC;
+.kotono_ipr {
+  background-color: #5985dc;
 }
 
-.nagisa_ipr{
-  background-color: #F96CA0;
+.nagisa_ipr {
+  background-color: #f96ca0;
 }
 
-.saki_ipr{
-  background-color: #64D0B9;
+.saki_ipr {
+  background-color: #64d0b9;
 }
 
-.suzu_ipr{
-  background-color: #F2F046;
+.suzu_ipr {
+  background-color: #f2f046;
 }
 
-.mei_ipr{
-  background-color: #E13B4F;
+.mei_ipr {
+  background-color: #e13b4f;
 }
 
-.sakura_ipr{
-  background-color: #FA9A36;
+.sakura_ipr {
+  background-color: #fa9a36;
 }
 
-.shizuku_ipr{
-  background-color: #99CB9A;
+.shizuku_ipr {
+  background-color: #99cb9a;
 }
 
-.chisa_ipr{
-  background-color: #E7BAD1;
+.chisa_ipr {
+  background-color: #e7bad1;
 }
 
-.rei_ipr{
-  background-color: #A9E1F0;
+.rei_ipr {
+  background-color: #a9e1f0;
 }
 
-.haruko_ipr{
-  background-color: #C1A7E4;
+.haruko_ipr {
+  background-color: #c1a7e4;
 }
 
-.rui_ipr{
-  background-color: #FDFAF1;
+.rui_ipr {
+  background-color: #fdfaf1;
 }
 
-.yu_ipr{
-  background-color: #ABD069;
+.yu_ipr {
+  background-color: #abd069;
 }
 
-.sumire_ipr{
-  background-color: #FFE590;
+.sumire_ipr {
+  background-color: #ffe590;
 }
 
-.rio_ipr{
-  background-color: #B14F88;
+.rio_ipr {
+  background-color: #b14f88;
 }
 
-.aoi_ipr{
-  background-color: #6F76D0;
+.aoi_ipr {
+  background-color: #6f76d0;
 }
 
-.ai_ipr{
-  background-color: #7ACDEF;
+.ai_ipr {
+  background-color: #7acdef;
 }
 
-.kokoro_ipr{
-  background-color: #FD9BB4;
+.kokoro_ipr {
+  background-color: #fd9bb4;
 }
 
-.threex_ipr{
-  background-color: #F2F200;
+.threex_ipr {
+  background-color: #f2f200;
 }

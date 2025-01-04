@@ -1,0 +1,11 @@
+/* テーブル */
+
+.table {
+  border-spacing: 0;
+
+  & th,
+  td {
+    border-bottom: 1px solid gray;
+    padding: 5px;
+  }
+}
