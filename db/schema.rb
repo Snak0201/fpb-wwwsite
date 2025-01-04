@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_31_113113) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_04_022301) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -104,6 +104,24 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_31_113113) do
     t.index ["unique_code"], name: "index_event_carts_carts_on_unique_code", unique: true
   end
 
+  create_table "event_carts_marks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", comment: "買いたいもの", force: :cascade do |t|
+    t.bigint "event_carts_cart_id", null: false, comment: "カート"
+    t.integer "status", default: 0, null: false, comment: "ステータス"
+    t.string "name", null: false, comment: "名称"
+    t.string "place_1", comment: "配置場所1"
+    t.string "place_2", comment: "配置場所2"
+    t.string "place_3", comment: "配置場所3"
+    t.string "circle_name", comment: "サークル名"
+    t.integer "budget", comment: "予算"
+    t.string "circle_sns_url", comment: "サークルのSNS"
+    t.text "memo", comment: "メモ"
+    t.datetime "status_changed_at", comment: "ステータスの変更日時"
+    t.integer "order_number", default: 0, null: false, comment: "並び変え順"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_carts_cart_id"], name: "index_event_carts_marks_on_event_carts_cart_id"
+  end
+
   create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "item_type", limit: 191, null: false
     t.bigint "item_id", null: false
@@ -119,4 +137,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_31_113113) do
   add_foreign_key "committee_article_tags", "articles"
   add_foreign_key "committee_article_tags", "committees"
   add_foreign_key "committees", "bureaus"
+  add_foreign_key "event_carts_marks", "event_carts_carts"
 end
