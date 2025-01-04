@@ -1,6 +1,6 @@
 module EventCarts
   class CartsController < ApplicationController
-    before_action :set_x_robots_tag, only: %i[show edit create update destroy]
+    before_action :set_noindex_nofollow, only: %i[show edit create update destroy]
 
     def index
       @cart = EventCarts::Cart.new
@@ -55,7 +55,7 @@ module EventCarts
       params.require(:event_carts_cart).permit(:name, :held_at, :place, :atlas, :memo)
     end
 
-    def set_x_robots_tag
+    def set_noindex_nofollow
       # NOTE: 検索画面に出てこないようにする
       response.set_header('X-Robots-Tag', 'noindex, nofollow')
     end
