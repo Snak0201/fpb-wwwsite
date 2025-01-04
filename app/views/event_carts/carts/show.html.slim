@@ -16,11 +16,13 @@
         th 
         th 名称
         th 場所
+        th 予算
         th サークル名
-      - @cart.marks.each do |mark|
+      - @cart.marks.decorate.each do |mark|
         tr 
           td.center = mark.status
           td.center = mark.name
-          td.center = mark.place_1st
+          td.center = mark.place
+          td.right = mark.budget
           td.center = mark.circle_name
 

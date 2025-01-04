@@ -2,14 +2,14 @@ module EventCarts
   class MarksController < ApplicationController
     before_action :set_noindex_nofollow
     def new
-      @mark = EventCarts::Cart.find_by!(params[:unique_code]).marks.new
-      @cart = EventCarts::Cart.find_by!(params[:unique_code])
+      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.new
+      @cart = EventCarts::Cart.enabled.find_by!(params[:unique_code])
     end
 
     def edit; end
 
     def create
-      @mark = EventCarts::Cart.find_by!(params[:unique_code]).marks.new(mark_params)
+      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.new(mark_params)
 
       if @mark.save
         redirect_to event_carts_cart_path(@mark.cart), notice: '買いたいものを登録しました。'
