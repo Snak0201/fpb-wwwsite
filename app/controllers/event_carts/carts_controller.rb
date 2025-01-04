@@ -32,7 +32,7 @@ module EventCarts
       @cart = EventCarts::Cart.enabled.find_by!(unique_code: params[:unique_code])
 
       if @cart.update(cart_params)
-        redirect_to event_carts_cart_path(@cart.unique_code), notice: 'カート情報を保存しました。'
+        redirect_to event_carts_cart_path(@cart), notice: 'カート情報を保存しました。'
       else
         @cart.assign_attributes(cart_params)
         render :edit, status: :unprocessable_entity

@@ -9,7 +9,7 @@ RSpec.describe 'event_cart edit cart' do
 
   context 'with valid input' do
     it 'updates cart' do
-      visit edit_event_carts_cart_path(cart.unique_code)
+      visit edit_event_carts_cart_path(cart)
       fill_in 'イベント名', with: name
       fill_in '開催日', with: held_at
       fill_in '会場', with: place
@@ -26,7 +26,7 @@ RSpec.describe 'event_cart edit cart' do
 
   context 'with same input' do
     it 'updates cart' do
-      visit edit_event_carts_cart_path(cart.unique_code)
+      visit edit_event_carts_cart_path(cart)
       click_on '保存'
 
       expect(page).to have_content '保存しました'
@@ -37,7 +37,7 @@ RSpec.describe 'event_cart edit cart' do
     let(:atlas) { 'invalid-atlas.com' }
 
     it 'does not create cart' do
-      visit edit_event_carts_cart_path(cart.unique_code)
+      visit edit_event_carts_cart_path(cart)
       fill_in 'イベント名', with: name
       fill_in '開催日', with: held_at
       fill_in '会場', with: place
