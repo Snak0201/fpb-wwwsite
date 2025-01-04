@@ -1,5 +1,7 @@
 module EventCarts
   class Cart < ApplicationRecord
+    has_many :marks, class_name: 'EventCarts::Mark', dependent: :destroy
+
     scope :enabled, -> { where(disabled: false) }
 
     validates :name, :held_at, :place, presence: true

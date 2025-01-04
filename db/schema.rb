@@ -105,7 +105,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_04_022301) do
   end
 
   create_table "event_carts_marks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", comment: "買いたいもの", force: :cascade do |t|
-    t.bigint "event_carts_cart_id", null: false, comment: "カート"
+    t.bigint "cart_id", null: false, comment: "カート"
     t.integer "status", default: 0, null: false, comment: "ステータス"
     t.string "name", null: false, comment: "名称"
     t.string "place_1", comment: "配置場所1"
@@ -119,7 +119,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_04_022301) do
     t.integer "order_number", default: 0, null: false, comment: "並び変え順"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_carts_cart_id"], name: "index_event_carts_marks_on_event_carts_cart_id"
+    t.index ["cart_id"], name: "index_event_carts_marks_on_cart_id"
   end
 
   create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -137,5 +137,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_04_022301) do
   add_foreign_key "committee_article_tags", "articles"
   add_foreign_key "committee_article_tags", "committees"
   add_foreign_key "committees", "bureaus"
-  add_foreign_key "event_carts_marks", "event_carts_carts"
+  add_foreign_key "event_carts_marks", "event_carts_carts", column: "cart_id"
 end
