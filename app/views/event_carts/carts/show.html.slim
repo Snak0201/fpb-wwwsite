@@ -22,7 +22,7 @@
       - @cart.marks.decorate.each do |mark|
         tr 
           td.center.medium = mark.translated_status
-          td.center.long = mark.name
+          td.center.long = link_to mark.name, edit_event_carts_cart_mark_path(@cart, mark)
           td.center.long = mark.place
           td.right.medium = mark.budget
           td.center.long = mark.circle_name

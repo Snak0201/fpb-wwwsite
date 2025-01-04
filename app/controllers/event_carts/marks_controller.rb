@@ -6,7 +6,9 @@ module EventCarts
       @cart = EventCarts::Cart.enabled.find_by!(params[:unique_code])
     end
 
-    def edit; end
+    def edit
+      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id]).decorate
+    end
 
     def create
       @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.new(mark_params)
@@ -18,7 +20,16 @@ module EventCarts
       end
     end
 
-    def update; end
+    def update
+      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id])
+
+      if @mark.update(mark_params)
+        redirect_to event_carts_cart_path(@mark.cart), notice: '買いたいものを保存しました。'
+      else
+        @mark.assign_attributes(mark_params)
+        render :edit, status: :unprocessable_entity
+      end
+    end
 
     def destroy; end
 
