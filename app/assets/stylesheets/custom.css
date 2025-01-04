@@ -69,6 +69,16 @@
   }
 }
 
+.event_carts_marks_new {
+  .form_content {
+    grid-template-columns: 5em auto !important;
+
+    .label_small {
+      font-size: 13px;
+    }
+  }
+}
+
 .tools_stamina_calculator {
   .button {
     width: 300px;

@@ -80,6 +80,16 @@ ja:
         place: 会場
         atlas: 会場地図
         memo: メモ
+      event_carts/mark:
+        name: 名称
+        place_1st: 配置場所1
+        place_2nd: 配置場所2
+        place_3rd: 配置場所3
+        circle_name: サークル名
+        budget: 予算
+        circle_sns: サークルSNS
+        memo: メモ
+        order_number: 順序
     models:
       user: ユーザー
       admin: 管理者
@@ -87,6 +97,7 @@ ja:
       admins/announcement: お知らせ
       committee: 委員会
       event_carts/cart: カート
+      event_carts/mark: 買いたいもの
       tools/stamina_calculator: スタミナ計算機
       bureau: 局
   activemodel:
