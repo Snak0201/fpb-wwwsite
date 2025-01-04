@@ -9,3 +9,6 @@
     = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart.unique_code)
   h2 買いたいもの一覧
   = link_to '買いたいものの登録', '#'
+  - @cart.marks.each do |mark|
+    = mark.name
+
