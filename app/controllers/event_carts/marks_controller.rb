@@ -1,6 +1,8 @@
 module EventCarts
   class MarksController < ApplicationController
-    def new; end
+    def new
+      @mark = EventCarts::Cart.find_by!(params[:unique_code]).marks.new
+    end
 
     def edit; end
 

@@ -6,9 +6,9 @@
   .links
     - if @cart.atlas.present?
       = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: 'noopener noreferrer'
-    = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart.unique_code)
+    = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart)
   h2 買いたいもの一覧
-  = link_to '買いたいものの登録', '#'
+  = link_to '買いたいものの登録', new_event_carts_cart_mark_path(@cart)
   - @cart.marks.each do |mark|
     = mark.name
 

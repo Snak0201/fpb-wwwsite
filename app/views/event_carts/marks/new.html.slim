@@ -1,2 +1,9 @@
-h1 EventCarts::Marks#new
-p Find me in app/views/event_carts/marks/new.html.slim
+.event_carts_marks_new
+  h1 買いたいものを登録する
+  = form_with model: @mark, url: event_carts_cart_marks_path, class: 'grid_form' do |f|
+    = render 'shared/form_errors', model: f.object
+    .form_content
+      / = render 'form_fields', f:
+      = f.submit '買いたいものを登録', class: 'submit'
+
+
