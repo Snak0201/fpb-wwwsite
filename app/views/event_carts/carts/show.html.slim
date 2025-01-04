@@ -13,16 +13,18 @@
   .scroll_x_content
     table.table.marks
       tr 
-        th 
+        th
         th 名称
         th 場所
         th 予算
         th サークル名
+        th SNS
       - @cart.marks.decorate.each do |mark|
         tr 
-          td.center = mark.status
-          td.center = mark.name
-          td.center = mark.place
-          td.right = mark.budget
-          td.center = mark.circle_name
+          td.center.medium = mark.translated_status
+          td.center.long = mark.name
+          td.center.long = mark.place
+          td.right.medium = mark.budget
+          td.center.long = mark.circle_name
+          td.center.short 開く
 

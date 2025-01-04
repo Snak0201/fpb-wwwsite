@@ -55,7 +55,20 @@
   }
 
   .marks {
-    min-width: 500px;
+    font-size: 14px;
+    min-width: 40em;
+
+    .long {
+      width: 8em;
+    }
+
+    .medium {
+      width: 4em;
+    }
+
+    .short {
+      width: 2em;
+    }
   }
 }
 
