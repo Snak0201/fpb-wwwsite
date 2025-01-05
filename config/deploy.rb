@@ -7,7 +7,7 @@ set :repo_url, "git@github.com:Snak0201/fpb-wwwsite.git"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :branch, "main"
+set :branch, "epic/198-event-cart"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/fpb-wwwsite"
