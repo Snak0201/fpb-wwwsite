@@ -2,16 +2,16 @@ module EventCarts
   class MarksController < ApplicationController
     before_action :set_noindex_nofollow
     def new
-      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.new
-      @cart = EventCarts::Cart.enabled.find_by!(params[:unique_code])
+      @mark = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code]).marks.new
+      @cart = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code])
     end
 
     def edit
-      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id]).decorate
+      @mark = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code]).marks.find(params[:id]).decorate
     end
 
     def create
-      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.new(mark_params)
+      @mark = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code]).marks.new(mark_params)
 
       if @mark.save
         redirect_to event_carts_cart_path(@mark.cart), notice: '買いたいものを登録しました。'
@@ -21,7 +21,7 @@ module EventCarts
     end
 
     def update
-      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id])
+      @mark = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code]).marks.find(params[:id])
 
       if @mark.update(mark_params)
         redirect_to event_carts_cart_path(@mark.cart), notice: '買いたいものを保存しました。'
@@ -32,7 +32,7 @@ module EventCarts
     end
 
     def destroy
-      cart = EventCarts::Cart.enabled.find_by!(params[:unique_code])
+      cart = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code])
       @mark = cart.marks.find(params[:id])
 
       if @mark.destroy
@@ -43,7 +43,7 @@ module EventCarts
     end
 
     def update_status
-      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id]).decorate
+      @mark = EventCarts::Cart.enabled.find_by!(unique_code: params[:cart_unique_code]).marks.find(params[:id]).decorate
 
       if @mark.update(status: params[:status])
         redirect_to event_carts_cart_mark_path(@mark.cart, @mark), notice: 'ステータスを変更しました。'
