@@ -16,5 +16,6 @@
     = render 'shared/form_errors', model: f.object
     .form_content
       = render 'form_fields', f:
+      = link_to '削除', event_carts_cart_mark_path(@mark), data: { turbo_method: :delete, turbo_confirm: '買いたいものを削除しますか？' }
       = f.submit '保存', class: 'submit'
       

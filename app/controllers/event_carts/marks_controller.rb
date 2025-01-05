@@ -31,7 +31,16 @@ module EventCarts
       end
     end
 
-    def destroy; end
+    def destroy
+      cart = EventCarts::Cart.enabled.find_by!(params[:unique_code])
+      @mark = cart.marks.find(params[:id])
+
+      if @mark.destroy
+        redirect_to event_carts_cart_path(cart), notice: '買いたいものを削除しました。'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
 
     def update_status
       @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id]).decorate
