@@ -1,0 +1,31 @@
+/* フォーム */
+.form {
+  .block {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+
+  .check_boxes {
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  .wide_text_area {
+    width: 300px;
+    height: 300px;
+  }
+
+  .wide_text_field {
+    width: 300px;
+  }
+
+  .wide_field {
+    width: 300px;
+    height: 30px;
+    font-size: 120%;
+  }
+}

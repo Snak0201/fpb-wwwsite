@@ -1,0 +1,35 @@
+/* ボタン */
+.button {
+  text-align: center;
+  text-decoration: none;
+  margin-right: auto;
+  padding: 1rem 4rem;
+  font-weight: bold;
+  border: 2px solid #4e5ba8;
+  color: #ffffff;
+  background-color: #4e5ba8;
+  border-radius: 100vh;
+  transition: 0.5s;
+  display: block;
+
+  &.holizontal {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: #4e5ba8;
+    background-color: #ffffff;
+  }
+
+  &.danger {
+    border: 2px solid #f05a5a;
+    color: #ffffff;
+    background: #f05a5a;
+
+    &:hover {
+      color: #f05a5a;
+      background-color: #ffffff;
+    }
+  }
+}

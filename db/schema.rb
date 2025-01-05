@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_04_022301) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,6 +90,38 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
     t.index ["slug"], name: "index_committees_on_slug", unique: true
   end
 
+  create_table "event_carts_carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", comment: "カート", force: :cascade do |t|
+    t.string "name", null: false, comment: "イベント名"
+    t.date "held_at", null: false, comment: "開催日"
+    t.string "place", comment: "会場"
+    t.string "atlas", comment: "会場の地図"
+    t.text "memo", comment: "メモ"
+    t.string "unique_code", null: false, comment: "ユニークコード"
+    t.boolean "disabled", default: false, null: false, comment: "無効化"
+    t.datetime "disabled_at", comment: "無効化日時"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unique_code"], name: "index_event_carts_carts_on_unique_code", unique: true
+  end
+
+  create_table "event_carts_marks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", comment: "買いたいもの", force: :cascade do |t|
+    t.bigint "cart_id", null: false, comment: "カート"
+    t.integer "status", default: 0, null: false, comment: "ステータス"
+    t.string "name", null: false, comment: "名称"
+    t.string "place_1st", comment: "配置場所1"
+    t.string "place_2nd", comment: "配置場所2"
+    t.string "place_3rd", comment: "配置場所3"
+    t.string "circle_name", comment: "サークル名"
+    t.integer "budget", comment: "予算"
+    t.string "circle_sns", comment: "サークルのSNS"
+    t.text "memo", comment: "メモ"
+    t.datetime "status_changed_at", comment: "ステータスの変更日時"
+    t.integer "order_number", default: 0, null: false, comment: "並び変え順"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_event_carts_marks_on_cart_id"
+  end
+
   create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "item_type", limit: 191, null: false
     t.bigint "item_id", null: false
@@ -105,4 +137,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_31_151616) do
   add_foreign_key "committee_article_tags", "articles"
   add_foreign_key "committee_article_tags", "committees"
   add_foreign_key "committees", "bureaus"
+  add_foreign_key "event_carts_marks", "event_carts_carts", column: "cart_id"
 end
