@@ -20,7 +20,7 @@
         th 予算
         th サークル名
         th SNS
-      - @cart.marks.decorate.each do |mark|
+      - @marks.each do |mark|
         tr 
           td.center.medium = mark.translated_status
           td.center.long = link_to mark.name, edit_event_carts_cart_mark_path(@cart, mark)

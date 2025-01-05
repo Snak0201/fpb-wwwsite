@@ -8,6 +8,7 @@ module EventCarts
 
     def show
       @cart = EventCarts::Cart.enabled.find_by!(unique_code: params[:unique_code])
+      @marks = @cart.marks.display_order.decorate
     end
 
     def edit

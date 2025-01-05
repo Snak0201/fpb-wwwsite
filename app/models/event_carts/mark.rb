@@ -4,6 +4,8 @@ module EventCarts
 
     enum :status, { marked: 0, purchased: 1, sold_out: 2 }
 
+    scope :display_order, -> { order(:status, :order_number) }
+
     validates :name, :order_number, presence: true
     validates :circle_sns, format: { with: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/ },
                            allow_blank: true
