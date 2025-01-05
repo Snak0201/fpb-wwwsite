@@ -8,6 +8,7 @@
       = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: 'noopener noreferrer'
     = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart)
   h2 買いたいもの一覧
+  p = "予算総額は#{@cart.total_budget}円です。"
   p = link_to '買いたいものの登録', new_event_carts_cart_mark_path(@cart)
 
   .scroll_x_content
