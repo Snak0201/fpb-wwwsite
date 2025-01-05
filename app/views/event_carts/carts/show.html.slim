@@ -8,7 +8,7 @@
       = link_to '会場地図を開く', @cart.atlas, target: :_blank, rel: 'noopener noreferrer'
     = link_to 'カート情報の編集', edit_event_carts_cart_path(@cart)
   h2 買いたいもの一覧
-  = link_to '買いたいものの登録', new_event_carts_cart_mark_path(@cart)
+  p = link_to '買いたいものの登録', new_event_carts_cart_mark_path(@cart)
 
   .scroll_x_content
     table.table.marks
@@ -26,5 +26,7 @@
           td.center.long = mark.place
           td.right.medium = mark.budget
           td.center.long = mark.circle_name
-          td.center.short 開く
+          td.center.short
+            - if mark.circle_sns.present?
+              = link_to '開く', mark.circle_sns, target: :_blank, rel: 'noopener noreferrer'
 

@@ -1,9 +1,10 @@
 .event_carts_marks_new
   h1 買いたいものを編集する
-  = link_to 'カートに戻る', event_carts_cart_path(@mark.cart)
+  p = link_to 'カートに戻る', event_carts_cart_path(@mark.cart)
 
   = form_with model: @mark, url: event_carts_cart_mark_path(@mark), method: :patch, class: 'grid_form' do |f|
     = render 'shared/form_errors', model: f.object
     .form_content
+      = render 'status_fields', f:
       = render 'form_fields', f:
       = f.submit '保存', class: 'submit'

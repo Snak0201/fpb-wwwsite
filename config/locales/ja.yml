@@ -93,8 +93,8 @@ ja:
         order_number: 順序
       event_carts/mark/status:
         marked: 買いたい
-        purchased: 買えた
-        sold_out: 売り切れ
+        purchased: ✅買えた
+        sold_out: ✖売切れ
     models:
       user: ユーザー
       admin: 管理者
