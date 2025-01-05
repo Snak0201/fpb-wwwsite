@@ -6,16 +6,16 @@
   p.status_links
     'ステータス変更: 
     - unless @mark.status == 'marked' 
-      = link_to '買いたい', update_status_event_carts_cart_mark_path(@mark, status: 'marked'), method: :patch, data: { turbo_method: :patch }
+      = link_to '買いたい', update_status_event_carts_cart_mark_path(@mark.cart, @mark, status: 'marked'), method: :patch, data: { turbo_method: :patch }
     - unless @mark.status == 'purchased'
-      = link_to '買えた', update_status_event_carts_cart_mark_path(@mark, status: 'purchased'), method: :patch, data: { turbo_method: :patch }
+      = link_to '買えた', update_status_event_carts_cart_mark_path(@mark.cart, @mark, status: 'purchased'), method: :patch, data: { turbo_method: :patch }
     - unless @mark.status == 'sold_out'
-      = link_to '売切れ', update_status_event_carts_cart_mark_path(@mark, status: 'sold_out'), method: :patch, data: { turbo_method: :patch }
+      = link_to '売切れ', update_status_event_carts_cart_mark_path(@mark.cart, @mark, status: 'sold_out'), method: :patch, data: { turbo_method: :patch }
 
-  = form_with model: @mark, url: event_carts_cart_mark_path(@mark), method: :patch, class: 'grid_form' do |f|
+  = form_with model: @mark, url: event_carts_cart_mark_path(@mark.cart, @mark), method: :patch, class: 'grid_form' do |f|
     = render 'shared/form_errors', model: f.object
     .form_content
       = render 'form_fields', f:
-      = link_to '削除', event_carts_cart_mark_path(@mark), data: { turbo_method: :delete, turbo_confirm: '買いたいものを削除しますか？' }
+      = link_to '削除', event_carts_cart_mark_path(@mark.cart, @mark), data: { turbo_method: :delete, turbo_confirm: '買いたいものを削除しますか？' }
       = f.submit '保存', class: 'submit'
       
