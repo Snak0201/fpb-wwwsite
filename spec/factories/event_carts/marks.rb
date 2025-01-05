@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :event_carts_mark, class: 'EventCarts::Mark' do
-    event_carts_cart
+  factory :'event_carts/mark', class: 'EventCarts::Mark' do
+    cart factory: %i[event_carts/cart]
     sequence(:name, 'Item_1')
   end
 
