@@ -6,14 +6,15 @@
   p.status_links
     'ステータス変更: 
     - unless @mark.status == 'marked' 
-      = link_to '買いたい', '#'
+      = link_to '買いたい', update_status_event_carts_cart_mark_path(@mark, status: 'marked'), method: :patch, data: { turbo_method: :patch }
     - unless @mark.status == 'purchased'
-      = link_to '買えた', '#'
+      = link_to '買えた', update_status_event_carts_cart_mark_path(@mark, status: 'purchased'), method: :patch, data: { turbo_method: :patch }
     - unless @mark.status == 'sold_out'
-      = link_to '売切れ', '#'
+      = link_to '売切れ', update_status_event_carts_cart_mark_path(@mark, status: 'sold_out'), method: :patch, data: { turbo_method: :patch }
 
   = form_with model: @mark, url: event_carts_cart_mark_path(@mark), method: :patch, class: 'grid_form' do |f|
     = render 'shared/form_errors', model: f.object
     .form_content
       = render 'form_fields', f:
       = f.submit '保存', class: 'submit'
+      

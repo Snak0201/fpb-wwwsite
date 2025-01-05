@@ -94,7 +94,7 @@ ja:
       event_carts/mark/status:
         marked: 買いたい
         purchased: ✅買えた
-        sold_out: ✖売切れ
+        sold_out: ❌売切れ
     models:
       user: ユーザー
       admin: 管理者

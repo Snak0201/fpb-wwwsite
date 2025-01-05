@@ -33,6 +33,16 @@ module EventCarts
 
     def destroy; end
 
+    def update_status
+      @mark = EventCarts::Cart.enabled.find_by!(params[:unique_code]).marks.find(params[:id]).decorate
+
+      if @mark.update(status: params[:status])
+        redirect_to event_carts_cart_mark_path(@mark.cart, @mark), notice: 'ステータスを変更しました。'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def mark_params

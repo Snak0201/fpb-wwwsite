@@ -56,14 +56,14 @@
 
   .marks {
     font-size: 14px;
-    min-width: 40em;
+    min-width: 42em;
 
     .long {
       width: 8em;
     }
 
     .medium {
-      width: 4em;
+      width: 5em;
     }
 
     .short {

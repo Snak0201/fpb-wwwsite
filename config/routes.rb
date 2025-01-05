@@ -45,7 +45,11 @@ Rails.application.routes.draw do
   namespace :event_carts, path: 'event_cart' do
     root to: 'carts#index'
     resources :carts, param: :unique_code, only: %i[show edit create update destroy] do
-      resources :marks, only: %i[new edit create update destroy]
+      resources :marks, only: %i[new edit create update destroy] do
+        member do
+          patch :update_status
+        end
+      end
     end
   end
 
