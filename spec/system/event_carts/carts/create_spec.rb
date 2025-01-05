@@ -13,7 +13,7 @@ RSpec.describe 'event_cart create cart' do
       fill_in '開催日', with: held_at
       fill_in '会場', with: place
       fill_in '会場地図', with: atlas
-      click_on 'カートの作成'
+      click_on '作成'
 
       expect(page).to have_content '登録しました'
       expect(page).to have_content '2025年01月02日(木)'
@@ -26,7 +26,7 @@ RSpec.describe 'event_cart create cart' do
   context 'without input' do
     it 'does not create cart' do
       visit event_carts_root_path
-      click_on 'カートの作成'
+      click_on '作成'
 
       expect(page).to have_content 'EventCart'
       expect(page).to have_content 'イベント名を入力してください'
@@ -44,7 +44,7 @@ RSpec.describe 'event_cart create cart' do
       fill_in '開催日', with: held_at
       fill_in '会場', with: place
       fill_in '会場地図', with: atlas
-      click_on 'カートの作成'
+      click_on '作成'
 
       expect(page).to have_content 'EventCart'
       expect(page).to have_content '会場地図は不正な値です'

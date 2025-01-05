@@ -1,6 +1,6 @@
 module EventCarts
   class CartsController < ApplicationController
-    before_action :set_x_robots_tag, only: %i[show edit create update destroy]
+    before_action :set_noindex_nofollow, only: %i[show edit create update destroy]
 
     def index
       @cart = EventCarts::Cart.new
@@ -8,6 +8,7 @@ module EventCarts
 
     def show
       @cart = EventCarts::Cart.enabled.find_by!(unique_code: params[:unique_code])
+      @marks = @cart.marks.display_order.decorate
     end
 
     def edit
@@ -32,7 +33,7 @@ module EventCarts
       @cart = EventCarts::Cart.enabled.find_by!(unique_code: params[:unique_code])
 
       if @cart.update(cart_params)
-        redirect_to event_carts_cart_path(@cart.unique_code), notice: 'カート情報を保存しました。'
+        redirect_to event_carts_cart_path(@cart), notice: 'カート情報を保存しました。'
       else
         @cart.assign_attributes(cart_params)
         render :edit, status: :unprocessable_entity
@@ -55,7 +56,7 @@ module EventCarts
       params.require(:event_carts_cart).permit(:name, :held_at, :place, :atlas, :memo)
     end
 
-    def set_x_robots_tag
+    def set_noindex_nofollow
       # NOTE: 検索画面に出てこないようにする
       response.set_header('X-Robots-Tag', 'noindex, nofollow')
     end

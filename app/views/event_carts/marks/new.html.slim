@@ -1,0 +1,11 @@
+.event_carts_marks_new
+  h1 買いたいものを登録する
+  p = link_to 'カートに戻る', event_carts_cart_path(@mark.cart)
+
+  = form_with model: @mark, url: event_carts_cart_marks_path, class: 'grid_form' do |f|
+    = render 'shared/form_errors', model: f.object
+    .form_content
+      = render 'form_fields', f:
+      = f.submit '登録', class: 'submit'
+
+

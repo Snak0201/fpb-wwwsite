@@ -1,0 +1,21 @@
+/* テーブル */
+
+.table {
+  border-spacing: 0;
+
+  & th,
+  td {
+    border-bottom: 1px solid gray;
+    padding: 5px;
+  }
+
+  /* 中央揃え */
+  .center {
+    text-align: center;
+  }
+
+  /* 右揃え */
+  .right {
+    text-align: right;
+  }
+}

@@ -24,10 +24,6 @@
 }
 
 .admin_articles {
-  .scroll_content {
-    overflow-x: auto;
-  }
-
   .articles {
     min-width: 1200px;
     border-spacing: 0;
@@ -39,10 +35,6 @@
 }
 
 .admin_committees {
-  .scroll_content {
-    overflow-x: auto;
-  }
-
   .committees {
     min-width: 1000px;
     border-spacing: 0;
@@ -61,6 +53,23 @@
     grid-template-columns: 8em auto;
     gap: 1em;
   }
+
+  .marks {
+    font-size: 14px;
+    min-width: 42em;
+
+    .long {
+      width: 8em;
+    }
+
+    .medium {
+      width: 5em;
+    }
+
+    .short {
+      width: 2em;
+    }
+  }
 }
 
 .event_carts_carts_edit {
@@ -69,20 +78,34 @@
   }
 }
 
-.tools_stamina_calculator {
-  .button {
-    width: 300px;
+.event_carts_marks_new {
+  .form_content {
+    grid-template-columns: 5em auto !important;
+
+    .label_small {
+      font-size: 13px;
+    }
   }
 }
 
-.tools_positive_impression {
-  .output {
-    .center {
-      text-align: center;
-    }
+.event_carts_marks_edit {
+  .form_content {
+    grid-template-columns: 5em auto !important;
 
-    .right {
-      text-align: right;
+    .label_small {
+      font-size: 13px;
     }
+  }
+
+  .status_links {
+    display: grid;
+    grid-template-columns: 7.5em 4em 4em;
+    gap: 1em;
+  }
+}
+
+.tools_stamina_calculator {
+  .button {
+    width: 300px;
   }
 }
